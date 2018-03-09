@@ -1,0 +1,24 @@
+Group 2:
+
+Library
+
+-MP1: Website for Auxilliary offices using CMS (non-commercial CMS, Ubuntu Server VM-hosted)
+
+-MP2: Progressive Web App (PWA) and optionally accelerated Mobile Pages (AMP)
+	-(Baguio) Baranggay/City
+
+Required: hard-coded
+-Responsive design (mobile and tablet): orientation
+-Service workers: offline, cached
+-local storage
+
+Optional: use at least 2 of the following
+-canvas
+-notification
+-geolocation
+-IndexedDB
+-etc.
+
+-vanilla HTML/CSS/JS
+
+-1st Requirement: Submit Proposal(March 13)
