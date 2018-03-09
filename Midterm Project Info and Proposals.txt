@@ -32,6 +32,16 @@ FEATURES:
 - Notification: Notify new books
 - Filter/Arrange by
 
+ANOTHER PROPOSAL:
+USER: Student Aid
+WHAT: For Depositing and Getting Bags
+FEATURES:
+- Add/Remove bag
+- Edit Placement of Bags
+- Time-in and Time-out
+- ID number inclusion for identification per bag
+- Archive bag/things if lost and found or did not received by owner
+
 ---------------------------------------------------------------------------
 Project 2 Proposal
 MUST BE RUN OFFLINE
