@@ -1,0 +1,49 @@
+GROUP 2
+Midterm Projects
+
+Project 1 - Website for Auxiliary Offices using CMS (non-commercial CMS, Ubuntu Server VM-hosted)
+	-LIBRARY - match features with the needs of the office
+	-MORE on CMS USAGE THAN CONTENT
+	-1st requirement: identify...
+	
+Project 2
+	-Offline application
+	*PWA must be HTTPS but not for hosting it locally or loopback
+	-Responsive design - can be accessed thru phone, tablet, desktop and portrait or landscape
+
+	- ONLY USE Vanilla HTML/CSS/JS
+SUBMIT (Tuesday - MARCH 13) - Proposal
+----------------------------------------------------------------------------
+Project 1 Proposal
+
+USERS for Library CMS == Admin (Server)
+WHAT: Inventory
+FEATURES:
+- Add/Delete Books
+- Notification: Notify new books
+- Edit Details i.e. Which section it belongs to, Author, Genre, etc.
+- Filter/Arrange by
+- Archive
+- Block/Restricted Access
+
+USER == Student (Client)
+WHAT: User Interface
+FEATURES:
+- Notification: Notify new books
+- Filter/Arrange by
+
+---------------------------------------------------------------------------
+Project 2 Proposal
+MUST BE RUN OFFLINE
+Barangay: Burnham-Legarda
+USERS: Tourists
+FEATURES:
+- Geolocation - locate landmarks all with PRICES
+i.e. 
+	- food areas		
+	- bars				  
+	- Transients/hotels
+	- Beware locations
+	- Parking lots
+- Advices
+- Maybe combination of Canvas and Geolocation (mark where you want to go or where you've went already) - TO-DO LIST
