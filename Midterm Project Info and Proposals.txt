@@ -16,31 +16,23 @@ SUBMIT (Tuesday - MARCH 13) - Proposal
 ----------------------------------------------------------------------------
 Project 1 Proposal
 
-USERS for Library CMS == Admin (Server)
-WHAT: Inventory
-FEATURES:
-- Add/Delete Books
-- Notification: Notify new books
-- Edit Details i.e. Which section it belongs to, Author, Genre, etc.
-- Filter/Arrange by
-- Archive
-- Block/Restricted Access
+BookNook		
+USERS for Library CMS == Admin
 
-USER == Student (Client)
-WHAT: User Interface
+WHAT: Inventory System to be used by the librarians or student aid.
+Problem: How to make the lives of librarians and students more convenient and efficient. 
+Solution: Create an inventory system which will provide easier and faster way to track and view books in the library. 
+CMS: Drupal
 FEATURES:
-- Notification: Notify new books
-- Filter/Arrange by
+For Admin
+	- Add/Delete Books (Modifying, updating and reverting Features)
+	- Notification: Notify new books (Notification feature)
+	- Edit Details i.e. Which section it belongs to, Author, Genre, etc. 
+(Modifying, updating and reverting Features)
+	- Filter/Arrange by (Filter/sort feature)
+	- Archive (Archive feature)
+	- Notify Books that are Blocked/Restricted Access for Students
 
-ANOTHER PROPOSAL:
-USER: Student Aid
-WHAT: For Depositing and Getting Bags
-FEATURES:
-- Add/Remove bag
-- Edit Placement of Bags
-- Time-in and Time-out
-- ID number inclusion for identification per bag
-- Archive bag/things if lost and found or did not received by owner
 
 ---------------------------------------------------------------------------
 Project 2 Proposal
