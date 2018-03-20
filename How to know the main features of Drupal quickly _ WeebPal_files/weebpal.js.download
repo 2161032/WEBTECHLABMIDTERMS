@@ -1,0 +1,52 @@
+(function($) {
+
+  Drupal.WeebPal = Drupal.WeebPal || {};
+
+  Drupal.behaviors.actionWeebPal = {
+    attach: function(context) {
+
+      // Mobile menu
+      $('.navbar-toggle').mobileMenu({
+        targetWrapper: '#main-menu-inner',
+        targetMenu: '#block-tb-megamenu-main-menu, #block-system-main-menu'
+      });
+
+      if ($(window).width() <= 991) {
+        $('.mobile-main-menu .region-main-menu').accordionMenu();
+      }
+      $(window).resize(function() {
+        if ($(window).width() <= 991) {
+          $('.mobile-main-menu .region-main-menu').accordionMenu();
+        }
+      });
+       //Drupal.WeebPal.matchHeight();
+      if($('.btn-goto-package').length) {
+        $('.btn-goto-package').smoothScroll({speed: 600});
+      }
+
+      $('.feature').click(function() {
+        $('html, body').animate({
+          scrollTop: $('#block-views-contribs-block-2').offset().top
+        }, 2000);
+      });
+      $('.testimonials').click(function() {
+        $('html, body').animate({
+          scrollTop: $('#block-views-contribs-block-2').offset().top
+        }, 2000);
+      });
+
+    }
+  };
+
+Drupal.WeebPal.matchHeight = function () {
+  $(".products-grid .views-row").each(function(){
+    $(this).find('div.grid .grid-inner ').matchHeight();
+  });
+
+ $(".sevices-grid .views-row").each(function(){
+    $(this).find('div.grid .grid-inner ').matchHeight();
+  });
+
+}
+
+})(jQuery);

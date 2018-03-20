@@ -16,44 +16,57 @@ SUBMIT (Tuesday - MARCH 13) - Proposal
 ----------------------------------------------------------------------------
 Project 1 Proposal
 
-USERS for Library CMS == Admin (Server)
-WHAT: Inventory
-FEATURES:
-- Add/Delete Books
-- Notification: Notify new books
-- Edit Details i.e. Which section it belongs to, Author, Genre, etc.
-- Filter/Arrange by
-- Archive
-- Block/Restricted Access
+BookNook		
+USERS for Library CMS == Admin
 
-USER == Student (Client)
-WHAT: User Interface
+WHAT: Inventory System to be used by the librarians or student aid.
+Problem: How to make the lives of librarians and students more convenient and efficient. 
+Solution: Create an inventory system which will provide easier and faster way to track and view books in the library. 
+CMS: Drupal
 FEATURES:
-- Notification: Notify new books
-- Filter/Arrange by
+For Admin
+        - Login (Granular User Access Control & Secure Access) (SECURITY, EASY CONTENT AUTHORING)
+	- Add/Delete Books (Through Content Administration Feature) (CONTENT REVISIONING) 
+	- Edit Details i.e. Which section it belongs to, Author, Genre, etc. 
+	  (Through Content Administration Feature) (CONTENT TAGGING AND TAXONOMY - STRUCTURED CONTENT, CONTENT REVISIONING)
+	- Filter/Arrange by (Through Flexible Taxonomy and Menu Structures Feature) (CONTENT REVISIONING)
+	- Archive (Archive feature) (Through Content Administration Feature) (EASY CONTENT AUTHORING)
+	- Search books (Through In-Built Search Feature) (CONTENT TAGGING AND TAXONOMY - STRUCTURED CONTENT)
 
-ANOTHER PROPOSAL:
-USER: Student Aid
-WHAT: For Depositing and Getting Bags
-FEATURES:
-- Add/Remove bag
-- Edit Placement of Bags
-- Time-in and Time-out
-- ID number inclusion for identification per bag
-- Archive bag/things if lost and found or did not received by owner
+Drupal Features
+	Security 
+	*(Secure Access)
+		-account passwords are encrypted--salted and repeatedly hashed--when they are stored in the database. It also support a 		 
+		wide variety of password policies such as minimum length, complexity, or expiration. 
+	*(Granular User Access Control)
+		-it can give administrators complete control over who can see and who can modify every part of a site. Drupal operates 			based on a system of extensible user roles and access permissions. Administrators can create user roles and give them 	
+		specific, limited permissions.
+	Highly Scalable
+		-it won’t matter if your site gets hit with lots of traffic and goes down.
+	Easy Content Authoring
+		-Intuitive tools in Drupal for content creation, workflow and publishing make it easy for content creators to do their
+		jobs. Authentication and permissions help manage editorial workflows efficiently, and previews show how content will
+		look on any device before users approve and publish.
+	Content Revisioning
+		-enables a quick and easy way to track all changes and revisions and it also track the history of content changes.
+	Content Tagging and Taxonomy
+		- Drupal’s strength is creating structured content – define content elements, tag content based on any attributes, 			create relevant taxonomy for content so it can be searched, found, used, and reused in ways that satisfy visitors.
 
 ---------------------------------------------------------------------------
 Project 2 Proposal
+
+Project 2 Proposal
 MUST BE RUN OFFLINE
 Barangay: Burnham-Legarda
-USERS: Tourists
+
+BRB (Boats, Roller Skates and Bikes)
+USERS: Operators of the business
+
+Problem:  The operators of Boats, Roller Skates and Bikes in Burnham Park use paper-based check-in and check-out for keeping track of their customers which is sometimes inefficient and inconsistent. 
+Solution: Create a system that will easily keep track of the check-in and check-out of customers as well as process and account their earnings
 FEATURES:
-- Geolocation - locate landmarks all with PRICES
-i.e. 
-	- food areas		
-	- bars				  
-	- Transients/hotels
-	- Beware locations
-	- Parking lots
-- Advices
-- Maybe combination of Canvas and Geolocation (mark where you want to go or where you've went already) - TO-DO LIST
+ - Check-in/Check-out of Customers
+ - Identification of customer and the number of their borrowed bike, boat or roller skates
+ - Process the amount of time consumed by the customer as well as the payments received
+ - Notify if the customer has already exceeded the amount of time given
+ - Save the accounted earnings for the day
