@@ -44,16 +44,19 @@ FEATURES:
 
 ---------------------------------------------------------------------------
 Project 2 Proposal
+
+Project 2 Proposal
 MUST BE RUN OFFLINE
 Barangay: Burnham-Legarda
-USERS: Tourists
+
+BRB (Boats, Roller Skates and Bikes)
+USERS: Operators of the business
+
+Problem:  The operators of Boats, Roller Skates and Bikes in Burnham Park use paper-based check-in and check-out for keeping track of their customers which is sometimes inefficient and inconsistent. 
+Solution: Create a system that will easily keep track of the check-in and check-out of customers as well as process and account their earnings
 FEATURES:
-- Geolocation - locate landmarks all with PRICES
-i.e. 
-	- food areas		
-	- bars				  
-	- Transients/hotels
-	- Beware locations
-	- Parking lots
-- Advices
-- Maybe combination of Canvas and Geolocation (mark where you want to go or where you've went already) - TO-DO LIST
+ - Check-in/Check-out of Customers
+ - Identification of customer and the number of their borrowed bike, boat or roller skates
+ - Process the amount of time consumed by the customer as well as the payments received
+ - Notify if the customer has already exceeded the amount of time given
+ - Save the accounted earnings for the day
