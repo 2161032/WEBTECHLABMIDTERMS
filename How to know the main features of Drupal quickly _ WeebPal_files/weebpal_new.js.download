@@ -1,0 +1,113 @@
+(function($) {
+
+  $.support.placeholder = (function(){
+    var i = document.createElement('input');
+    return 'placeholder' in i;
+  })();
+
+  Drupal.Weebpal_new = Drupal.Weebpal_new || {};
+
+  Drupal.behaviors.actionWeebpal_new = {
+    attach: function(context) {
+	  $("#system-messages-wrapper .messages.error").closest("#system-messages-wrapper").hide();
+      if($('.btn-btt').length) {
+        $('.btn-btt').smoothScroll({speed: 600});
+      }
+
+      var $root = $('html, body');
+      $('body.node-type-contrib a').click(function() {
+        var href = $.attr(this, 'href');
+        $root.animate({
+        scrollTop: $(href).offset().top
+      }, 5000, function () {
+        window.location.hash = href;
+      });
+      return false;
+      });
+
+      
+      Drupal.Weebpal_new.matchHeight();
+      Drupal.Weebpal_new.Careerspage();
+
+      if($( "#guide-accordion" ).length) {
+        $( "#guide-accordion" ).accordion({
+          autoHeight : false,
+          heightStyle : 'content',
+          clearStyle : true,
+          toggle: true,
+        });
+      }
+      $(".mailchimp-popup-wrapper > .subscribe-icon").click(function() {
+        if($(this).parent().hasClass('fly-out')) {
+          $(this).parent().removeClass('fly-out')
+        }
+        else {
+          $(this).parent().addClass('fly-out')            
+        }
+        return false;
+      })
+
+      $('.owl-carousel').owlCarousel({
+        center: true,
+        items: 2,
+        loop: true,
+        margin: 20,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          }
+        }
+      });
+    }
+  };
+
+Drupal.Weebpal_new.matchHeight = function () {
+  $(".sevices-grid .views-row").each(function(){
+    $(this).find('div.grid .grid-inner ').matchHeight();
+  });
+
+  $('.products-grid .views-row .view-fieldset-product-info').matchHeight();
+
+}
+
+Drupal.Weebpal_new.Careerspage = function () {
+  $('body.page-careers .view-careers').find('.views-row-1').eq(0).addClass('active');
+  $('body.page-careers #block-webform-client-block-210').removeClass('active');
+
+	$('body.page-careers #block-block-16 .content li').click(function () {
+    $('body.page-careers #block-webform-client-block-210').removeClass('active');
+		$('body.page-careers #block-block-16 .content li').removeClass('active');
+		$(this).addClass('active');
+    $('body.page-careers .views-row').removeClass('active');
+
+    var class_li = $(this).attr('class');
+    switch(class_li) {
+      case 'back-end active':
+          $('body.page-careers .views-row-1').addClass('active');
+          break;
+      case 'front-end active':
+          $('body.page-careers .views-row-2').addClass('active');
+          break;
+      case 'qc active':
+          $('body.page-careers .views-row-3').addClass('active');
+          break;
+      case 'job-description active':
+          $('body.page-careers #block-webform-client-block-210').addClass('active');
+    }
+	});
+
+  $('body.page-careers a.apply-now').on('click', function(e) {
+    e.preventDefault();
+    $('body.page-careers #block-block-16 .content li').removeClass('active');
+    $('body.page-careers .views-row').removeClass('active');
+    $('body.page-careers #block-webform-client-block-210').addClass('active');
+    $('body.page-careers #block-block-16 .job-description').addClass('active');
+  });
+}
+
+})(jQuery);
+
+

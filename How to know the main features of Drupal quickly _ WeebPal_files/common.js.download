@@ -1,0 +1,116 @@
+(function($) {
+
+    Guide = {};
+
+    $(window).load(function() {
+
+        Guide.scrollMenu();
+        $(window).scroll(function() {
+            Guide.scrollMenu();
+        });
+
+        // Back to top
+        if ($('.weebpal-documents .btn-btt').length) {
+            $('.btn-btt').smoothScroll({
+                speed: 600
+            });
+        }
+
+        if ($('.weebpal-documents > ul.nav a').length) {
+            $('.weebpal-documents > ul.nav a').smoothScroll({
+                speed: 600,
+                afterScroll: function() {
+                    location.hash = this.hash;
+                }
+            });
+        }
+        Guide.menuActive();
+        Guide.lazyLoad();
+    });
+    SyntaxHighlighter.all();
+
+    Guide.scrollMenu = function() {
+        if ($(".weebpal-documents").length && $(window).width() > 991) {
+            var view_top = $(".weebpal-documents").offset().top;
+            var scroll_top = $(window).scrollTop();
+            var getheight = $(window).outerHeight();
+            if (scroll_top > view_top) {
+                $(".weebpal-documents > ul.nav").css({
+                    "margin-top": (scroll_top - view_top) + "px"
+                });
+                $(".weebpal-documents > ul.nav").css('max-height', getheight);
+                $(".weebpal-documents > ul.nav").css('overflow', 'auto');
+            } else {
+                $(".weebpal-documents > ul.nav").css({
+                    "margin-top": 0
+                });
+                $(".weebpal-documents > ul.nav").css('max-height', '100%');
+                $(".weebpal-documents > ul.nav").css('overflow', 'visible');
+            }
+        } else if($(window).width() <= 991) {
+            $(".weebpal-documents > ul.nav").css('margin-top', 0);
+            $(".weebpal-documents > ul.nav").css('max-height', '100%');
+            $(".weebpal-documents > ul.nav").css('overflow', 'visible');
+        }
+    };
+
+    // Create active when click
+    Guide.menuActive = function() {
+        // Active menu level one
+        $('.nav > li > a').click(function() {
+            $('.nav').find('.active').removeClass('active');
+            $(this).addClass('active');
+			if($(this).closest("li").hasClass("active-trail")) {
+				$(this).closest("li").removeClass('active-trail');
+			}
+			else {
+				$('.nav').find('.active-trail').removeClass('active-trail');
+				$(this).parent().addClass('active-trail');
+			}
+
+
+        });
+
+        // Active menu level two
+        $('.nav .submenu ul a').click(function() {
+            $('.nav').find('.active').removeClass('active');
+            $(this).addClass('active');
+            // $(this).closest('.submenu').addClass('active-trail');
+        });
+    };
+
+    Guide.lazyLoad = function() {
+        // lazy-loaded
+        var imageList = jQuery('.content-document img:not(.lazy-loaded)');
+        var timeout = null;
+
+        //console.log('image list length = ' + imageList.length);
+
+        function checkImageLoaded() {
+            var currentScrollTop = jQuery(window).scrollTop();
+            var windowHeight = jQuery(window).height();
+            var image, imageOffsetTop;
+            var i = 0;
+            while (i < imageList.length) {
+                image = imageList.eq(i);
+                imageOffsetTop = image.offset().top
+                if (imageOffsetTop < currentScrollTop + windowHeight + 200 &&
+                    imageOffsetTop > currentScrollTop - 200
+                ) {
+                    image.attr('src', image.data('src'));
+                    image.addClass('.lazy-loaded');
+                    imageList.splice(i, 1);
+                } else {
+                    i++;
+                }
+            }
+        };
+
+        timeout = setTimeout(checkImageLoaded, 200);
+        $(window).scroll(function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(checkImageLoaded, 200);
+        });
+    };
+
+})(jQuery);
