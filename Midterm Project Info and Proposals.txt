@@ -25,13 +25,13 @@ Solution: Create an inventory system which will provide easier and faster way to
 CMS: Drupal
 FEATURES:
 For Admin
-        - Login (Granular User Access Control & Secure Access)
-	- Add/Delete Books (Through Content Administration Feature)
+        - Login (Granular User Access Control & Secure Access) (SECURITY, EASY CONTENT AUTHORING)
+	- Add/Delete Books (Through Content Administration Feature) (CONTENT REVISIONING) 
 	- Edit Details i.e. Which section it belongs to, Author, Genre, etc. 
-	  (Through Content Administration Feature)
-	- Filter/Arrange by (Through Flexible Taxonomy and Menu Structures Feature)
-	- Archive (Archive feature) (Through Content Administration Feature)
-	- Search books (Through In-Built Search Feature)
+	  (Through Content Administration Feature) (CONTENT TAGGING AND TAXONOMY - STRUCTURED CONTENT, CONTENT REVISIONING)
+	- Filter/Arrange by (Through Flexible Taxonomy and Menu Structures Feature) (CONTENT REVISIONING)
+	- Archive (Archive feature) (Through Content Administration Feature) (EASY CONTENT AUTHORING)
+	- Search books (Through In-Built Search Feature) (CONTENT TAGGING AND TAXONOMY - STRUCTURED CONTENT)
 
 Drupal Features
 	Security 
@@ -39,8 +39,7 @@ Drupal Features
 		-account passwords are encrypted--salted and repeatedly hashed--when they are stored in the database. It also support a 		 
 		wide variety of password policies such as minimum length, complexity, or expiration. 
 	*(Granular User Access Control)
-		-it can give administrators complete control over who can see and who can modify every part of a site. Drupal operates 			 
-		based on a system of extensible user roles and access permissions. Administrators can create user roles and give them 	
+		-it can give administrators complete control over who can see and who can modify every part of a site. Drupal operates 			based on a system of extensible user roles and access permissions. Administrators can create user roles and give them 	
 		specific, limited permissions.
 	Highly Scalable
 		-it won’t matter if your site gets hit with lots of traffic and goes down.
