@@ -50,7 +50,8 @@ Drupal Features
 		look on any device before users approve and publish.
 	Content Revisioning
 		-enables a quick and easy way to track all changes and revisions and it also track the history of content changes.
-	
+	Content Tagging and Taxonomy
+		- Drupal’s strength is creating structured content – define content elements, tag content based on any attributes, 			create relevant taxonomy for content so it can be searched, found, used, and reused in ways that satisfy visitors.
 
 ---------------------------------------------------------------------------
 Project 2 Proposal
