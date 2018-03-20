@@ -42,6 +42,14 @@ Drupal Features
 		-it can give administrators complete control over who can see and who can modify every part of a site. Drupal operates 			 
 		based on a system of extensible user roles and access permissions. Administrators can create user roles and give them 	
 		specific, limited permissions.
+	Highly Scalable
+		-it won’t matter if your site gets hit with lots of traffic and goes down.
+	Easy Content Authoring
+		-Intuitive tools in Drupal for content creation, workflow and publishing make it easy for content creators to do their
+		jobs. Authentication and permissions help manage editorial workflows efficiently, and previews show how content will
+		look on any device before users approve and publish.
+	Content Revisioning
+		-enables a quick and easy way to track all changes and revisions and it also track the history of content changes.
 	
 
 ---------------------------------------------------------------------------
