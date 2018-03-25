@@ -37,6 +37,7 @@ hr.star-dark:after{
     color:black;
     background-color:#fff
 }
+
 hr.bicycle-dark,hr.bicycle-light{
     max-width:15rem;
     padding:0;
@@ -84,7 +85,7 @@ hr.skate-dark:after,hr.skate-light:after{
     top:-.8em;
     display:inline-block;
     padding:0 .25em;
-    content:'\f1cd';
+    content:'\f192';
     font-family:FontAwesome;
     font-size:2em
 }
@@ -231,6 +232,7 @@ section h2{
         font-size:1.5em
     }
 }
+
 header.masthead{
     padding-top:calc(6rem + 72px);
     padding-bottom:6rem
