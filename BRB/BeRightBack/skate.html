@@ -28,11 +28,11 @@
 
   <body id="page-top">
 
-    <!-- Navigation -->
+   <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.html">Be Right Back</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Be Right Back</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-danger text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
         </button>
@@ -50,7 +50,6 @@
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="skate.html">Roller Skates
                     <i class="fa fa-fw fa-dot-circle-o"></i>
-        
               </a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
@@ -64,12 +63,11 @@
     </nav>
 
     <!-- Header -->
-    <header class="masthead bg-primary text-white text-center">
-      <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="img/skate.jpg" alt="BRB Roller Skate">
+    <header class="masthead text-white text-center">
+        <div class="container" id="cover-skate">
         <h1 class="text-uppercase mb-0">Roller Skates</h1>
-        <hr class="skate-light">
       </div>
+        <hr class="skate-dark">
     </header>
 
        <!-- Input Section -->
@@ -96,6 +94,17 @@
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Type of Roller Skates</label>
+                  <select class="form-control" id="type" type="text" placeholder="Type of Roller Skates" required="required" data-validation-required-message="Please enter your email address.">
+                    <option value="" disabled selected>Type of Roller Skates</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    </select>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Phone Number</label>
                   <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
                   <p class="help-block text-danger"></p>
@@ -108,7 +117,16 @@
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
-              <br>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">₱</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Amount">
+                    <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                </div>
+            </div>
+            <br>
               <div id="success"></div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Add</button>
@@ -207,5 +225,4 @@
     <script src="js/freelancer.min.js"></script>
 
   </body>
-
 </html>

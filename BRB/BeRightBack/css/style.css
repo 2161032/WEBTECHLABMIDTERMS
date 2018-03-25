@@ -413,3 +413,61 @@ a:active,a:focus,a:hover{
         background-color:#1a252f;
         border-color:#1a252f
 }
+
+#cover-bike {
+    background-image: url('../img/bike.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 25vh;
+}
+
+#cover-skate {
+    background-image: url('../img/skate.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 25vh;
+}
+
+#cover-boat {
+    background-image: url('../img/boat.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 25vh;
+}
+
+header.mastsubhead{
+    padding-top:calc(6rem + 72px);
+    padding-bottom:6rem
+}
+header.mastsubhead img{
+    position:relative;
+    display:block;
+    max-width:15rem;
+}
+header.mastsubhead h1{
+    font-size:3rem;
+    line-height:3rem
+}
+header.mastsubhead h2{
+    font-size:1.3rem;
+    font-family:Lato
+}
+@media (min-width:992px){
+    header.mastsubhead{
+        padding-top:calc(6rem + 50px);
+        padding-bottom:6rem
+    }
+    header.mastsubhead h1{
+        font-size:4.75em;
+        line-height:4rem
+    }
+    header.mastsubhead h2{
+        font-size:1.75em
+    }
+}
