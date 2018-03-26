@@ -235,15 +235,26 @@ header.mainhead h2{
     -moz-transition:all ease .5s;
     transition:all ease .5s;
     opacity:0;
-    background-color:#dc3545
+    background-color:#dc3545;
+    display:flex;
+    position:absolute;
+    height:100%;
+    width:100%;        
 }
 .choice .choice-item .choice-item-caption:hover{
     opacity:1
 }
 .choice .choice-item .choice-item-caption .choice-item-caption-content{
-    font-size:1.5rem
+    font-size:1.5rem;
+    margin:auto;
+    width:100%;
+    text-align:center;
+    color:#fff;
 }
 @media (min-width:576px){
+    .choice-modal{
+    display:none !important;            
+    }
     .choice-modal .choice-modal-dialog{
     padding:3rem 1rem;
     min-height:calc(100vh - 2rem);
@@ -252,7 +263,8 @@ header.mainhead h2{
     z-index:2;
     -moz-box-shadow:0 0 3rem 1rem rgba(0,0,0,.5);
     -webkit-box-shadow:0 0 3rem 1rem rgba(0,0,0,.5);
-    box-shadow:0 0 3rem 1rem rgba(0,0,0,.5)
+    box-shadow:0 0 3rem 1rem rgba(0,0,0,.5);
+    background-color:#fff;
     }
 }
 .choice-modal .choice-modal-dialog .close-button{
@@ -262,6 +274,10 @@ header.mainhead h2{
 }
 .choice-modal .choice-modal-dialog .close-button i{
     line-height:38px
+}
+.close-button{
+    display:block;
+    
 }
 .choice-modal .choice-modal-dialog h2{
     font-size:2rem
@@ -279,10 +295,25 @@ header.mainhead h2{
 .choice-item img{
     width:100%;
 }
+.modal{
+    text-align:center;
+}
+.modal-content{
+    margin:auto;
+}
+.modal-content img{
+    margin-bottom:5rem;
+}
+modal-container{
+    text-align: center;
+    text-transform: uppercase;
+    color:#000;
+}
 
 // Section Padding Settings
 section {
   padding: 6rem 0;
+}
   h2 {
     font-size: 2.25rem;
     line-height: 2rem;
@@ -293,7 +324,23 @@ section {
       line-height: 2.5rem;
     }
   }
+.choice-item {
+    display:block;
+    margin:auto;
 }
+.img-ride {
+    width:100%;
+    margin-bottom:5rem;
+    display:block;
+    margin:auto; 
+}
+.content h2 {
+    text-align:center;
+    text-transform:uppercase;
+    color:#dc3545;
+    margin-bottom:5rem; 
+}
+
 
 // Social Button
 .btn-social {
@@ -309,12 +356,6 @@ section {
   right: 1rem;
   bottom: 1rem;
   display: none;
-  a {
-    width: 3.5rem;
-    height: 3.5rem;
-    background-color: fade-out($gray-900, 0.5);
-    line-height: 3.1rem;
-  }
 }
 
 // Footer
@@ -353,8 +394,4 @@ section {
     background-color: #2c3e50;
     color:#fff;
     font-family:Lato
-}
-
-.img-ride {
-    width: 100%;
 }
