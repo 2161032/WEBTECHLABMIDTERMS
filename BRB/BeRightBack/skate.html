@@ -14,46 +14,40 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
   <!-- Website Icon -->
   <link href="img/BRBLogo.ico" rel="icon">
 </head>
 
   <body id="page-top">
 
-   <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Be Right Back</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-danger text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html">Home
-                    <i class="fa fa-fw fa-home"></i>
-              </a>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="bike.html">Bikes
-                    <i class="fa fa-fw fa-bicycle"></i>
-              </a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="skate.html">Roller Skates
-                    <i class="fa fa-fw fa-dot-circle-o"></i>
-              </a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="boat.html">Boats
-                <i class="fa fa-fw fa-ship"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+<!-- Navigation -->
+  <nav class="navbar" id="mainNav">
+    <div class="brand-name">
+      <a class="navbar-brand" href="#page-top">Be Right Back</a>
+      <button class="navbar-toggler" type="button">
+      Menu</button>
+      <div class="navbar-menu">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bike.html">Bikes 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="skate.html">Roller Skates 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="boat.html">Boats </a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
     <!-- Header -->
     <header class="mastsubhead text-white text-center">
@@ -63,72 +57,77 @@
         <hr class="skate-dark">
     </header>
 
-       <!-- Input Section -->
-    <section id="contact">
-      <div class="container">
+<!-- Portfolio Modal 2 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#"> <i class="fa fa-3x fa-times"></i> </a>
+      <div class="container text-center">
         <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-            <form name="sentInput" id="inputForm" novalidate="novalidate">
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Name</label>
-                  <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Number of Roller Skates</label>
-                  <input class="form-control" id="quantity" type="number" placeholder="No. of Roller Skates" required="required" data-validation-required-message="Please enter your email address.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Type of Roller Skates</label>
-                  <select class="form-control" id="type" type="text" placeholder="Type of Roller Skates" required="required" data-validation-required-message="Please enter your email address.">
-                    <option value="" disabled selected>Type of Roller Skates</option>
+          <div class="col-lg-8 mx-auto">
+            <img class="img-head-ride" src="img/skate.jpg" alt="BRB Roller Skate">
+            <!-- Input Section -->
+            <section id="contact">
+              <div class="container">
+                <h2 class="text-center text-uppercase text-secondary mb-0">Roller Skate</h2>
+                <div class="row">
+                  <div class="col-lg-8 mx-auto">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentInput" id="inputForm" novalidate="novalidate">
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2"> <label>Name</label>
+                          <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2"> <label>Number of Roller Skates</label>
+                          <input class="form-control" id="quantity" type="number" placeholder="No. of Roller Skates" required="required" data-validation-required-message="Please enter the number of bikes">
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2"> <label>Type of Roller Skates</label> <select class="form-control" id="type" type="text" placeholder="Type of Roller Skates" required="required" data-validation-required-message="Please enter type of bikes">
+                    <option value="" disabled="" selected="">Type of Roller Skates</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     </select>
-                  <p class="help-block text-danger"></p>
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2"> <label>Phone Number</label>
+                          <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2"> <label>Time</label>
+                          <input class="form-control" id="time" type="time" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <div class="input-group-prepend"> <span class="input-group-text">₱</span> </div>
+                        <input type="text" class="form-control" aria-label="Amount">
+                        <div class="input-group-append"> <span class="input-group-text">.00</span> </div>
+                      </div>
+                      <br>
+                      <div id="success"></div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-xl" id="addButton">Add</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Phone Number</label>
-                  <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Time</label>
-                  <input class="form-control" id="time" type="time" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">₱</span>
-                </div>
-                <input type="text" class="form-control" aria-label="Amount">
-                    <div class="input-group-append">
-                    <span class="input-group-text">.00</span>
-                </div>
-            </div>
-            <br>
-              <div id="success"></div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Add</button>
-              </div>
-            </form>
+            </section>
+            <a class="btn btn-danger btn-lg rounded-pill portfolio-modal-dismiss" href="#"> <i class="fa fa-close"></i> Cancel</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
       
 
     <!-- About Rentals -->
