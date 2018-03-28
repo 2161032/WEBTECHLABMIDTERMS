@@ -1,3 +1,20 @@
+html {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+body{
+  height:auto;
+  width:auto;  
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  margin:0;
+  text-transform:uppercase;
+  font-family:Lato
+}
+
 // Styling for the navbar
 #mainNav {
     padding-top: 1rem;
@@ -16,9 +33,6 @@
 .navbar-nav {
     margin-top: 1rem;
     letter-spacing: 0.0625rem;
-}
-li.nav-item {
-
 }
 a.nav-link {
     color: #fff;
