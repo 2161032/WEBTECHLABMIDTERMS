@@ -19,7 +19,6 @@
 </head>
 
 <body id="page-top">
- 
 
 <!-- Navigation -->
   <nav class="navbar" id="mainNav">
@@ -33,7 +32,7 @@
     <div class="top">
       <img class="img-logo" src="img/BRBLogo.png" alt="BRB logo">
       <h1 class="text-uppercase">BRB</h1>
-      <h2>Bikes-Roller Skates-Boats</h2>
+      <h2>Bikes - Roller Skates - Boats</h2>
     </div>
   </header>
     
@@ -94,47 +93,52 @@
   </section>
     
 <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-        <div class="row">
-        <div class="footer-content">
-          <h4>Location</h4>
-          <p class="lead mb-0">Burnham Park, Baguio City
+<footer class="foot">
+    <div class="second"> 
+        <h4>About BRB</h4>
+    </div>
+    
+    <div class="third">
+        <h4>Location</h4>
+          <p>Burnham Park, Baguio City
             <br>
           </p>
-        </div>
-        
-        <div class="footer-content">
-          <h4>Connect with us</h4>
-          <ul class="list-inline">
-            <li class="list-inline-item">
-              <a href="https://facebook.com"> <i class="fa fa-fw fa-facebook"></i> </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://instagram.com"> <i class="fa fa-fw fa-instagram"></i> </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://twitter.com"> <i class="fa fa-fw fa-twitter"></i> </a>
-            </li>
-          </ul>
-        </div>
-          
-        <div class="footer-content">
-          <h4>About BRB</h4>
-          <p>BRB, which stands for Be Right Back and also known as Bikes, Roller Skates, Boats, is a web-application that will easily keep track of the check-in and check-out of customers, specifically in bikes, roller skates, and boats, as well as process and account their earnings</p>
-        </div>
-        </div>    
-      </div>
-  </footer>
-  <div class="copyright">
-    <div class="container"> <small>Copyright © Group 2, 2018</small> </div>
-  </div>
+    </div>
+    
+    <div class="social">
+    <h4>Connect With Us</h4>
+    
+    <a href="https://facebook.com"><img src="img/facebook-icon.png"  class="socialfa" alt="facebook-icon"></a>
+    <a href="https://twitter.com"><img src="img/twitter-icon.png"  class="socialtw" alt="twitter-icon"></a>
+    <a href="https://instagram.com"><img src="img/instagram-icon.png"  class="socialig" alt="instagram-icon"></a>
+    </div>
+</footer>   
+    
+ <div class="copyright">
+    <div class="container"> 
+        <small>Copyright © Group 2, 2018</small> 
+    </div>
+ </div>
     
   <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-  <div class="scroll-to-top d-lg-none position-fixed ">
-    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">   <i class="fa fa-chevron-up"></i> 
-    </a>
-  </div>
+    <button onclick="topFunction()" id="up" title="Go to top"><img class="img-up" src="img/upIcon.png" alt="up-icon"> </button>
+
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("up").style.display = "block";
+        } else {
+            document.getElementById("up").style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
     
     </body>
 </html>
