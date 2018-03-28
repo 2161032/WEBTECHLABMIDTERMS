@@ -345,7 +345,7 @@ section {
 
 .floating-label-form-group{
     position:relative;
-    border-bottom:1px solid #e9ecef
+    border-bottom:1px solid #e9ecef;
 }
 .floating-label-form-group input,.floating-label-form-group textarea{
     font-size:1.5em;
@@ -378,12 +378,9 @@ section {
     padding-left:14px;
     border-left:1px solid #e9ecef
 }
-.floating-label-form-group-with-value label{
+.floating-label-form-group-with-value{
     top:0;
     opacity:1
-}
-.floating-label-form-group-with-focus label{
-    color:#dc3545
 }
 form .row:first-child .floating-label-form-group{
     border-top:1px solid #e9ecef
@@ -392,7 +389,6 @@ form .row:first-child .floating-label-form-group{
 // Footer
 .footer {
     padding-top:5rem;
-    padding-bottom:5rem;
     background-color:#1a252f;
     color:#fff;
     text-align:center;
@@ -517,6 +513,8 @@ form .row:first-child .floating-label-form-group{
     font-size:.8rem;
     padding-top:1rem;
     padding-bottom:1rem;
+    width:100%;
+    margin:auto;
 }
 
 select {
@@ -524,6 +522,7 @@ select {
     font-size:1.5rem;
     width:90%;
     color:#6c757d;
+    cursor:pointer;
 }
 
 .form-button{
@@ -541,6 +540,7 @@ select {
     font-size:1rem;
     font-weight:700;
     text-transform: uppercase;
+    cursor:pointer;
 }
 .add:hover{
     background-color:#343a40;
@@ -554,6 +554,7 @@ select {
     font-size:1rem;
     font-weight:700;
     text-transform: uppercase;
+    cursor:pointer;
 }
 .cancel:hover{
     background-color:#da190b
