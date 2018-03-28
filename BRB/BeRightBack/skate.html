@@ -71,7 +71,7 @@
                       </div>
                           <br>
                       <div class="form-button">
-                        <button type="submit" class="add" id="addButton">Add</button>
+                        <button type="button" class="add" onclick="timedText()">Add</button>
                         <button type="reset" class="cancel" id="resetButton">cancel</button>
                       </div>
                     </div>
@@ -87,7 +87,7 @@
         <h2 class="text-center">Rentals</h2>
         <div class="row">
           <div class="col-lg-4 ml-auto">
-            <p class="lead"></p>
+              <p id="demo">Time will appear here</p>
           </div>
           <div class="col-lg-4 mr-auto">
             <p class="lead"></p>
@@ -154,6 +154,28 @@
             document.documentElement.scrollTop = 0;
         }
     </script>
+      
+    <script>
+          function timedText() {
+            setTimeout(myTimeout1, 1800000) 
+            setTimeout(myTimeout2, 3600000) 
+            setTimeout(myTimeout3, 7200000) 
+            setTimeout(myTimeout4, 10800000) 
+          }
+
+          function myTimeout1() {
+            document.getElementById("demo").innerHTML = "30 Minutes has passed";
+          }
+          function myTimeout2() {
+            document.getElementById("demo").innerHTML = "1 Hour has passed";
+          }
+          function myTimeout3() {
+            document.getElementById("demo").innerHTML = "1 Hour and 30 Seconds has passed";
+          }
+          function myTimeout4() {
+            document.getElementById("demo").innerHTML = "2 Hours has passed";
+          }          
+      </script>
 
 
   </body>
