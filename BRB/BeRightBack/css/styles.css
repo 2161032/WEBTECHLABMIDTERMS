@@ -397,6 +397,7 @@ form .row:first-child .floating-label-form-group{
     text-align:center;
     position:absolute;
     width:100%;
+    height:100%;
 }
 #up {
     display:none;
@@ -426,24 +427,13 @@ form .row:first-child .floating-label-form-group{
 }
 
 .second {
-    margin: 0 0 0 0;
     width:20%;
     padding:1%;
-    color: #fff;
-    float: left;
+    float:left;
     margin-left: 5%;
     margin-right: auto;
     vertical-align: baseline;
-    font-size: 90%;
     text-align:center;
-}
-
-.second p {
-    text-transform: none;
-    text-decoration: underline;
-    margin-bottom: 5%;
-    margin-top: 2%;
-    padding: .8%;
 }
 
 .second h4 {
@@ -456,10 +446,11 @@ form .row:first-child .floating-label-form-group{
 }
 
 .third {
+    padding:1% ;
     width:30%;
     float:left;
-    margin-left:6%;
-    margin-right:6%;
+    margin-left:5%;
+    margin-right:5%;
     vertical-align: baseline;
     text-align:center;
 }
@@ -469,7 +460,6 @@ form .row:first-child .floating-label-form-group{
     margin-bottom:5%;
     margin-top:2%;
     padding:3%;
-    border-radius:50%; 
     color:#6c757d;
 }
 
@@ -480,6 +470,7 @@ form .row:first-child .floating-label-form-group{
 }
 
 .social {
+    padding:1%; 
     width:20%;
     color:#6c757d;
     float:right;
@@ -494,14 +485,15 @@ form .row:first-child .floating-label-form-group{
     margin-bottom:5%;
     margin-top:2%;
     padding:3%;
-    border-radius:50%; 
+    color:#6c757d;
 }
 
 .social img {
     width:2rem;
     padding:3%;
-    opacity: 1;
+    opacity:1;
     border-radius:50%; 
+    margin-bottom:10%; 
 }
 
 .socialfa:hover {
