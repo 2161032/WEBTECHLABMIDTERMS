@@ -202,12 +202,23 @@ header.mainhead h2{
     text-align:center;
     color:#fff;
 }
+@media (min-width:768px){
+    .choice-modal .choice-modal-dialog{
+        min-height:100vh;
+        padding:5rem;
+        margin:3rem calc(3rem - 8px)
+    }
+    .choice-modal .choice-modal-dialog h2{
+        font-size:3rem
+    }
+}
 @media (min-width:576px){
     .choice-modal{
     display:none !important;            
     }
 .choice-item img{
     width:100%;
+    display:inline-block;
 }
 .container h2{
     text-align:center;
@@ -237,19 +248,15 @@ section {
     margin:auto;
 }
 .img-ride {
+    width:30%;
+    margin-bottom:5rem;
+    display:block;
     margin:auto; 
 }
-.content{
-    margin:auto; 
-    width:30%; 
-    display:inline-block;
-    padding:2rem; 
-}    
 .content h2 {
     text-align:center;
     text-transform:uppercase;
     color:#dc3545;
-    font-size:1.7rem; 
     margin-bottom:5rem; 
 }
 
@@ -363,8 +370,7 @@ form .row:first-child .floating-label-form-group{
     font-size:.8rem;
     padding-top:.3rem;
     padding-bottom:2.5rem;
-    width:100%;
-    margin:auto;
+    width:100%; 
 }
 
 #up {
