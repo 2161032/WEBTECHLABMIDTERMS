@@ -202,20 +202,6 @@ header.mainhead h2{
     text-align:center;
     color:#fff;
 }
-@media (min-width:768px){
-    .choice-modal .choice-modal-dialog{
-        min-height:100vh;
-        padding:5rem;
-        margin:3rem calc(3rem - 8px)
-    }
-    .choice-modal .choice-modal-dialog h2{
-        font-size:3rem
-    }
-}
-@media (min-width:576px){
-    .choice-modal{
-    display:none !important;            
-    }
 .choice-item img{
     width:100%;
     display:inline-block;
@@ -253,13 +239,20 @@ section {
     display:block;
     margin:auto; 
 }
+@media (min-width: 700px) {
+.content{
+    width:33%;
+    margin:auto; 
+    display:inline-block;
+}
 .content h2 {
     text-align:center;
     text-transform:uppercase;
     color:#dc3545;
-    margin-bottom:5rem; 
+    margin-bottom:3rem; 
+    font-size:1rem; 
 }
-
+}
 .img-head-ride{
     width:100%;
     margin-bottom:5rem;
@@ -419,11 +412,11 @@ form .row:first-child .floating-label-form-group{
 .second p{
     font-size:1rem;
     color:#fff;
-    text-transform: none;
+    text-transform:none;
 }
 
 .third {
-    padding:1% ;
+    padding:1%;
     width:30%;
     float:left;
     margin-left:5%;
@@ -431,16 +424,14 @@ form .row:first-child .floating-label-form-group{
     vertical-align: baseline;
     text-align:center;
 }
-
 .third h4{
     font-size:1rem;
     margin-bottom:5%;
     padding:3%;
     color:#6c757d;
 }
-
 .third p{
-    font-size:1.2rem;
+    font-size:1.5rem;
     font-weight: bolder;
     color:#fff
 }
@@ -455,32 +446,27 @@ form .row:first-child .floating-label-form-group{
     vertical-align: baseline;
     text-align:center;
 }
-
 .social h4 {
     font-size:1rem;
     margin-bottom:5%;
     padding:3%;
     color:#6c757d;
 }
-
 .social img {
-    width:2rem;
+    width:2.5rem;
     padding:3%;
     opacity:1;
     border-radius:50%; 
-    margin-bottom:10%; 
+    margin-bottom:8%; 
 }
-
 .socialfa:hover {
     background: #3B5998;
     opacity: .7;
 }
-
 .socialtw:hover {
     background: #55ACEE;
     opacity: .7;
 }
-
 .socialig:hover {
     background:#d6249f;
     opacity: .7;
