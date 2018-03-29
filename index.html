@@ -1,49 +1,31 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" href="../css/style.css" type="text/css">
-		<link rel="icon" href="logo.ico">
-  		<title>Book Nook</title>
-	</head>
-	<body>
-		<div class="header">
-			<div class="navButtons" style="width: 70%;float: left; background-color: black; padding-bottom: 10px; padding-top: 10px;">
-			<button style="margin-left: 5%;" class="button" onclick="location.href='../html/index.html'">Home</button>
-			<button style="margin-left: 5%;" class="button" onclick="location.href='../html/books.html'">Books</button>
-			<button style="margin-left: 5%;" class="" onclick="location.href='../html/archive.html'">Archive</button>
-			</div>
-			
-			<form style="width: 30%; float: left; background-color: black; padding-bottom: 10px; padding-top: 10px;">
-				<input style="margin-left: 5%;" placeholder="Username" required name="Username">
-				<input style="margin-left: 5%;" placeholder="Password" required name="Password">
-				<button style="margin-left: 5%;" type="submit">Log-in</button>
-			</form>
-		</div>
-		<div class="logo" style="background-color: gray; height: 40%;">
-			<img src="logo.png" style="width: 20%; height: 20%; margin-left: 40%; margin-right: 40%; padding-bottom: 100px; padding-top: 100px;">
-		</div>
-		
-		<div class="main" style="width: 90%; background-color: #ffffcc; margin-left: 5%; margin-right: 5%;">
-			<form style="; padding-bottom: 10px; padding-top: 10px;">
-				<input style="margin-left: 3%;" placeholder="Search" name="Search">
-				<button type="submit">GO</button>
-				<button style="margin-left: 77%;" type="submit">Filter By</button>
-			</form>
-			
-			<div class="books" style="width: 90%; background-color: black; margin-left: 5%; margin-right: 5%; color: white; text-align: center; overflow: auto;">
-				<h1>BOOKS</h1>
-				<div class="column" style="width: 30%; margin-left: 2%; float: left; margin-top: 2%;">
-					<img src="book.jpg" class="image" alt="">
-				</div>
+<html lang="en">
+    <link rel="stylesheet" href="navbar.css">
 
-				<div class="column" style="width: 30%; margin-left: 2%; float: left; margin-top: 2%;">
-					<img src="book.jpg" class="image" alt="">
-				</div>
-
-				<div class="column" style="width: 30%; margin-left: 2%; float: left; margin-top: 2%;">
-					<img src="book.jpg" class="image" alt="">
-				</div>
-			</div>
-		</div>
-	</body>
+<nav id="main-nav">
+    <ul id="nav-primary">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Archive</a></li>
+        <li><a href="#">Books</a>
+            <ul class="subnav">
+                <li><a href="#">School of Computing ad Information Sciences</a>
+                </li>
+                <li><a href="#">School of Engineering and Architecture</a>
+                </li>
+                <li><a href="#">School of Teacher Education and Liberal Arts</a>
+                </li>
+                <li><a href="#">School of Accountancy and Business Management</a>
+                </li>
+                <li><a href="#">School of Natural Sciences</a>
+                </li>
+                <li><a href="#">School of Nursing</a>
+                </li>
+                <li><a href="#">School of Medicine</a>
+                </li>
+                <li><a href="#">School of Law</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 </html>
