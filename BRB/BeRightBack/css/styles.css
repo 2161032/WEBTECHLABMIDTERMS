@@ -240,19 +240,21 @@ section {
     margin:auto; 
 }
 @media (min-width: 700px) {
-.content{
-    width:33%;
-    margin:auto; 
-    display:inline-block;
+    .content{
+        width:33%;
+        margin:auto; 
+        display:inline-block;
+        color:#dc3545;
+    }
 }
 .content h2 {
-    text-align:center;
-    text-transform:uppercase;
-    color:#dc3545;
-    margin-bottom:3rem; 
-    font-size:1rem; 
-}
-}
+        text-align:center;
+        text-transform:uppercase;
+        color:#dc3545;
+        margin-bottom:2rem; 
+        font-size:2rem; 
+    }
+
 .img-head-ride{
     width:100%;
     margin-bottom:5rem;
