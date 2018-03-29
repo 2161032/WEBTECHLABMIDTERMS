@@ -506,12 +506,12 @@ select {
 .form-button{
     padding:8rem;
     text-align:center;
-    width:95%;
+    width:92%;
     margin:auto; 
     display:inline-block;
 }
 
-@media (min-width: 100px) {
+@media (min-width: 200px) {
 .form-button{
     display:inline-block;
     position:relative;
