@@ -34,7 +34,7 @@
             <img class="img-head-ride" src="img/boat.jpg" alt="BRB Boat" title="Boat">
     </div>
       
-        <!-- Input Section -->
+      <!-- Input Section -->
             <section id="input">
               <div class="container">
                 <h2>Boat</h2>
@@ -47,32 +47,39 @@
                           </div>
                         </div>
                       <div class="control-group">
-                        <div class="form-group floating-label-form-group">                       <input class="form-control" id="quantity" type="number" placeholder="No. of Boats" required="required" data-validation-required-message="Please enter the number of bikes">
-                        </div>
-                      </div>
-                      <div class="control-group">
                         <div class="form-group floating-label-form-group">
                           <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
                         </div>
                     <div class="control-group">
-                        <div class="form-group floating-label-form-group">
-                            <select>
+                        <select class="floating-label-form-group">
                             <option value="" disabled="" selected="">Type of Boats</option>
                             <option value="pad">Pad</option>
                             <option value="pedal">Pedal</option>
-                            </select>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group">
+                            <input class="form-control" id="quantity" type="number" placeholder="No. of Boats" min="1" required="required" data-validation-required-message="Please enter the number of bikes">
                         </div>
-                      </div>
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group controls">
-                          <input class="form-control" id="time" type="time" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
+                    </div>  
+                    <div class="control-group">
+                        <div class="floating-label-form-group controls">Time-In
+                          <input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time-in" required="required" data-validation-required-message="Please enter a time.">
                         </div>
-                      </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="floating-label-form-group controls">Time-Out
+                          <input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time-out" required="required" data-validation-required-message="Please enter a time.">
+                        </div>
+                    </div>  
+                    <div class="control-group">
+                        <div class="floating-label-form-group controls">
+                          <input class="form-control" id="number" type="number" min="50" step="50" placeholder="Price" required="required" data-validation-required-message="Please enter a time.">
+                        </div>
+                    </div>  
                           <br>
                       <div class="form-button">
                         <button type="button" class="add" onclick="timedText()">Add</button>
-                      </div>
-                      <div class="form-button">
                         <button type="reset" class="cancel" id="resetButton">cancel</button>
                       </div>
                     </div>
