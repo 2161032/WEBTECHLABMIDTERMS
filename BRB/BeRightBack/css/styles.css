@@ -96,22 +96,23 @@ body{
 
  /* Menu button */
 @media (min-width: 200px){
-   .menu-button {
-        float:right;
-        background-color:#dc3545;
-        border:1px solid #dc3545;
-        border-radius:5%; 
-        color:#fff;
-        padding:.2rem;
-        text-align:center;
-        text-decoration:none;
-        font-size:.3rem;
-        margin:auto;
-        margin-right:2%; 
-        cursor:pointer;
-        width:8rem;
-        text-transform: uppercase;
-   }
+.menu-button{
+    font-family:Montserrat;
+    font-weight:700;
+    background-color:#dc3545;
+    border:1px solid #dc3545;
+    border-radius:5%; 
+    color:#fff;
+    padding:1rem;
+    text-align:center;
+    text-decoration:none;
+    display:inline-block;
+    font-size:.8rem;
+    margin:auto;
+    width:8rem; 
+    cursor:pointer;
+    text-transform: uppercase;
+    }
 }
 .menu-button{
     font-family:Montserrat;
@@ -126,6 +127,7 @@ body{
     display:inline-block;
     font-size:.8rem;
     margin:auto;
+    width:8rem; 
     cursor:pointer;
     text-transform: uppercase;
 }
