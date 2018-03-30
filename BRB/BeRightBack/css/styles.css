@@ -95,7 +95,7 @@ body{
 }
 
  /* Menu button */
-@media (min-width: 400px){
+@media (min-width: 200px){
    .menu-button {
         float:right;
         background-color:#dc3545;
