@@ -132,6 +132,25 @@ body{
     background-color:#da190b; 
 }
 
+.choose-button{
+        background-color:transparent;
+        border:2px solid #fff;
+        border-radius:5%; 
+        color:#fff;
+        padding:.8rem;
+        text-align:center;
+        text-decoration:none;
+        display:inline-block;
+        font-size:.8rem;
+        margin:auto;
+        cursor:pointer;
+        width:8rem; 
+    }
+.choose-button:hover{
+    background-color:#343a40; 
+}
+
+
 /** Header */
 header.mainhead{
     padding-top:calc(2rem + 72px);
@@ -230,7 +249,7 @@ header.mainhead h2{
     text-transform:uppercase;
     color:#000;
     font-family:Lato;
-    font-weight:900;
+    font-weight:bolder;
     margin-bottom:2rem; 
 }
 
