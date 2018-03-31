@@ -34,60 +34,42 @@
             <img class="img-head-ride" src="img/boat.jpg" alt="BRB Boat" title="Boat">
     </div>
       
-      <!-- Input Section -->
+     <!-- Input Section -->
             <section id="input">
               <div class="container">
                 <h2>Boat</h2>
                   <hr><img class="img-ride" src="img/boatIcon.png" alt="BRB Boat">
-                <div class="row">
+                <div class="floating-label-form-group">
                     <form name="sentInput" id="inputForm" novalidate="novalidate">
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group">   
-                            <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
-                          </div>
-                        </div>
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group">
-                          <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-                        </div>
-                    <div class="control-group">
-                        <select class="floating-label-form-group">
-                            <option value="" disabled="" selected="">Type of Boats</option>
+                            Name:<br><input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
+                        <br><br>
+                          Phone Number:<br><input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
+                        <br><br>
+                            Type of Boat:<br>
+                        <select>
+                            <option value="" disabled="" selected="">Type of Boat</option>
                             <option value="pad">Pad</option>
                             <option value="pedal">Pedal</option>
                         </select>
-                    </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group">
-                            <input class="form-control" id="quantity" type="number" placeholder="No. of Boats" min="1" required="required" data-validation-required-message="Please enter the number of bikes">
-                        </div>
-                    </div>  
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">Time-In
-                          <input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time-in" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">Time-Out
-                          <input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time-out" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div>  
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">
-                          <input class="form-control" id="number" type="number" min="50" step="50" placeholder="Price" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div>  
-                          <br>
+                        <br><br>
+                            Number of Boats<br> <input class="form-control" id="quantity" type="number" placeholder="Number of Boats" min="1" required="required" data-validation-required-message="Please enter the number of boats">
+                        <br><br>
+                        Time-In:<br><input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
+                        <br><br>
+                        Time-Out<br><input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
+                        <br><br>
+                        Price:<br><input class="form-control" id="number" type="number" min="50" step="50" placeholder="Price" required="required" data-validation-required-message="Please enter a time.">
+                          <br><br>
+                    </form>
+                  </div>
                       <div class="form-button">
-                        <button type="button" class="add" onclick="timedText()">Add</button>
-                        <button type="reset" class="cancel" id="resetButton">cancel</button>
+                        <input type="button" class="add" value="Submit">
+                        <input type="reset" class="cancel" id="resetButton" value="Cancel">
                       </div>
-                    </div>
-                </form>
-            </div>
         </div>
     </section>
-                          
+                            
+                      
 <!-- About Rentals -->
     <section class="bg-primary">
       <div class="container">

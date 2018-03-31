@@ -39,54 +39,35 @@
               <div class="container">
                 <h2>Bike</h2>
                   <hr><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">
-                <div class="row">
+                <div class="floating-label-form-group">
                     <form name="sentInput" id="inputForm" novalidate="novalidate">
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group">   
-                            <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
-                          </div>
-                        </div>
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group">
-                          <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-                        </div>
-                    <div class="control-group">
-                        <select class="floating-label-form-group">
+                            Name:<br><input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
+                        <br><br>
+                          Phone Number:<br><input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
+                        <br><br>
+                            Type of Bike:<br>
+                        <select>
                             <option value="" disabled="" selected="">Type of Bikes</option>
                             <option value="bmx">BMX</option>
                             <option value="mountain">Mountain</option>
                             <option value="go">Go cart</option>
                             <option value="side">Sidecart</option>
                         </select>
-                    </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group">
-                            <input class="form-control" id="quantity" type="number" placeholder="No. of Bikes" min="1" required="required" data-validation-required-message="Please enter the number of bikes">
-                        </div>
-                    </div>  
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">Time-In
-                          <input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">Time-Out
-                          <input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div> 
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">
-                          <input class="form-control" id="number" type="number" min="50" step="50" placeholder="Price" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div>  
-                          <br>
+                        <br><br>
+                            Number of Bikes<br> <input class="form-control" id="quantity" type="number" placeholder="Number of Bikes" min="1" required="required" data-validation-required-message="Please enter the number of bikes">
+                        <br><br>
+                        Time-In:<br><input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
+                        <br><br>
+                        Time-Out<br><input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
+                        <br><br>
+                        Price:<br><input class="form-control" id="number" type="number" min="50" step="50" placeholder="Price" required="required" data-validation-required-message="Please enter a time.">
+                          <br><br>
+                    </form>
+                  </div>
                       <div class="form-button">
-                        <button type="button" class="add" onclick="timedText()">Add</button>
-                        <button type="reset" class="cancel" id="resetButton">cancel</button>
+                        <input type="button" class="add" value="Submit">
+                        <input type="reset" class="cancel" id="resetButton" value="Cancel">
                       </div>
-                    </div>
-                </form>
-            </div>
         </div>
     </section>
       
