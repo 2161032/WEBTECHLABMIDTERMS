@@ -800,7 +800,7 @@ option{
 }
 
 head-ride .head-ride-dialog{
-    width:90%;
+    width:100%;
     min-height:calc(100vh - 2rem);
     margin:1rem calc(1rem - 8px);
     position:relative;
@@ -830,18 +830,11 @@ head-ride .head-ride-dialog{
         font-size:3rem
     }
 }
-.portfolio-item img{
-    width:100%;
-    margin-left:115%;
-    margin-right:105%;
-}
 
 .floating-label-form-group{
-    position:relative;0
-    border-bottom:1px solid #e9ecef;
-    padding-bottom:.5%;
-    margin-bottom:2%; 
-    border:1px solid #e9ecef    
+    position:relative;
+    margin:auto; 
+    width:auto
 }
 .floating-label-form-group input,.floating-label-form-group textarea{
     width:90%;
@@ -854,23 +847,8 @@ head-ride .head-ride-dialog{
     background:0 0;
     box-shadow:none!important;
     border:1px solid #6c757d;
-    margin-right:2%
 }
-.floating-label-form-group label{
-    font-size:.85em;
-    line-height:1.764705882em;
-    position:relative;
-    z-index:0;
-    top:2em;
-    display:block;
-    margin:0;
-    -webkit-transition:top .3s ease,opacity .3s ease;
-    -moz-transition:top .3s ease,opacity .3s ease;
-    -ms-transition:top .3s ease,opacity .3s ease;transition:top .3s ease,opacity .3s ease;
-    vertical-align:middle;
-    vertical-align:baseline;
-    opacity:0
-}
+
 .floating-label-form-group:not(:first-child){
     padding-left:14px;
     border-left:1px solid #e9ecef
