@@ -27,9 +27,9 @@
 	<div class ="menu">
          <button class="menu-button">Menu</button>
          <div class ="menu-content">
-             <a href="bike.html" title="Bike">Bike</a>
-             <a href="skate.html" title="Skate">Roller Skate</a>
-             <a href="boat.html" title="Boat">Boat</a>
+             <a href="bike.php" title="Bike">Bike</a>
+             <a href="skate.php" title="Skate">Roller Skate</a>
+             <a href="boat.php" title="Boat">Boat</a>
          </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
       <h2>Choose a Ride</h2>
       <div class="row" id="choice">
         <div class="content" title="Bike">
-          <a class="choice-item" href="bike.html">
+          <a class="choice-item" href="bike.php">
             <div class="choice-item-caption">
                 <img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike"> 
             </div>
@@ -59,7 +59,7 @@
           <h2>Bike</h2>
          </div>
         <div class="content"  title="Roller Skate">
-          <a class="choice-item" href="skate.html">
+          <a class="choice-item" href="skate.php">
             <div class="choice-item-caption">
                 <img class="img-ride" src="img/skateIcon.png" alt="BRB Roller Skate">            
             </div>
@@ -67,7 +67,7 @@
           <h2>Roller Skate</h2>
         </div>
         <div class="content"  title="Boat">
-          <a class="choice-item" href="boat.html">
+          <a class="choice-item" href="boat.php">
             <div class="choice-item-caption">
                 <img class="img-ride" src="img/boatIcon.png" alt="BRB Boat">   
             </div>

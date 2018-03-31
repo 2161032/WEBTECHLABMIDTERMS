@@ -1,3 +1,40 @@
+<?php
+// define variables and set to empty values
+$nameErr = $phoneErr = "";
+$name = $phone = $type = $number = $time = $price = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed"; 
+    }
+  }
+  
+  if (empty($_POST["phone"])) {
+    $phoneErr = "Phone Number is required";
+  } else {
+    $phone = test_input($_POST["phone"]);
+    // check if e-mail address is well-formed
+    if(preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $phone)) {
+      $phoneErr = "Invalid phone format"; 
+    }
+  }
+    
+    
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,59 +73,41 @@
     </div>
       
         <!-- Input Section -->
-     <form action="input.php" method="post">            <section id="input">
+          <section id="input">
               <div class="container">
                 <h2>Roller Skate</h2>
                   <hr><img class="img-ride" src="img/skateIcon.png" alt="BRB RollerSkate">
-                <div class="row">
-                    <form name="sentInput" id="inputForm" novalidate="novalidate">
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group">   
-                            <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
-                          </div>
-                        </div>
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group">
-                          <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-                        </div>
-                    <div class="control-group">
-                        <select class="floating-label-form-group">
-                            <option value="" disabled="" selected="">Type of Skates</option>
+                  <div class="floating-label-form-group">
+                        <p><span class="error">* required field.</span></p>
+                        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+                            Name:<br><input type="text" name="name" value="<?php echo $name;?>"><span class="error">* <?php echo $nameErr;?></span>
+                            <br><br>
+                            Phone Number:<br><input type="number" name="phone" value="<?php echo $phone;?>"><span class="error">* <?php echo $phoneErr;?></span>
+                            <br><br>
+                            Type of Skate:<br> 
+                            <select name="type"><?php echo $type;?>
+                                <option value="" disabled="" selected="">Type of Skates</option>
                             <option value="inline">Inline</option>
                             <option value="roller">Roller</option>
-                        </select>
-                    </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group">
-                            <input class="form-control" id="quantity" type="number" placeholder="No. of Skates" min="1" required="required" data-validation-required-message="Please enter the number of bikes">
-                        </div>
-                    </div>  
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">Time-In
-                          <input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">Time-Out
-                          <input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="floating-label-form-group controls">
-                          <input class="form-control" id="number" type="number" min="50" step="50" placeholder="Price" required="required" data-validation-required-message="Please enter a time.">
-                        </div>
-                    </div>  
-                          <br>
-                      <div class="form-button">
-                        <button type="button" class="add" onclick="timedText()">Add</button>
-                        <button type="reset" class="cancel" id="resetButton">cancel</button>
+                            </select>
+                            <br><br>
+                        Number of Skate:<br><input type="number" name="number" min="1" value="<?php echo $number;?>">
+                            <br><br>
+                        Time-In:<br><input type="time" name="time" value="<?php echo $time;?>">
+                            <br><br>    
+                        Time-Out:<br><input type="time" name="time" value="<?php echo $time;?>">
+                            <br><br>
+                        Price:<br><input type="number" name="price" min="50" step="50" value="<?php echo $price;?>">
+                        <br><br>
+                    </form>
+                  </div>  
+                        <div class="form-button">
+                        <input type="button" class="add" value="Submit">
+                        <input type="reset" class="cancel" id="resetButton" value="Cancel">
                       </div>
-                    </div>
-                </form>
-            </div>
         </div>
     </section>
-    </form>
+                
                           
     <!-- About Rentals -->
     <section class="bg-primary">
@@ -187,5 +206,22 @@
           }          
       </script>
 
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $phone;
+echo "<br>";
+echo $type;
+echo "<br>";
+echo $number;
+echo "<br>";
+echo $time;
+echo "<br>";
+echo $time;
+echo "<br>";
+echo $price;
+?>
+      
   </body>
 </html>
