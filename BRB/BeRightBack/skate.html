@@ -41,17 +41,17 @@
                 <h2>Skate</h2>
                   <hr><img class="img-ride" src="img/skateIcon.png" alt="BRB Skate">
                     <div class="floating-label-form-group">
-                        Name:<br><input class="form-control" type="text" id="myText"><br><br>
-                        Phone Number:<br><input class="form-control" type="tel" id="myText2"><br><br>
-                        Type of Skate:<br><select class="form-control" id="myText3">
+                        Name:<br><input class="form-control" type="text" id="name"><br><br>
+                        Phone Number:<br><input class="form-control" type="tel" id="phone"><br><br>
+                        Type of Skate:<br><select class="form-control" id="type">
                             <option value="" selected></option>
                             <option value="ROLLER">ROLLER</option>
                             <option value="INLINE">INLINE</option>
                                         </select><br><br>
-                        Number of Skate:<input class="form-control" type="number" min="1" id="myText4"><br><br>
-                        Time-In:<br><input class="form-control" type="time" id="myText5"><br><br>
-                        Time-Out:<br><input class="form-control" type="time" id="myText6"><br><br>
-                        Price:<br><input class="form-control" type="number" min="50" step="50" id="myText7"><br><br>
+                        Number of Skate:<input class="form-control" type="number" min="1" id="number"><br><br>
+                        Time-In:<br><input class="form-control" type="time" id="timein"><br><br>
+                        Time-Out:<br><input class="form-control" type="time" id="timeout"><br><br>
+                        Price:<br><input class="form-control" type="number" min="50" step="50" id="price"><br><br>
                         <br>
                   </div>
                             <div class="form-button">
@@ -142,28 +142,6 @@
     </script>
       
     <script>
-          function timedText() {
-            setTimeout(myTimeout1, 1800000) 
-            setTimeout(myTimeout2, 3600000) 
-            setTimeout(myTimeout3, 7200000) 
-            setTimeout(myTimeout4, 10800000) 
-          }
-
-          function myTimeout1() {
-            document.getElementById("demo").innerHTML = "30 Minutes has passed";
-          }
-          function myTimeout2() {
-            document.getElementById("demo").innerHTML = "1 Hour has passed";
-          }
-          function myTimeout3() {
-            document.getElementById("demo").innerHTML = "1 Hour and 30 Seconds has passed";
-          }
-          function myTimeout4() {
-            document.getElementById("demo").innerHTML = "2 Hours has passed";
-          }          
-      </script>
-      
-      <script>
           function myFunction() {
             var table = document.getElementById("myTable");
             var row = table.insertRow(1);
@@ -175,22 +153,22 @@
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
 		 
-		var w = document.getElementById("myText").value;
-		var x = document.getElementById("myText2").value;
-        var y = document.getElementById("myText3").value;
-		var z = document.getElementById("myText4").value;
-		var a = document.getElementById("myText5").value;
-		var b = document.getElementById("myText6").value;
-		var c = document.getElementById("myText7").value;
+		var a = document.getElementById("name").value;
+		var b = document.getElementById("phone").value;
+        var c = document.getElementById("type").value;
+		var d = document.getElementById("number").value;
+		var e = document.getElementById("timein").value;
+		var f = document.getElementById("timeout").value;
+		var g = document.getElementById("price").value;
 		
-		cell1.innerHTML = w;
-        cell2.innerHTML = x;
-		cell3.innerHTML = y;
-		cell4.innerHTML = z;
-		cell5.innerHTML = a;
-		cell6.innerHTML = b;
-		cell7.innerHTML = c;
-          }
+		cell1.innerHTML = a;
+        cell2.innerHTML = b;
+		cell3.innerHTML = c;
+		cell4.innerHTML = d;
+		cell5.innerHTML = e;
+		cell6.innerHTML = f;
+		cell7.innerHTML = g;
+            }
       </script>
 
   </body>
