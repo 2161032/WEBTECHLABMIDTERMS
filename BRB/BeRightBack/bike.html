@@ -39,7 +39,7 @@
               <div class="container">
                 <h2>Bike</h2>
                   <hr><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">
-                    <div id="saveInput" class="floating-label-form-group">
+                    <form id="saveInput" class="floating-label-form-group">
                         Name:<br><input class="form-control" type="text" id="name"><br><br>
                         Phone Number:<br><input class="form-control" type="tel" id="phone"><br><br>
                         Type of Bike:<br><select class="form-control" id="type">
@@ -54,11 +54,11 @@
                         Time-Out:<br><input class="form-control" type="time" id="timeout"><br><br>
                         Price:<br><input class="form-control" type="number" min="50" step="50" id="price"><br><br>
                         <br>
-                  </div>
-                            <div class="form-button">
+                  </form>
+                            <form class="form-button">
                                 <input class="add" type="button" onclick="myFunction()" value="Submit">
-                                <input class="cancel" type="reset" class="cancel" id="resetButton" value="Cancel">
-                            </div>
+                                <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
+                            </form>
                         <br><br>
                   </div>
     </section>
@@ -170,6 +170,12 @@
 		cell6.innerHTML = f;
 		cell7.innerHTML = g;
             }
+      </script>
+      
+      <script>
+      function resetFunction() {
+          document.getElementById("saveInput").reset();
+      }
       </script>
     
   </body>
