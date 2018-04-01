@@ -758,14 +758,14 @@ option {
     display:inline-block; 
 }
 
-@media (min-width: 200px) {
+@media (min-width: 50px) {
 .form-button{
     display:inline-block;
     position:inherit;
-    padding:1.5rem;
     text-align:center;
     margin:auto; 
-    height:auto; 
+    height:auto;
+    padding:3.5%
     }   
 }
 
@@ -885,7 +885,7 @@ form .row:first-child .floating-label-form-group{
 }
 
 table{
-    width:80%;
+    width:100%;
 }
 
 @media(min-width:570px){
@@ -909,25 +909,81 @@ table{
 }
 }
 
+@media (max-width:569px){
 #myTable{
     border:2px solid white;
     text-align:center;
     margin:auto;
-    padding:.2rem;
-
+    width:auto;
 }
+
 #myTable th{
     color:#fff;
     font-size:.8rem;
-    padding:.5rem
+    padding:.5rem;
 }
 
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
 }
+}
 
-container{
-    display:flex;
-    width:100%;
+@media (max-width:424px){
+#myTable{
+    border:2px solid white;
+    text-align:center;
+    margin:auto;
+    width:auto;
+}
+
+#myTable th{
+    color:#fff;
+    font-size:.2rem;
+}
+
+#myTable tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+}
+
+@media (max-width:264px){
+#myTable{
+    border:2px solid white;
+    text-align:center;
+    margin:auto;
+    width:auto;
+}
+
+#myTable th{
+    color:#fff;
+    font-size:3px;
+    padding:.2px
+}
+
+#myTable tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+}
+
+@media (max-width:264px){
+#myTable{
+    border:2px solid white;
+    text-align:center;
+    margin:auto;
+    width:auto;
+}
+
+#myTable th{
+    color:#fff;
+    font-size:5px;
+    padding:.2rem
+}
+
+#myTable tr{
+    background-color:#1a252f;
+    color:#fff;
+}
 }
