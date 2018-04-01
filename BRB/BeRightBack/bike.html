@@ -39,36 +39,28 @@
               <div class="container">
                 <h2>Bike</h2>
                   <hr><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">
-                <div class="floating-label-form-group">
-                    <form name="sentInput" id="inputForm" novalidate="novalidate">
-                            Name:<br><input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
-                        <br><br>
-                          Phone Number:<br><input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-                        <br><br>
-                            Type of Bike:<br>
-                        <select>
-                            <option value="" disabled="" selected="">Type of Bikes</option>
-                            <option value="bmx">BMX</option>
-                            <option value="mountain">Mountain</option>
-                            <option value="go">Go cart</option>
-                            <option value="side">Sidecart</option>
-                        </select>
-                        <br><br>
-                            Number of Bikes<br> <input class="form-control" id="quantity" type="number" placeholder="Number of Bikes" min="1" required="required" data-validation-required-message="Please enter the number of bikes">
-                        <br><br>
-                        Time-In:<br><input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
-                        <br><br>
-                        Time-Out<br><input class="form-control" id="time" type="time" min="1:00" max="12:59" placeholder="Time" required="required" data-validation-required-message="Please enter a time.">
-                        <br><br>
-                        Price:<br><input class="form-control" id="number" type="number" min="50" step="50" placeholder="Price" required="required" data-validation-required-message="Please enter a time.">
-                          <br><br>
-                    </form>
+                    <div class="floating-label-form-group">
+                        Name:<br><input class="form-control" type="text" id="myText"><br><br>
+                        Phone Number:<br><input class="form-control" type="tel" id="myText2"><br><br>
+                        Type of Bike:<br><select class="form-control" id="myText3">
+                            <option value="" selected></option>
+                            <option value="BMX">BMX</option>
+                            <option value="MOUNTAIN BIKE">MOUNTAIN BIKE</option>
+                            <option value="GO KART">GO KART</option>
+                            <option value="SIDE KART">SIDE KART</option>
+                                        </select><br><br>
+                        Number of Bikes:<input class="form-control" type="number" min="1" id="myText4"><br><br>
+                        Time-In:<br><input class="form-control" type="time" id="myText5"><br><br>
+                        Time-Out:<br><input class="form-control" type="time" id="myText6"><br><br>
+                        Price:<br><input class="form-control" type="number" min="50" step="50" id="myText7"><br><br>
+                        <br>
                   </div>
-                      <div class="form-button">
-                        <input type="button" class="add" value="Submit">
-                        <input type="reset" class="cancel" id="resetButton" value="Cancel">
-                      </div>
-        </div>
+                            <div class="form-button">
+                                <input class="add" type="button" onclick="myFunction()" value="Submit">
+                                <input class="cancel" type="reset" class="cancel" id="resetButton" value="Cancel">
+                            </div>
+                        <br><br>
+                  </div>
     </section>
       
 <!-- About Rentals -->
@@ -76,14 +68,18 @@
       <div class="container">
         <h2 class="text-primary">Rentals</h2>
           <hr>
-        <div class="row">
-              <p id="demo">Time will appear here</p>
-            <br>
-              <p id="demo">Time will appear here</p>
-            <br>
-              <p id="demo">Time will appear here</p>
-            <br>
-          </div>
+            <table id="myTable" cellpadding="25">
+            <tr>
+		      <th>Name</th>
+		      <th>Phone Number</th>
+		      <th>Type of Bike</th>
+		      <th>Number of Bikes</th>
+		      <th>Time In</th>
+		      <th>Time Out</th>
+		      <th>Price</th>
+            </tr>
+            </table>
+            <br><br>
         </div>
     </section>
 
@@ -166,6 +162,36 @@
           function myTimeout4() {
             document.getElementById("demo").innerHTML = "2 Hours has passed";
           }          
+      </script>
+      
+      <script>
+          function myFunction() {
+            var table = document.getElementById("myTable");
+            var row = table.insertRow(1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+		 
+		var w = document.getElementById("myText").value;
+		var x = document.getElementById("myText2").value;
+        var y = document.getElementById("myText3").value;
+		var z = document.getElementById("myText4").value;
+		var a = document.getElementById("myText5").value;
+		var b = document.getElementById("myText6").value;
+		var c = document.getElementById("myText7").value;
+		
+		cell1.innerHTML = w;
+        cell2.innerHTML = x;
+		cell3.innerHTML = y;
+		cell4.innerHTML = z;
+		cell5.innerHTML = a;
+		cell6.innerHTML = b;
+		cell7.innerHTML = c;
+          }
       </script>
       
   </body>
