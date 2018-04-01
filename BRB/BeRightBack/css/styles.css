@@ -890,100 +890,104 @@ table{
 
 @media(min-width:570px){
 #myTable{
-    border:2px solid white;
     text-align:center;
     margin:auto;
     padding:1rem
 }
-
 #myTable th{
+    border:2px solid white;
     color:#fff;
     font-size:1rem;
     padding:.5rem
 }
-
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
     padding:2rem
 }
+#myTable td{
+    border:2px solid white;
+}    
 }
 
 @media (max-width:569px){
 #myTable{
-    border:2px solid white;
     text-align:center;
     margin:auto;
     width:auto;
 }
-
 #myTable th{
+    border:2px solid white;
     color:#fff;
-    font-size:.8rem;
-    padding:.5rem;
+    font-size:.5rem;
+    padding:.3rem;
 }
-
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
 }
+#myTable td{
+    border:2px solid white;
+}        
 }
 
 @media (max-width:424px){
 #myTable{
-    border:2px solid white;
     text-align:center;
     margin:auto;
     width:auto;
 }
-
 #myTable th{
+    border:2px solid white;
     color:#fff;
     font-size:.2rem;
 }
-
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
 }
+#myTable td{
+    border:2px solid white;
+}        
 }
 
 @media (max-width:264px){
 #myTable{
-    border:2px solid white;
     text-align:center;
     margin:auto;
     width:auto;
 }
-
 #myTable th{
+    border:2px solid white;
     color:#fff;
     font-size:3px;
-    padding:.2px
+    padding:3px
 }
-
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
 }
+#myTable td{
+    border:2px solid white;
+}        
 }
 
-@media (max-width:264px){
+@media (max-width:0px){
 #myTable{
-    border:2px solid white;
     text-align:center;
     margin:auto;
     width:auto;
 }
-
 #myTable th{
     color:#fff;
     font-size:5px;
-    padding:.2rem
+    padding:1px
 }
-
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
 }
+#myTable td{
+    border:2px solid white;
+}        
 }

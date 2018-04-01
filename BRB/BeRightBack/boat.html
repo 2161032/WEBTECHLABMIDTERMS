@@ -160,6 +160,7 @@
 		var f = document.getElementById("timeout").value;
 		var g = document.getElementById("price").value;
 		
+        alert("You've added a new input data!");      
 		cell1.innerHTML = a;
         cell2.innerHTML = b;
 		cell3.innerHTML = c;
@@ -167,6 +168,12 @@
 		cell5.innerHTML = e;
 		cell6.innerHTML = f;
 		cell7.innerHTML = g;
+              
+        setTimeout( function ( ) { alert( "Your time is already running!" ); }, 1000 );     
+        setTimeout( function ( ) { alert( "30 minutes is up!" ); }, 1800000 );      
+        setTimeout( function ( ) { alert( "60 minutes is up!" ); }, 3600000 );      
+        setTimeout( function ( ) { alert( "90 minutes is up!" ); }, 5400000 );      
+        setTimeout( function ( ) { alert( "120 minutes is up!" ); }, 7200000 );
             }
       </script>
  
