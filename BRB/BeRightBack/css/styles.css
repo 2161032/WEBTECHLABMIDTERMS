@@ -884,24 +884,50 @@ form .row:first-child .floating-label-form-group{
     color:#ff0000;
 }
 
+table{
+    width:80%;
+}
+
+@media(min-width:570px){
 #myTable{
     border:2px solid white;
+    text-align:center;
     margin:auto;
-    padding:.5rem;
-    margin-top:2rem;
-    margin-bottom:2rem;
-    text-align:center; 
+    padding:1rem
 }
 
 #myTable th{
-    margin:auto;
     color:#fff;
-    border:2px solid white;
-    padding:1rem;
-    font-size:.8rem;
+    font-size:1rem;
+    padding:.5rem
 }
 
 #myTable tr{
     background-color:#1a252f;
-    color:#fff
+    color:#fff;
+    padding:2rem
+}
+}
+
+#myTable{
+    border:2px solid white;
+    text-align:center;
+    margin:auto;
+    padding:.2rem;
+
+}
+#myTable th{
+    color:#fff;
+    font-size:.8rem;
+    padding:.5rem
+}
+
+#myTable tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+
+container{
+    display:flex;
+    width:100%;
 }
