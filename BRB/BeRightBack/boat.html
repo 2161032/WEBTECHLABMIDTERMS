@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    	<link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
  	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="mobile-web-app-capable" content="yes">
@@ -49,17 +49,17 @@
                         Phone Number:<br><input class="form-control" type="tel" id="phone"><br><br>
                         Type of Boat:<br><select class="form-control" id="type">
                             <option value="" selected></option>
-                            <option value="PAD">PAD</option>
+                            <option value="ROW">ROW</option>
                             <option value="PEDAL">PEDAL</option>
                                         </select><br><br>
-                        Number of Boats:<input class="form-control" type="number" min="1" id="number"><br><br>
+                        Number of Boats:<br><input class="form-control" type="number" min="1" id="number"><br><br>
                         Time-In:<br><input class="form-control" type="time" id="timein"><br><br>
                         Time-Out:<br><input class="form-control" type="time" id="timeout"><br><br>
-                        Price:<br><input class="form-control" type="number" min="50" step="50" id="price"><br><br>
+                        Price:<br><input class="form-control" type="number" min="100" step="10" id="price"><br><br>
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction()" value="Submit">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction()" value="Submit">
                                 <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
                             </form>
                         <br><br>
@@ -69,9 +69,9 @@
 <!-- About Rentals -->
     <section class="bg-primary">
       <div class="container">
-        <h2 class="text-primary">Rentals</h2>
+        <h2 class="text-primary">Rental of Boats</h2>
           <hr>
-        <table id="myTable" cellpadding="25">
+        <table id="myTable">
             <tr>
 		      <th>Name</th>
 		      <th>Phone Number</th>
@@ -89,17 +89,15 @@
 <!-- Breakdown Section -->
   <section class="bg-secondary">
     <div class="container">
-      <h2 class="text-primary">Breakdown</h2>
+      <h2 class="text-primary">Breakdown of Boats</h2>
     </div>
       <hr>
-      <div class="row">
-              <p id="demo">Breakdown here</p>
-            <br>
-              <p id="demo"></p>
-            <br>
-              <p id="demo"></p>
-            <br>
-          </div>
+      <table id="myEntries">
+      <tfoot>
+          <td>Total:</td>
+          <th id="total">P0.00</th>
+      </tfoot>
+    </table>
   </section>
       
 <!-- Footer -->
@@ -174,7 +172,7 @@
 		cell6.innerHTML = f;
 		cell7.innerHTML = g;
               
-        setTimeout( function ( ) { alert( "Your time is already running!" ); }, 1000 );     
+        setTimeout( function ( ) { alert( "The time has now started!" ); }, 10000 );     
         setTimeout( function ( ) { alert( "30 minutes is up!" ); }, 1800000 );      
         setTimeout( function ( ) { alert( "60 minutes is up!" ); }, 3600000 );      
         setTimeout( function ( ) { alert( "90 minutes is up!" ); }, 5400000 );      
@@ -188,5 +186,30 @@
       }
       </script>
       
+      <script>
+        var total = 0;
+
+        document.getElementById('saveInput').onsubmit = enter;
+
+        function myEntryFunction() {    
+            var entry = document.getElementById('price').value;
+            var entry = parseFloat(entry);
+                currency = currencyFormat(entry);
+                document.getElementById('myEntries').innerHTML += '<tr><td></td><td>' + currency + '</td></tr>';
+                total += entry;
+                document.getElementById('total').innerHTML = currencyFormat(total);
+  
+                document.getElementById('price').value = '';
+                return false;
+        }
+
+        function currencyFormat(number) {
+            var currency = parseFloat(number);
+            currency = currency.toFixed(2);
+            currency = 'P' + currency;
+            return currency;
+        }
+    </script>
+
   </body>
 </html>

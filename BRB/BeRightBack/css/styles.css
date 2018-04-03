@@ -991,3 +991,118 @@ table{
     border:2px solid white;
 }        
 }
+
+@media(min-width:570px){
+#myEntries{
+    text-align:center;
+    margin:auto;
+    padding:1rem
+}
+#myEntries th{
+    border:2px solid white;
+    color:#fff;
+    font-size:1rem;
+    padding:.8rem;
+    border-radius:10px;
+}
+#myEntries tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+#myEntries td{
+    background-color:#dc3545;
+    padding:.2rem
+}    
+}
+
+@media (max-width:569px){
+#myEntries{
+    text-align:center;
+    margin:auto;
+    padding:1rem
+}
+#myEntries th{
+    border:2px solid white;
+    color:#fff;
+    font-size:1rem;
+    padding:.8rem;
+    border-radius:10px;
+}
+#myEntries tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+#myEntries td{
+    background-color:#dc3545;
+    padding:.2rem
+}    
+}
+
+@media (max-width:424px){
+#myEntries{
+    text-align:center;
+    margin:auto;
+    padding:1rem
+}
+#myEntries th{
+    border:2px solid white;
+    color:#fff;
+    font-size:1rem;
+    padding:.8rem;
+    border-radius:10px;
+}
+#myEntries tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+#myEntries td{
+    background-color:#dc3545;
+    padding:.2rem
+}    
+}
+
+@media (max-width:264px){
+#myEntries{
+    text-align:center;
+    margin:auto;
+    padding:1rem
+}
+#myEntries th{
+    border:2px solid white;
+    color:#fff;
+    font-size:1rem;
+    padding:.8rem;
+    border-radius:10px;
+}
+#myEntries tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+#myEntries td{
+    background-color:#dc3545;
+    padding:.2rem
+}    
+}
+
+@media (max-width:0px){
+#myEntries{
+    text-align:center;
+    margin:auto;
+    padding:1rem
+}
+#myEntries th{
+    border:2px solid white;
+    color:#fff;
+    font-size:1rem;
+    padding:.8rem;
+    border-radius:10px;
+}
+#myEntries tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+#myEntries td{
+    background-color:#dc3545;
+    padding:.2rem
+}    
+}
