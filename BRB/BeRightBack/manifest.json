@@ -5,11 +5,11 @@
   "start_url": "/https://jeromesalazar.github.io/BeRightBack/",
   "background_color": "#fff",
   "theme_color": "#dc3545",    
-  "display": "browser",
+  "display": "stand-alone",
   "orientation": "any",
   "icons": [
     {
-      "src": "img/BRBLogo.png",
+      "src": "img/BRBIcon.png",
       "type": "png"
     }
   ]
