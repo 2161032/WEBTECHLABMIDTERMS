@@ -1,0 +1,14 @@
+{
+  "name": "BeRightBack",
+  "short_name": "BRB",
+  "lang": "en-US",
+  "start_url": "/https://jeromesalazar.github.io/BeRightBack/",
+  "display": "browser",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "BRBLogo.png",
+      "type": "png"
+    }
+  ]
+}
