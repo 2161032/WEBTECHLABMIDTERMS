@@ -2,7 +2,7 @@
   "name": "BeRightBack",
   "short_name": "BRB",
   "lang": "en-US",
-  "start_url": "/https://jeromesalazar.github.io/BeRightBack/",
+  "start_url": "/https://jeromesalazar.github.io/BeRightBack/index.html",
   "background_color": "#fff",
   "theme_color": "#dc3545",    
   "display": "browser",
