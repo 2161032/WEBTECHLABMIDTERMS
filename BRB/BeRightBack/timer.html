@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>COUNTDOWN TIMER</title>
+</head>
+<body>
+<form id="TIME">
+<p id="time"> 30 min       <input type="button" value="START" onclick="init();"/></p>
+<p id="time1"> 1 hr        <input type="button" value="START" onclick="init1();"/></p>
+<p id="time2"> 1 hr 30 min <input type="button" value="START" onclick="init2();"/></p>
+<p id="time3"> 2 hrs       <input type="button" value="START" onclick="init3();"/></p>
+</form>
+</body>
+</html>
+
+<style>
+</style>
+<script>
+
+var timer;
+var timer1;
+var timer2;
+var timer3;
+
+var counter = 1800;
+var counter1 = 3600;
+var counter2 = 5400;
+var counter3 = 7200;
+
+function init()
+{
+timer = setInterval(decTime,1000)
+}
+
+function init1()
+{
+timer1 = setInterval(decTime1,1000)
+}
+
+function init2()
+{
+timer2 = setInterval(decTime2,1000)
+}
+
+function init3()
+{
+timer3 = setInterval(decTime3,1000)
+}
+
+function decTime()
+{
+	counter = counter - 1;
+	document.getElementById("time").innerHTML = counter;
+	if(counter <= 0)
+	{
+		clearInterval(timer);
+		document.getElementById("time").innerHTML = "30 MIN FINISHED";
+		return;
+	}
+var p = document.getElementById("time");
+p.innerHTML = counter;
+}
+
+function decTime1()
+{
+	counter1 = counter1 - 1;
+	document.getElementById("time1").innerHTML = counter1;
+	if(counter1 <= 0)
+	{
+		clearInterval(timer1);
+		document.getElementById("time1").innerHTML = "1 HR FINISHED";
+		return;
+	}
+var p = document.getElementById("time1");
+p.innerHTML = counter1;
+}
+
+function decTime2()
+{
+	counter2 = counter2 - 1;
+	document.getElementById("time2").innerHTML = counter2;
+	if(counter2 <= 0)
+	{
+		clearInterval(timer2);
+		document.getElementById("time2").innerHTML = "1 HR 30 MIN FINISHED";
+		return;
+	}
+var p = document.getElementById("time2");
+p.innerHTML = counter2;
+}
+
+function decTime3()
+{
+	counter3 = counter3 - 1;
+	document.getElementById("time3").innerHTML = counter3;
+	if(counter3 <= 0)
+	{
+		clearInterval(timer3);
+		document.getElementById("time3").innerHTML = "2 HRS FINISHED";
+		return;
+	}
+var p = document.getElementById("time3");
+p.innerHTML = counter3;
+}
+
+
+
+
+</script>
