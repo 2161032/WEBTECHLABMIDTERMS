@@ -1,0 +1,204 @@
+html{
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+body{
+  height:auto;
+  width:auto;  
+  margin:0;
+  text-transform:uppercase;
+  font-family: particle;
+}
+
+nav.navbutton  #logo{
+	margin-top: 0.50%;
+	margin-bottom: 0.50%;
+	width: 10%;
+	height: 10%;
+	float: left;
+}
+
+/* Style the tab */
+div#topbar {
+	width: 100%;
+	margin: 0;
+    background-color: #18121E;
+	overflow: auto;
+	position: relative;
+}
+
+/* Style the buttons inside the tab */
+nav.navbutton button {
+	margin-top: 1.5%;
+	margin-left: 1%;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.5em;
+	padding-top: 15.5px;
+	padding-bottom: 20.5px;
+	color: #f2f2f2;
+	font-family: monospace;
+}
+
+/* Change background color of buttons on hover */
+nav.navbutton button:hover {
+    background-color: #233237;
+}
+
+form#login {
+	margin-right: 5%;
+	float: right;
+	color: #f2f2f2;
+	font-size: 0.75em;
+}
+
+form#login input{
+	margin-top: 2%;
+	margin-left: 1%; 
+    border-radius: 4px;
+	font-family: courier;
+}
+
+form#login button {
+	margin-top: 3%;
+    background-color: #233237;
+    float: right;
+	margin-right: 30%;
+	border: none; 
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+	padding-bottom: 3.5px;
+	color: #f2f2f2;
+	font-family: particle;
+}
+
+form#login button:hover {
+	background-color: #984B43;
+}
+
+div#about {
+	background-image: url("library.jpg");
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	background-position: absolute;
+	width: 100%;
+	overflow:auto;
+}
+
+div#about h1 { 
+	text-align: center;
+	color: #233237;
+	font-family: lato;
+	font-size: 2.25em;
+	
+}
+
+#logo1{
+	width: 80%;
+	height: 50%;
+	margin: 25% 25% 10% 10%;
+}
+
+div.round{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+	border-radius: 50%;
+	background-color: #18121E;
+	margin-left: 33%;
+	margin-right: 33%;
+	width: 450px;
+	height: 450px;
+	margin-bottom: 20.5px;
+}
+div#content {
+	overflow: auto;
+	background-color: #EAC67A
+}
+
+form#search{
+	width: 80%;
+	float: left;
+}
+
+form#search input{
+	margin-top: 2%;
+	margin-left: 1%; 
+    border-radius: 4px;
+	font-family: courier;
+}
+
+form#search button {
+	margin-top: 2%;
+    background-color: #233237;
+	border: none; 
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+	color: #f2f2f2;
+	font-family: monospace;
+}
+
+form#search button:hover {
+	background-color: #984B43;
+}
+
+div.dropdown {
+	width: 19%;
+	float: right; 
+}
+
+/* Dropdown Button */
+.dropbtn {
+	margin-top: 8%;
+	margin-left: 30%;
+	margin-right: 30%;
+    background-color: #18121E;
+    color: #f2f2f2;
+    padding: 5px;
+    font-size: 1em;
+	font-family: monospace;
+    border: none;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropcontent {
+    display: none;
+    position: absolute;
+    background-color: #18121E;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border: none; 
+    z-index: 1;
+	color:  #f2f2f2;
+	font-family: monospace;
+}
+
+/* Change color of dropdown links on hover */
+.dropcontent:hover {
+	background-color: #984B43;
+	color: black;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropcontent {
+    display: block;
+	position: relative;
+	float: right;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #233237;
+}
+
+div#books{
+	text-align: center;
+	margin-top: 8%;
+}

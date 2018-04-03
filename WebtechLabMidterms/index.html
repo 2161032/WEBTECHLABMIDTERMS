@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>Book Nook</title>
+    
+		<!-- Custom styles -->
+		<link href="style.css" rel="stylesheet">
+		<!-- Website Icon -->
+	<link href="logo.png" rel="icon">
+	</head>
+
+	<body>
+		<div id="topbar">
+			<nav class="navbutton">
+				<a href="index.html"><img src="logo.png" alt="website logo" id="logo"></a>
+				<button onclick="location.href='books.html'">BOOKS</button> 
+				<button onclick="location.href='archive.html'">ARCHIVE</button> 
+			</nav>
+	
+			<form id="login">
+				<label for="username"><b>Username :</b></label>
+				<input type="text" placeholder=" Enter Username" name="username" required>
+				<br><label for="password"><b>Password :</b></label>
+				<input type="password" placeholder=" Enter Password" name="password" required>
+				<br><button type="submit">Login</button>
+			</form>
+        </div>
+		
+		<div id="about">
+			<h1>Search. Manage. Organize.</h1>
+			<div class="round">
+			<img src="logo.png" alt="website logo" id="logo1">
+			</div>
+		</div>
+		
+		<div id="content">
+			<form id="search">
+				<input type="text" name="search" placeholder=" Search..">
+				<button type="submit">GO</button>
+			</form>
+		
+			<div class="dropdown">
+				<button type="button" class="dropbtn">FILTER BY</button>
+				<button type="button" class="dropcontent">SCHOOL</button>
+				<button type="button" class="dropcontent">RECENTLY ADDED</button>
+				<button type="button" class="dropcontent">RECENTLY DELETED</button>
+			</div>
+			
+			<div id="books">
+				<img src="book.png" alt="book-icon">
+				<img src="book.png" alt="book-icon">
+				<img src="book.png" alt="book-icon">
+				<img src="book.png" alt="book-icon">
+				<img src="book.png" alt="book-icon">
+				<img src="book.png" alt="book-icon">
+			</div>
+		</div>
+		
+    </body>
+</html>
+
