@@ -84,18 +84,19 @@ form#login button:hover {
 }
 
 div#about {
-	background-image: url("library.jpg");
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("library.jpg");
 	background-size: cover;
 	background-repeat:no-repeat;
 	background-attachment: fixed;
 	background-position: absolute;
 	width: 100%;
 	overflow:auto;
+	
 }
 
 div#about h1 { 
 	text-align: center;
-	color: #233237;
+	color: #EAC67A;
 	font-family: lato;
 	font-size: 2.25em;
 	
@@ -119,7 +120,7 @@ div.round{
 }
 div#content {
 	overflow: auto;
-	background-color: #EAC67A
+	background-color: #EAC67A;
 }
 
 form#search{
@@ -201,4 +202,28 @@ div.dropdown {
 div#books{
 	text-align: center;
 	margin-top: 8%;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #18121E;
+    color: #cccccc;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+	left: 1%;
+	overflow: auto;
+	font-family: lato;
+	font-size: 0.80em;	
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
