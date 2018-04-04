@@ -247,51 +247,25 @@
       
     <script>
       var iDB = window.indexedDB;
-          request = iDB.open('brb', 1);
+          request = iDB.open('brb', 2);
         
           console.log(request);
           
         //Upgrade
-        request.onupgradeneeded = function(event) {
-            var dbHandler = event.target.result;
-            upgradeDB = dbHandler.createObjectStore('boat', { keyPath: 'name', autoIncrement: true});
-       
-            upgradeDB.createIndex('name', 'name' , {unique:true});
-            upgradeDB.createIndex('phone', 'phone', {unique:true});
-            upgradeDB.createIndex('type', 'type', {unique:false});
-            
-            upgradeDB.add(input1);
-            upgradeDB.add(input2);
-            upgradeDB.add(input3);
-            upgradeDB.add(input4);
-            upgradeDB.add(input5);
-            upgradeDB.add(input6);
-            upgradeDB.add(input7);
-        
-            var storeRequest = upgradeDB.add(input1);
-            
-            storeRequest.onsuccess = function() {
-                console.log('Store success!');
-            };
-            
-            storeRequest.onerror = function(event) {
-                event.stopPropagation();
-                console.log('Store failed!', event);
-            };
-            
-            console.log('storeRequest');
-            console.log('Upgrade', event);
-        };
+        request.onupgradeneeded = function() {
+                alert("You've upgraded the Database!");
+                console.log('Upgrade');
+        }
         
         //Error
         request.onerror = function(event) {
-                console.log('Failed', event);
-        };
+                console.log('Error', event.target.error.name);
+        }
 
         //Success
         request.onsuccess = function(event) {
-                console.log('Success', event);
-        };              
+                console.log('Success', event.target.success.name);
+        }              
       </script>
 
   </body>
