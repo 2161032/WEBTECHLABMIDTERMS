@@ -2,11 +2,12 @@
   "name": "BeRightBack",
   "short_name": "BRB",
   "lang": "en-US",
-  "start_url": "/https://jeromesalazar.github.io/BeRightBack/index.html",
-  "background_color": "#fff",
+  "start_url": "/https://jeromesalazar.github.io/BeRightBack",
+  "background_color": "transparent",
   "theme_color": "#dc3545",    
   "display": "browser",
   "orientation": "any",
+  "description":"",
   "icons": [
     {
       "src": "img/BRBIcon.png",

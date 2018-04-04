@@ -43,21 +43,21 @@
             <section id="input">
               <div class="container">
                 <h2>Bike</h2>
-                  <hr><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">
-                    <form id="saveInput" class="floating-label-form-group">
+                  <hr><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">                        
+                    <form id="saveInput" class="floating-label-form-group"  method="post">
                         Name:<br><input class="form-control" type="text" id="name" required><br><br>
-                        Phone Number:<br><input class="form-control" type="tel" id="phone"><br><br>
-                        Type of Bike:<br><select class="form-control" id="type">
+                        Phone Number:<br><input class="form-control" type="tel" id="phone" required><br><br>
+                        Type of Bike:<br><select class="form-control" id="type" required>
                             <option value="" selected></option>
                             <option value="BMX">BMX</option>
                             <option value="MOUNTAIN BIKE">MOUNTAIN BIKE</option>
                             <option value="GO KART">GO KART</option>
                             <option value="SIDE KART">SIDE KART</option>
                                         </select><br><br>
-                        Number of Bikes:<br><input class="form-control" type="number" min="1" id="number"><br><br>
-                        Time-In:<br><input class="form-control" type="time" id="timein"><br><br>
-                        Time-Out:<br><input class="form-control" type="time" id="timeout"><br><br>
-                        Price:<br><input class="form-control" type="number" min="40" step="10" id="price"><br><br>
+                        Number of Bikes:<br><input class="form-control" type="number" min="1" id="number" required><br><br>
+                        Time-In:<br><input class="form-control" type="time" id="timein" required><br><br>
+                        Time-Out:<br><input class="form-control" type="time" id="timeout" required><br><br>
+                        Price:<br><input class="form-control" type="number" min="40" step="10" id="price" required><br><br>
                         <br>
                   </form>
                             <form class="form-button">
@@ -127,9 +127,27 @@
     </div>
 </footer>   
     
-      <!-- Scroll to Top Button -->
+    <!-- Scroll to Top Button -->
     <button onclick="topFunction()" id="up" title="Go up"><img class="img-up" src="img/upIcon.png" alt="up-icon"> </button>
 
+    <!-- Service Worker -->
+	<script type="text/javascript">
+	//This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+
+        //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+        if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+        } else {
+
+            //Register the ServiceWorker
+        navigator.serviceWorker.register('pwabuilder-sw.js', {
+            scope: './'
+            }).then(function(reg) {
+            console.log('Service worker has been registered for scope:'+ reg.scope);
+            });
+        }
+	</script>
+      
     <script>
         window.onscroll = function() {scrollFunction()};
 
@@ -167,6 +185,14 @@
 		var f = document.getElementById("timeout").value;
 		var g = document.getElementById("price").value;
         
+        document.getElementById('name').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('type').value = '';
+        document.getElementById('number').value = '';
+        document.getElementById('timein').value = '';
+        document.getElementById('timeout').value = '';
+        document.getElementById('price').value = '';
+      
         alert("You've added a new input data!");
               
 		cell1.innerHTML = a;
@@ -178,12 +204,7 @@
 		cell7.innerHTML = g;
         
         setTimeout( function ( ) { alert( "The time has now started!" ); }, 10000 );     
-        setTimeout( function ( ) { alert( "30 minutes is up!" ); }, 1800000 );      
-        setTimeout( function ( ) { alert( "60 minutes is up!" ); }, 3600000 );      
-        setTimeout( function ( ) { alert( "90 minutes is up!" ); }, 5400000 );      
-        setTimeout( function ( ) { alert( "120 minutes is up!" ); }, 7200000 );        
-          }
-        
+          }  
       </script>
       
       <script>
@@ -217,5 +238,8 @@
         }
     </script>
 
+      <script>
+
+      </script>
   </body>
 </html>

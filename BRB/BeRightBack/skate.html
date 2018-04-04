@@ -24,7 +24,7 @@
   <link href="img/BRBIcon.png" rel="icon">
 </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="init()">
 
 <!-- Navigation -->
   <nav class="navbar" id="mainNav">
@@ -46,22 +46,22 @@
                 <h2>Skate</h2>
                   <hr><img class="img-ride" src="img/skateIcon.png" alt="BRB Skate">
                     <form id="saveInput" class="floating-label-form-group">
-                        Name:<br><input class="form-control" type="text" id="name"><br><br>
-                        Phone Number:<br><input class="form-control" type="tel" id="phone"><br><br>
-                        Type of Skate:<br><select class="form-control" id="type">
+                        Name:<br><input class="form-control" type="text" id="name" required><br><br>
+                        Phone Number:<br><input class="form-control" type="tel" id="phone" required><br><br>
+                        Type of Skate:<br><select class="form-control" id="type" required>
                             <option value="" selected></option>
                             <option value="SKATES">ROLLER SKATES</option>
                             <option value="BLADES">ROLLER BLADES</option>
                                         </select><br><br>
-                        Number of Skate:<input class="form-control" type="number" min="1" id="number"><br><br>
-                        Time-In:<br><input class="form-control" type="time" id="timein"><br><br>
-                        Time-Out:<br><input class="form-control" type="time" id="timeout"><br><br>
-                        Price:<br><input class="form-control" type="number" min="20" step="5" id="price"><br><br>
+                        Number of Skate:<input class="form-control" type="number" min="1" id="number" required><br><br>
+                        Time-In:<br><input class="form-control" type="time" id="timein" required><br><br>
+                        Time-Out:<br><input class="form-control" type="time" id="timeout" required><br><br>
+                        Price:<br><input class="form-control" type="number" min="20" step="5" id="price" required><br><br>
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction()" value="Submit">
-                                <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction()" value="Submit" id="submit">
+                                <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel" id="cancel">
                             </form>
                         <br><br>
                   </div>
@@ -126,7 +126,7 @@
     </div>
 </footer>   
     
-      <!-- Scroll to Top Button -->
+    <!-- Scroll to Top Button -->
     <button onclick="topFunction()" id="up" title="Go up"><img class="img-up" src="img/upIcon.png" alt="up-icon"> </button>
 
     <script>
@@ -145,6 +145,24 @@
             document.documentElement.scrollTop = 0;
         }
     </script>
+      
+    <!-- Service Worker -->
+	<script type="text/javascript">
+	//This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+
+        //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+        if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+        } else {
+
+            //Register the ServiceWorker
+        navigator.serviceWorker.register('pwabuilder-sw.js', {
+            scope: './'
+            }).then(function(reg) {
+            console.log('Service worker has been registered for scope:'+ reg.scope);
+            });
+        }
+	</script>
       
     <script>
           function myFunction() {
@@ -166,6 +184,14 @@
 		var f = document.getElementById("timeout").value;
 		var g = document.getElementById("price").value;
 		
+        document.getElementById('name').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('type').value = '';
+        document.getElementById('number').value = '';
+        document.getElementById('timein').value = '';
+        document.getElementById('timeout').value = '';
+        document.getElementById('price').value = '';
+      
         alert("You've added a new input data!");
               
 		cell1.innerHTML = a;
@@ -175,13 +201,9 @@
 		cell5.innerHTML = e;
 		cell6.innerHTML = f;
 		cell7.innerHTML = g;
-              
+        
         setTimeout( function ( ) { alert( "The time has now started!" ); }, 10000 );     
-        setTimeout( function ( ) { alert( "30 minutes is up!" ); }, 1800000 );      
-        setTimeout( function ( ) { alert( "60 minutes is up!" ); }, 3600000 );      
-        setTimeout( function ( ) { alert( "90 minutes is up!" ); }, 5400000 );      
-        setTimeout( function ( ) { alert( "120 minutes is up!" ); }, 7200000 );
-            }
+          }  
       </script>
       
       <script>
@@ -215,6 +237,122 @@
             return currency;
         }
     </script>
+      
+      <script>
+        window.onload = function() {
+
+  // Check for LocalStorage support.
+  if (localStorage) {
+
+    // Add an event listener for form submissions
+    document.getElementById('saveInput').addEventListener('submit', function() {
+      // Get the value of the name field.
+      var name = document.getElementById('name').value;
+
+      // Save the name in localStorage.
+      localStorage.setItem('name', name);
+    });
+
+  }
+
+}
+      </script>
+      
+      <script>
+var db;
+// until we won't need this prefix mess
+var indexedDB = window.indexedDB || window.webkitIndexedDB 
+             || window.mozIndexedDB || window.msIndexedDB;
+var IDBTransaction = window.IDBTransaction || 
+                     window.webkitIDBTransaction;
+// The initialization of our stuff
+function init() {
+  var dbVersion = 1.0;
+  var openRequest = indexedDB.open("brb_rollerskate", dbVersion);
+    //handle setup - as the spec like it
+    openRequest.onupgradeneeded = function(e) {
+      console.log("running onupgradeneeded");
+      var thisDb = e.target.result;
+      //temp delete if we want to start clean -> 
+      //thisDb.deleteObjectStore("note");
+      //Create Note
+      if(!thisDb.objectStoreNames.contains("note")) {
+        console.log("I need to make the note objectstore");
+        var objectStore = thisDb.createObjectStore("note", 
+            { keyPath: "id", autoIncrement:true });  
+        objectStore.createIndex("title", "title", 
+            { unique: false });
+      }
+    }
+    openRequest.onsuccess = function(e) {
+      db = e.target.result;
+      db.onerror = function(event) {
+        // Generic error handler for all 
+        // errors targeted at this database
+        alert("Database error: " + event.target.errorCode);
+        console.dir(event.target);
+      };
+        // Interim solution for Chrome to create an objectStore. 
+        // Will be deprecated once it's fixed.
+        if (db.setVersion) {
+          console.log("in old setVersion: "+ db.setVersion);
+            if (db.version != dbVersion) {
+                var req = db.setVersion(dbVersion);
+                req.onsuccess = function () {
+                    var ob = db.createObjectStore("note",
+                            { keyPath: "id", autoIncrement:true });  
+                    ob.createIndex("title", 
+                            "title", { unique: false });
+                    var trans = req.result;
+                    trans.oncomplete = function(e) {
+                      console.log("== trans oncomplete ==");
+                      displayNotes();
+                    }
+                };
+            }
+            else {
+                displayNotes();
+            }
+        }
+        else {
+            displayNotes();
+        }
+    }
+    function displayNotes() {
+      console.log("TODO - print something nice on the page");
+    }
+    //TEMP TO REMOVE
+    document.querySelector("#submit").addEventListener("click", function() {
+      var transaction = db.transaction(["note"], "readwrite");  
+      transaction.oncomplete = function(event) {
+          console.log("All done!");
+      };
+      transaction.onerror = function(event) {
+        // Don't forget to handle errors!
+        console.dir(event);
+      };
+      var objectStore = transaction.objectStore("note");
+      //use put versus add to always write, even if exists
+      var request = objectStore.add( {title:"note 1",
+          body:"this is the body " + 
+          Math.floor(Math.random()*1000) });
+      request.onsuccess = function(event) {
+        console.log("done with insert");
+      };
+      objectStore.openCursor().onsuccess = function(event) {  
+        var cursor = event.target.result;  
+        if (cursor) {  
+          console.log(cursor.key);
+          console.dir(cursor.value);
+          cursor.continue();  
+        }  
+        else {  
+          console.log("Done with cursor");
+        }  
+      };  
+    });
+}
+</script>
 
   </body>
 </html>
