@@ -200,9 +200,8 @@
         document.getElementById('number').value = '';
         document.getElementById('timein').value = '';
         document.getElementById('timeout').value = '';
-        document.getElementById('price').value = '';
       
-        alert("You've added a new input data!");
+        alert("Successfully added input!");
               
 		cell1.innerHTML = a;
         cell2.innerHTML = b;
@@ -212,7 +211,15 @@
 		cell6.innerHTML = f;
 		cell7.innerHTML = g;
         
-        setTimeout( function ( ) { alert( "The time has now started!" ); }, 10000 );     
+        localStorage.setItem('name','');
+        localStorage.setItem('phone','');
+        localStorage.setItem('type','');
+        localStorage.setItem('number','');
+        localStorage.setItem('timein','');
+        localStorage.setItem('timeout','');
+        localStorage.setItem('price','');
+                            
+        setTimeout( function ( ) { alert( "The time has now started!" ); }, 60000 );     
           }  
       </script>
       
@@ -228,7 +235,6 @@
         document.getElementById('saveInput').onsubmit = enter;
 
         function myEntryFunction() {
-            
             var entry = document.getElementById('price').value;
             var entry = parseFloat(entry);
                 currency = currencyFormat(entry);
@@ -246,26 +252,6 @@
             currency = 'P' + currency;
             return currency;
         }
-    </script>
-      
-      <script>
-        window.onload = function() {
-
-  // Check for LocalStorage support.
-  if (localStorage) {
-
-    // Add an event listener for form submissions
-    document.getElementById('saveInput').addEventListener('submit', function() {
-      // Get the value of the name field.
-      var name = document.getElementById('name').value;
-
-      // Save the name in localStorage.
-      localStorage.setItem('name', name);
-    });
-
-  }
-
-}
     </script>
       
     <script>
