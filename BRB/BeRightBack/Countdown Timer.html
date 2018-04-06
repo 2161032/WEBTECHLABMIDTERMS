@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Countdown TImer</title>
+</head>
+
+<style>
+</style>
+
+<script>
+
+var timer;
+var counter; 
+
+
+function init()
+{
+    timer = setInterval(decTime,1000);
+}
+
+function getTime()
+{
+    counter = document.getElementById("idnumber").value; 
+}
+
+function decTime()
+{
+counter = counter - 1;
+
+document.getElementById("tid").innerHTML = counter;
+if (counter <= 0)
+{
+    clearInterval(timer);
+    document.getElementById("tid").innerHTML = "Expired".toUpperCase();
+    return;    
+}
+
+var p = document.getElementById("tid");
+p.innerHTML = counter;
+}
+</script>
+
+<body>
+<select id="idnumber">
+    <option value="" selected></option>
+    <option value="10">30 min</option>
+    <option value="3600">1 hr</option>
+    <option value="5400">1 hr 30 min</option>
+    <option value="7200">2hr</option>
+</select>
+<input type="button" value="START" onclick="getTime();init()">
+<p id="tid"></p>
+</body>
+</html>
