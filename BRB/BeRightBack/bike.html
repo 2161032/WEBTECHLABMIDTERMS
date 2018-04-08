@@ -39,7 +39,7 @@
   <link href="img/BRBIcon.png" rel="icon">  
 </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="idbOK()">
 
     <!-- Navigation -->
  <nav class="navbar" id="mainNav">
@@ -58,25 +58,37 @@
             <section id="input">
               <div class="container">
                 <h2>Bike</h2>
-                  <hr><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">                        
+                  <hr><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">   <center></center>                     
                     <form id="saveInput" class="floating-label-form-group"  method="post" onsubmit="addCustomer()">
                         Name:<br><input class="form-control" type="text" id="name" required><br><br>
                         Phone Number:<br><input class="form-control" type="tel" id="phone" required><br><br>
-                        Type of Bike:<br><select class="form-control" id="type" required>
-                            <option value="" selected></option>
-                            <option value="BMX">BMX</option>
-                            <option value="MOUNTAIN BIKE">MOUNTAIN BIKE</option>
-                            <option value="GO KART">GO KART</option>
-                            <option value="SIDE KART">SIDE KART</option>
-                                        </select><br><br>
-                        Number of Bikes:<br><input class="form-control" type="number" min="1" id="number" required><br><br>
+                        Type of Bike:<br>
+                            <select name="type" class="form-control" id="type" onchange="populate(this.id, 'number')" required>
+                                <option value="" selected></option>
+                                <option value="BMX">BMX</option>
+                                <option value="MOUNTAIN BIKE">MOUNTAIN BIKE</option>
+                                <option value="GO KART">GO KART</option>
+                                <option value="SIDE KART">SIDE KART</option>
+                            </select><br><br>
+                        Bike Number:<br>
+                            <select name="number" class="form-control" id="number" required>
+                                <option value=""></option>
+                            </select><br><br>
                         Time-In:<br><input class="form-control" type="time" id="timein" required><br><br>
-                        Time-Out:<br><input class="form-control" type="time" id="timeout" required><br><br>
+                        Duration:<br>
+                        <select class="form-control" id="timeout" required>
+                           <option value="" selected></option>
+                           <option value="1800">30 MINUTES</option>
+                           <option value="3600">1 HOUR</option>
+                           <option value="5400">1 HOUR 30 MINUTES</option>
+                           <option value="7200">2 HOUR</option>
+                           <option default>FREE TIME</option>
+                        </select><br><br>
                         Price:<br><input class="form-control" type="number" min="40" step="10" id="price" required><br><br>
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction()" value="Submit">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime()" value="Submit" id="addForm">
                                 <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
                             </form>
                         <br><br>
@@ -94,12 +106,14 @@
 		      <th>Name</th>
 		      <th>Phone Number</th>
 		      <th>Type of Bike</th>
-		      <th>Number of Bikes</th>
+		      <th>Ride Number</th>
 		      <th>Time In</th>
-		      <th>Time Out</th>
-		      <th>Price</th>
+              <th>Duration</th>
+              <th>Price</th>
             </tr>
             </table>
+                <br>
+                <center>Countdown:<p id="tid"></p></center>
             <br><br>
     </section>
 
@@ -147,15 +161,20 @@
 
       <!-- Service worker registration -->
       <script type="text/javascript">
-            if (navigator.serviceWorker.controller) {
-                console.log('[PWA Builder] active service worker found, no need to register')
-            } else {
-                navigator.serviceWorker.register('pwabuilder-sw.js', {
-                    scope: './'
-                }).then(function(reg) {
-                    console.log('Service worker has been registered for scope:'+ reg.scope);
-                });
-            }
+           //This is the service worker with the Cache-first network
+
+          //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+          if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+          } else {
+
+            //Register the ServiceWorker
+            navigator.serviceWorker.register('pwabuilder-sw.js', {
+            scope: './'
+            }).then(function(reg) {
+            console.log('Service worker has been registered for scope:'+ reg.scope);
+            });
+        }
         </script>
       
     <script>
@@ -186,7 +205,7 @@
             var cell5 = row.insertCell(4);
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
-		 
+
 		var a = document.getElementById("name").value;
 		var b = document.getElementById("phone").value;
         var c = document.getElementById("type").value;
@@ -200,7 +219,6 @@
         document.getElementById('type').value = '';
         document.getElementById('number').value = '';
         document.getElementById('timein').value = '';
-        document.getElementById('timeout').value = '';
       
         alert("Successfully added input!");
               
@@ -211,7 +229,7 @@
 		cell5.innerHTML = e;
 		cell6.innerHTML = f;
 		cell7.innerHTML = g;
-        
+              
         localStorage.setItem('name','');
         localStorage.setItem('phone','');
         localStorage.setItem('type','');
@@ -219,9 +237,7 @@
         localStorage.setItem('timein','');
         localStorage.setItem('timeout','');
         localStorage.setItem('price','');
-      
-        setTimeout( function ( ) { alert( "The time has now started!" ); }, 60000 );     
-          }  
+    }
       </script>
       
       <script>
@@ -230,7 +246,40 @@
       }
       </script>
     
-        <script>
+      <script>
+          var timer;
+          var counter; 
+
+        document.getElementById('saveInput').onsubmit = enter;
+
+          function init(){
+              timer = setInterval(decTime,1000);
+          }
+
+          function getTime(){
+            setTimeout( function ( ) { alert( "The time has now started!" ); }, 2000 );              
+            counter = document.getElementById("timeout").value;
+          }
+
+          function decTime(){
+              counter = counter - 1;
+                document.getElementById("timeout").value = '';
+
+              document.getElementById("tid").innerHTML = counter;
+              if (counter <= 0){
+                clearInterval(timer);
+                document.getElementById("tid").innerHTML = alert("The time has expired!".toUpperCase());
+                return;
+                  
+              }
+
+              var p = document.getElementById("tid");
+              p.innerHTML = counter;
+            }
+ 
+      </script>
+      
+      <script>
         var total = 0;
 
         document.getElementById('saveInput').onsubmit = enter;
@@ -256,26 +305,112 @@
     </script>
 
     <script>
-      var iDB = window.indexedDB;
-          request = iDB.open('brb', 2);
-        
-          console.log(request);
-          
-        //Upgrade
-        request.onupgradeneeded = function() {
-                console.log('Upgrade');
-        }
-        
-        //Error
-        request.onerror = function(event) {
-                console.log('Error', event.target.error.name);
-        }
+	function idbOK() {
+		return "indexedDB" in window;
+	}
 
-        //Success
-        request.onsuccess = function(event) {
-                console.log('Success', event.target.success.name);
-        }              
-      </script>
-      
+	var db;
+
+	$(document).ready(function() {
+
+		//No support? Go in the corner and pout.
+		if(!idbOK()) return;
+
+		var openRequest = indexedDB.open("brb",2);
+
+		openRequest.onupgradeneeded = function(e) {
+			var thisDB = e.target.result;
+			console.log("running onupgradeneeded");
+
+			if(!thisDB.objectStoreNames.contains("people")) {
+				var peopleOS = thisDB.createObjectStore("people",
+					{keyPath: "name"});
+
+			}
+    }
+
+		openRequest.onsuccess = function(e) {
+			console.log("running onsuccess");
+			db = e.target.result;
+
+			//Start listening for button clicks
+			$("#addForm").on("click", addForm);
+		}
+
+		openRequest.onerror = function(e) {
+			console.log("onerror!");
+			console.dir(e);
+		}
+
+	});
+
+	function addForm(e) {
+		var name = $("#name").val();
+		var phone = $("#phone").val();
+		var type = $("#type").val();
+		var number = $("#number").val();
+		var timein = $("#timein").val();
+		var timeout = $("#timeout").val();
+		var price = $("#price").val();
+
+		console.log("Adding "+name+"/"+phone"/"+type+"/"+number+"/"+timein+"/"+timeout+"/"+"/"+price);
+
+		//Get a transaction
+		//default for OS list is all, default for type is read
+		var transaction = db.transaction(["people"],"readwrite");
+		//Ask for the objectStore
+		var store = transaction.objectStore("people");
+
+		//Define a person
+		var person = {
+			name:name,
+			phone:phone,
+			type:type,
+			number:number,
+			timein:timein,
+			timeout:timeout,
+			price:price,
+			created:new Date().getTime()
+		}
+
+		//Perform the add
+		var request = store.add(person);
+
+		request.onerror = function(e) {
+			console.log("Error",e.target.error.name);
+			//some type of error handler
+		}
+
+		request.onsuccess = function(e) {
+			console.log("Success!");
+		}
+	}
+	</script>
+            
+     <script type="text/javascript">
+        function populate(b1, b2){
+            var b1 = document.getElementById(b1);
+            var b2 = document.getElementById(b2);
+
+            b2.innerHTML = "";
+            if(b1.value == "BMX"){
+                var optionArray = ["|", "bmx1|BMX1", "bmx2|BMX2", "bmx3|BMX3", "bmx4|BMX4", "bmx5|BMX5"];             
+            }   else if (b1.value == "MOUNTAIN BIKE") {
+                var optionArray = ["|", "mb1|MB1", "mb2|MB2", "mb3|MB3", "mb4|MB4", "mb5|MB5"];                
+            }   else if (b1.value == "GO KART") {
+                var optionArray = ["|", "gk1|GK1", "gk2|GK2", "gk3|GK3", "gk4|GK4", "gk5|GK5"];
+            }   else if (b1.value == "SIDE KART") {
+                var optionArray = ["|", "sk1|SK1", "sk2|SK2", "sk3|SK3", "sk4|SK4", "sk5|SK5"];
+            }
+            
+            for(var option in optionArray) {
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option")
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                b2.options.add(newOption);               
+            }
+        }     
+     </script>
   </body>
 </html>

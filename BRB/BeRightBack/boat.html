@@ -4,6 +4,7 @@
 <head>
  
 	<link rel="manifest" href="manifest.json">
+    <script src="../BeRightBack/js/type.json"></script>
  	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="mobile-web-app-capable" content="yes">
@@ -39,7 +40,7 @@
   <link href="img/BRBIcon.png" rel="icon">
 </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="idbOK()">
 
 <!-- Navigation -->
   <nav class="navbar" id="mainNav">
@@ -62,19 +63,31 @@
                     <form id="saveInput" class="floating-label-form-group" method="post">
                         Name:<br><input class="form-control" type="text" id="name" required><br><br>
                         Phone Number:<br><input class="form-control" type="tel" id="phone" required><br><br>
-                        Type of Boat:<br><select class="form-control" id="type" required>
-                            <option value="" selected></option>
-                            <option value="ROW">ROW</option>
-                            <option value="PEDAL">PEDAL</option>
-                                        </select><br><br>
-                        Number of Boats:<br><input class="form-control" type="number" min="1" id="number" required><br><br>
+                        Type of Boat:<br>
+                            <select name="type" class="form-control" id="type" onchange="populate(this.id, 'number')" required>
+                                <option value="" selected></option>
+                                <option value="ROW">ROW</option>
+                                <option value="PEDAL">PEDAL</option>
+                            </select><br><br>
+                        Boat Number:<br>
+                            <select name="number" class="form-control" id="number" required>
+                                <option value=""></option>
+                            </select><br><br>
                         Time-In:<br><input class="form-control" type="time" id="timein" required><br><br>
-                        Time-Out:<br><input class="form-control" type="time" id="timeout" required><br><br>
+                        Duration:<br>
+                        <select class="form-control" id="timeout" required>
+                           <option value="" selected></option>
+                           <option value="1800">30 MIN</option>
+                           <option value="3600">1 HOUR</option>
+                           <option value="5400">1 HOUR 30 MIN</option>
+                           <option value="7200">2 HOUR</option>
+                           <option default>FREE TIME</option>
+                        </select><br><br>
                         Price:<br><input class="form-control" type="number" min="100" step="10" id="price" required><br><br>
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction()" value="Submit">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime()" value="Submit" id="addForm">
                                 <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
                             </form>
                         <br><br>
@@ -91,12 +104,14 @@
 		      <th>Name</th>
 		      <th>Phone Number</th>
 		      <th>Type of Boat</th>
-		      <th>Number of Boats</th>
+		      <th>Ride Number</th>
 		      <th>Time In</th>
-		      <th>Time Out</th>
+		      <th>Duration</th>
 		      <th>Price</th>
             </tr>
             </table>
+                <br>
+                <center>Countdown:<p id="tid"></p></center>
             <br><br>
         </div>
     </section>
@@ -143,15 +158,20 @@
   
       <!-- Service worker registration -->
       <script type="text/javascript">
-            if (navigator.serviceWorker.controller) {
-                console.log('[PWA Builder] active service worker found, no need to register')
-            } else {
-                navigator.serviceWorker.register('pwabuilder-sw.js', {
-                    scope: './'
-                }).then(function(reg) {
-                    console.log('Service worker has been registered for scope:'+ reg.scope);
-                });
-            }
+           //This is the service worker with the Cache-first network
+
+          //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+          if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+          } else {
+
+            //Register the ServiceWorker
+            navigator.serviceWorker.register('pwabuilder-sw.js', {
+            scope: './'
+            }).then(function(reg) {
+            console.log('Service worker has been registered for scope:'+ reg.scope);
+            });
+        }
         </script>
       
     <script>
@@ -191,12 +211,11 @@
 		var f = document.getElementById("timeout").value;
 		var g = document.getElementById("price").value;
 		
-                document.getElementById('name').value = '';
+        document.getElementById('name').value = '';
         document.getElementById('phone').value = '';
         document.getElementById('type').value = '';
         document.getElementById('number').value = '';
         document.getElementById('timein').value = '';
-        document.getElementById('timeout').value = '';
       
         alert("Successfully added input!");
               
@@ -216,7 +235,6 @@
         localStorage.setItem('timeout','');
         localStorage.setItem('price','');
       
-        setTimeout( function ( ) { alert( "The time has now started!" ); }, 60000 );     
           }          
       </script>
  
@@ -224,6 +242,39 @@
       function resetFunction() {
           document.getElementById("saveInput").reset();
       }
+      </script>
+      
+      <script>
+          var timer;
+          var counter; 
+
+        document.getElementById('saveInput').onsubmit = enter;
+
+          function init(){
+              timer = setInterval(decTime,1000);
+          }
+
+          function getTime(){
+            setTimeout( function ( ) { alert( "The time has now started!" ); }, 2000 );              
+            counter = document.getElementById("timeout").value;
+          }
+
+          function decTime(){
+              counter = counter - 1;
+                document.getElementById("timeout").value = '';
+
+              document.getElementById("tid").innerHTML = counter;
+              if (counter <= 0){
+                clearInterval(timer);
+                document.getElementById("tid").innerHTML = alert("The time has expired!".toUpperCase());
+                return;
+                  
+              }
+
+              var p = document.getElementById("tid");
+              p.innerHTML = counter;
+            }
+ 
       </script>
       
       <script>
@@ -252,26 +303,108 @@
     </script>
       
     <script>
-      var iDB = window.indexedDB;
-          request = iDB.open('brb', 2);
-        
-          console.log(request);
-          
-        //Upgrade
-        request.onupgradeneeded = function() {
-                console.log('Upgrade');
-        }
-        
-        //Error
-        request.onerror = function(event) {
-                console.log('Error', event.target.error.name);
-        }
+	function idbOK() {
+		return "indexedDB" in window;
+	}
 
-        //Success
-        request.onsuccess = function(event) {
-                console.log('Success', event.target.success.name);
-        }              
-      </script>
+	var db;
 
+	$(document).ready(function() {
+
+		//No support? Go in the corner and pout.
+		if(!idbOK()) return;
+
+		var openRequest = indexedDB.open("brb",2);
+
+		openRequest.onupgradeneeded = function(e) {
+			var thisDB = e.target.result;
+			console.log("running onupgradeneeded");
+
+			if(!thisDB.objectStoreNames.contains("people")) {
+				var peopleOS = thisDB.createObjectStore("people",
+					{keyPath: "name"});
+
+			}
+    }
+
+		openRequest.onsuccess = function(e) {
+			console.log("running onsuccess");
+			db = e.target.result;
+
+			//Start listening for button clicks
+			$("#addForm").on("click", addForm);
+		}
+
+		openRequest.onerror = function(e) {
+			console.log("onerror!");
+			console.dir(e);
+		}
+
+	});
+
+	function addForm(e) {
+		var name = $("#name").val();
+		var phone = $("#phone").val();
+		var type = $("#type").val();
+		var number = $("#number").val();
+		var timein = $("#timein").val();
+		var timeout = $("#timeout").val();
+		var price = $("#price").val();
+
+		console.log("Adding "+name+"/"+phone"/"+type+"/"+number+"/"+timein+"/"+timeout+"/"+"/"+price);
+
+		//Get a transaction
+		//default for OS list is all, default for type is read
+		var transaction = db.transaction(["people"],"readwrite");
+		//Ask for the objectStore
+		var store = transaction.objectStore("people");
+
+		//Define a person
+		var person = {
+			name:name,
+			phone:phone,
+			type:type,
+			number:number,
+			timein:timein,
+			timeout:timeout,
+			price:price,
+			created:new Date().getTime()
+		}
+
+		//Perform the add
+		var request = store.add(person);
+
+		request.onerror = function(e) {
+			console.log("Error",e.target.error.name);
+			//some type of error handler
+		}
+
+		request.onsuccess = function(e) {
+			console.log("Success!");
+		}
+	}
+	</script>
+
+           <script type="text/javascript">
+        function populate(b1, b2){
+            var b1 = document.getElementById(b1);
+            var b2 = document.getElementById(b2);
+
+            b2.innerHTML = "";
+            if(b1.value == "ROW"){
+                var optionArray = ["|", "row1|ROW1", "row2|ROW2", "row3|ROW3", "row4|ROW4", "row5|ROW5"];             
+            }   else if (b1.value == "PEDAL") {
+                var optionArray = ["|", "pedal1|PEDAL1", "pedal2|PEDAL2", "pedal3|PEDAL3", "pedal4|PEDAL4", "pedal5|PEDAL5"];       
+            }   
+            
+            for(var option in optionArray) {
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option")
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                b2.options.add(newOption);               
+            }
+        }     
+     </script>
   </body>
 </html>
