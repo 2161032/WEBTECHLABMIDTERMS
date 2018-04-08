@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" manifest="manifest.caching">
 
 <head>
  
@@ -40,7 +40,7 @@
   <link href="img/BRBIcon.png" rel="icon">
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="loadAll()">
 
 <!-- Navigation -->
   <nav class="navbar" id="mainNav">
@@ -162,5 +162,16 @@
         }
         </script>
             
+        <script type="text/javascript">
+            var db = opendatabase('brb','1.0','BRB data', 2*1024*1024);
+
+            function loadAll(){
+                db.transaction(function (tx) {
+                tx.executeSql('Create table if it doesn't exist(id integer primary key autoincrement, name text, description text)');
+                tx.executeSql('Insert data (name, creationDate) VALUES (?,?)', ["User 1", new Data()]);
+                tx.executeSql('Insert data (name, creationDate) VALUES (?,?)', ["User 2", new Data(2018-04-08)]);
+                )};
+        )};
+    </script>
     </body>
 </html>
