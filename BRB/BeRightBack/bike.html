@@ -61,7 +61,6 @@
                   <hr><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">   <center></center>                     
                     <form id="saveInput" class="floating-label-form-group"  method="post" onsubmit="addCustomer()">
                         Name:<br><input class="form-control" type="text" id="name" required><br><br>
-                        Phone Number:<br><input class="form-control" type="tel" id="phone" required><br><br>
                         Type of Bike:<br>
                             <select name="type" class="form-control" id="type" onchange="populate(this.id, 'number')" required>
                                 <option value="" selected></option>
@@ -104,7 +103,6 @@
             <table id="myTable">
             <tr>
 		      <th>Name</th>
-		      <th>Phone Number</th>
 		      <th>Type of Bike</th>
 		      <th>Ride Number</th>
 		      <th>Time In</th>
@@ -204,45 +202,38 @@
             var cell4 = row.insertCell(3);
             var cell5 = row.insertCell(4);
             var cell6 = row.insertCell(5);
-            var cell7 = row.insertCell(6);
 		 
 		var a = document.getElementById("name");
         localStorage.setItem('name',a.value);
         let a1 = localStorage.getItem('name');
         console.log(a1);
                           
-		var b = document.getElementById("phone");
-        localStorage.setItem('phone',b.value);
-        let b1 = localStorage.getItem('phone');
+        var b = document.getElementById("type");
+        localStorage.setItem('type',b.value);
+        let b1 = localStorage.getItem('type');
         console.log(b1);
               
-        var c = document.getElementById("type");
-        localStorage.setItem('type',c.value);
-        let c1 = localStorage.getItem('type');
+		var c = document.getElementById("number");
+        localStorage.setItem('number',c.value);
+        let c1 = localStorage.getItem('number');
         console.log(c1);
               
-		var d = document.getElementById("number");
-        localStorage.setItem('number',d.value);
-        let d1 = localStorage.getItem('number');
+        var d = document.getElementById("timein");
+        localStorage.setItem('timein',d.value);
+        let d1 = localStorage.getItem('timein');
         console.log(d1);
-              
-        var e = document.getElementById("timein");
-        localStorage.setItem('timein',e.value);
-        let e1 = localStorage.getItem('timein');
-        console.log(e1);
                 
-		var f = document.getElementById("timeout");
-        localStorage.setItem('timeout',f.value);
-        let f1 = localStorage.getItem('timeout');
+		var e = document.getElementById("timeout");
+        localStorage.setItem('timeout',e.value);
+        let e1 = localStorage.getItem('timeout');
+        console.log(e1);
+              
+		var f = document.getElementById("price");
+        localStorage.setItem('price',f.value);
+        let f1 = localStorage.getItem('price');
         console.log(f1);
-              
-		var g = document.getElementById("price");
-        localStorage.setItem('price',g.value);
-        let g1 = localStorage.getItem('timeout');
-        console.log(g1);
-              
+            
         document.getElementById('name').value = '';
-        document.getElementById('phone').value = '';
         document.getElementById('type').value = '';
         document.getElementById('number').value = '';
         document.getElementById('timein').value = '';
@@ -250,33 +241,26 @@
         alert("Successfully added input!");
               
         cell1.innerHTML = a1; 
-        cell2.innerHTML = b1;
+		cell2.innerHTML = b1;
 		cell3.innerHTML = c1;
 		cell4.innerHTML = d1;
 		cell5.innerHTML = e1;
-		cell6.innerHTML = f1;
-		cell7.innerHTML = g1;   
-        }  
+		cell6.innerHTML = f1;   
+        } 
       </script>
-
-      <script>
-      function resetFunction() {
-         document.getElementById("saveInput").reset();
-      }
-      </script>
-    
+      
       <script>
           var timer;
           var counter; 
 
-        document.getElementById('saveInput').onsubmit;
+        document.getElementById('saveInput').onsubmit = enter;
 
           function init(){
               timer = setInterval(decTime,1000);
           }
 
           function getTime(){
-            setTimeout( function ( ) { alert( "The time has now started!" ); }, 2000 );              
+            setTimeout( function () { alert( "The time has now started!" ); }, 2000 );              
             counter = document.getElementById("timeout").value;
           }
 
@@ -299,11 +283,17 @@
       </script>
       
       <script>
+      function resetFunction() {
+          document.getElementById("saveInput").reset();
+      }
+      </script>
+      
+        <script>
         var total = 0;
+                  
+        document.getElementById('saveInput').onsubmit = enter;
 
-        document.getElementById('saveInput').onsubmit;
-
-        function myEntryFunction() {    
+        function myEntryFunction() {
             var entry = document.getElementById('price').value;
             var entry = parseFloat(entry);
                 currency = currencyFormat(entry);
@@ -322,7 +312,7 @@
             return currency;
         }
     </script>
-
+      
     <script>
 	function idbOK() {
 		return "indexedDB" in window;
@@ -365,14 +355,13 @@
 
 	function addForm(e) {
 		var name = $("#name").val();
-		var phone = $("#phone").val();
 		var type = $("#type").val();
 		var number = $("#number").val();
 		var timein = $("#timein").val();
 		var timeout = $("#timeout").val();
 		var price = $("#price").val();
 
-		console.log("Adding "+name+"/"+phone"/"+type+"/"+number+"/"+timein+"/"+timeout+"/"+"/"+price);
+		console.log("Adding "+name+"/"+type+"/"+number+"/"+timein+"/"+timeout+"/"+"/"+price);
 
 		//Get a transaction
 		//default for OS list is all, default for type is read
@@ -383,7 +372,6 @@
 		//Define a person
 		var person = {
 			name:name,
-			phone:phone,
 			type:type,
 			number:number,
 			timein:timein,
@@ -404,22 +392,19 @@
 			console.log("Success!");
 		}
 	}
+	
 	</script>
-            
-     <script type="text/javascript">
+
+           <script type="text/javascript">
         function populate(b1, b2){
             var b1 = document.getElementById(b1);
             var b2 = document.getElementById(b2);
 
             b2.innerHTML = "";
-            if(b1.value == "BMX"){
-                var optionArray = ["|", "bmx1|BMX1", "bmx2|BMX2", "bmx3|BMX3", "bmx4|BMX4", "bmx5|BMX5"];             
-            }   else if (b1.value == "MOUNTAIN BIKE") {
-                var optionArray = ["|", "mb1|MB1", "mb2|MB2", "mb3|MB3", "mb4|MB4", "mb5|MB5"];                
-            }   else if (b1.value == "GO KART") {
-                var optionArray = ["|", "gk1|GK1", "gk2|GK2", "gk3|GK3", "gk4|GK4", "gk5|GK5"];
-            }   else if (b1.value == "SIDE KART") {
-                var optionArray = ["|", "sk1|SK1", "sk2|SK2", "sk3|SK3", "sk4|SK4", "sk5|SK5"];
+            if(b1.value == "ARTISTIC"){
+                var optionArray = ["|", "as1|AS1", "as2|AS2", "as3|AS3", "as4|AS4", "as5|AS5"];             
+            }   else if (b1.value == "BLADES") {
+                var optionArray = ["|", "rb1|RB1", "rb2|RB2", "rb3|RB3", "rb4|RB4", "rb5|RB5"];
             }
             
             for(var option in optionArray) {
