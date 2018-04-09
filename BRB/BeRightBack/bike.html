@@ -27,7 +27,7 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-
+    
     <title>Be Right Back</title>
 
   <!-- Custom fonts -->
@@ -36,10 +36,10 @@
   <!-- Custom styles -->
   <link href="css/styles.css" rel="stylesheet">
   <!-- Website Icon -->
-  <link href="img/BRBIcon.png" rel="icon">  
+  <link href="img/BRBIcon.png" rel="icon">
 </head>
 
-  <body id="page-top" onload="idbOK()">
+  <body id="page-top" onload="loadAll()">
 
     <!-- Navigation -->
  <nav class="navbar" id="mainNav">
@@ -88,7 +88,7 @@
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime()" value="Submit" id="addForm">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime();" value="Submit" id="addForm">
                                 <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
                             </form>
                         <br><br>
@@ -195,7 +195,7 @@
     </script>
       
     <script>
-          function myFunction() {
+        function myFunction() {
             var table = document.getElementById("myTable");
             var row = table.insertRow(1);
             var cell1 = row.insertCell(0);
@@ -205,15 +205,42 @@
             var cell5 = row.insertCell(4);
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
-
-		var a = document.getElementById("name").value;
-		var b = document.getElementById("phone").value;
-        var c = document.getElementById("type").value;
-		var d = document.getElementById("number").value;
-		var e = document.getElementById("timein").value;
-		var f = document.getElementById("timeout").value;
-		var g = document.getElementById("price").value;
-        
+		 
+		var a = document.getElementById("name");
+        localStorage.setItem('name',a.value);
+        let a1 = localStorage.getItem('name');
+        console.log(a1);
+                          
+		var b = document.getElementById("phone");
+        localStorage.setItem('phone',b.value);
+        let b1 = localStorage.getItem('phone');
+        console.log(b1);
+              
+        var c = document.getElementById("type");
+        localStorage.setItem('type',c.value);
+        let c1 = localStorage.getItem('type');
+        console.log(c1);
+              
+		var d = document.getElementById("number");
+        localStorage.setItem('number',d.value);
+        let d1 = localStorage.getItem('number');
+        console.log(d1);
+              
+        var e = document.getElementById("timein");
+        localStorage.setItem('timein',e.value);
+        let e1 = localStorage.getItem('timein');
+        console.log(e1);
+                
+		var f = document.getElementById("timeout");
+        localStorage.setItem('timeout',f.value);
+        let f1 = localStorage.getItem('timeout');
+        console.log(f1);
+              
+		var g = document.getElementById("price");
+        localStorage.setItem('price',g.value);
+        let g1 = localStorage.getItem('timeout');
+        console.log(g1);
+              
         document.getElementById('name').value = '';
         document.getElementById('phone').value = '';
         document.getElementById('type').value = '';
@@ -222,27 +249,19 @@
       
         alert("Successfully added input!");
               
-		cell1.innerHTML = a;
-        cell2.innerHTML = b;
-		cell3.innerHTML = c;
-		cell4.innerHTML = d;
-		cell5.innerHTML = e;
-		cell6.innerHTML = f;
-		cell7.innerHTML = g;
-              
-        localStorage.setItem('name','');
-        localStorage.setItem('phone','');
-        localStorage.setItem('type','');
-        localStorage.setItem('number','');
-        localStorage.setItem('timein','');
-        localStorage.setItem('timeout','');
-        localStorage.setItem('price','');
-    }
+        cell1.innerHTML = a1; 
+        cell2.innerHTML = b1;
+		cell3.innerHTML = c1;
+		cell4.innerHTML = d1;
+		cell5.innerHTML = e1;
+		cell6.innerHTML = f1;
+		cell7.innerHTML = g1;   
+        }  
       </script>
-      
+
       <script>
       function resetFunction() {
-          document.getElementById("saveInput").reset();
+         document.getElementById("saveInput").reset();
       }
       </script>
     
@@ -250,7 +269,7 @@
           var timer;
           var counter; 
 
-        document.getElementById('saveInput').onsubmit = enter;
+        document.getElementById('saveInput').onsubmit;
 
           function init(){
               timer = setInterval(decTime,1000);
@@ -282,7 +301,7 @@
       <script>
         var total = 0;
 
-        document.getElementById('saveInput').onsubmit = enter;
+        document.getElementById('saveInput').onsubmit;
 
         function myEntryFunction() {    
             var entry = document.getElementById('price').value;
@@ -412,5 +431,67 @@
             }
         }     
      </script>
+      
+      <script>
+          var db = openDatabase('brb', '1.0', 'BRB_db',  2 * 1024 * 1024);
+
+    function loadAll(){
+    db.transaction(function (tx) {
+        tx.executeSql("CREATE TABLE IF NOT EXISTS user(id INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT, name TEXT)");
+        
+        tx.executeSql("INSERT INTO user (id, name) VALUES (1, 'user 1'); ");
+        tx.executeSql("INSERT INTO user (id, name) VALUES (2, 'user 2'); ");
+        tx.executeSql("INSERT INTO user (id, name) VALUES (3, 'user 3'); ");
+        tx.executeSql("INSERT INTO user (id, name) VALUES (4, 'user 4'); ");
+        tx.executeSql("INSERT INTO user (id, name) VALUES (5, 'user 5'); ");
+        tx.executeSql("INSERT INTO user (id, name) VALUES (6, 'user 6'); ");
+
+    }, error_log);
+}
+    
+    function displayAll(){        
+        db.transaction(function (tx) {
+        tx.executeSql("CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, type TEXT, number TEXT, timein NUMBER, timeout TEXT, price, NUMBER); ");
+        
+        tx.executeSql("SELECT * FROM user", [], function(tx,results) {
+            var n_rows = results.rows.length;
+            var row = '<table>';
+            console.log("Number of users: "+n_rows+" ");
+            
+            for (var i=0; i<n_rows; i++) {
+                row = results.rows.item(i);
+                console.log("User: "+row.id+" - "+row.name);
+                row += '<tr>';
+                row += '<td>' + user.name +'</td>';
+                row += '<td>' + user.type +'</td>';
+                row += '<td>' + user.number +'</td>';
+                row += '<td>' + user.timein +'</td>';
+                row += '<td>' + user.timeout +'</td>';
+                row += '<td>' + user.price +'</td>';
+                row += '<tr>';
+            }
+            row += '</table>';
+            document.getElementById('saveInput').innerHTML = row;
+            });
+    }, error_log);
+}
+
+    function addAll(){
+        db.transaction(function (tx) {
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var type = document.getElementById('type').value;
+            var number = document.getElementById('number').value;
+            var timein = document.getElementById('timein').value;
+            var timeout = document.getElementById('timeout').value;
+            var price = document.getElementById('price').value;
+            tx.executeSql('INSERT INTO user(name, phone, type, number, timein, timeout, price) values(?,?)', [name, phone, type, number, timein, timeout, price], displayAll());
+    });
+}
+
+    function error_log(error) {
+        console.log(error.message);
+    }
+      </script>
   </body>
 </html>

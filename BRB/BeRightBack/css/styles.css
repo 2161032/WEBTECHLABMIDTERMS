@@ -102,27 +102,9 @@ body{
         font-size:1.5em
     }
 }
-/**
-.menu-button{
-    font-family:Montserrat;
-    font-weight:700;
-    background-color:#dc3545;
-    border:1px solid #dc3545;
-    border-radius:5px; 
-    color:#fff;
-    padding:1rem;
-    text-align:center;
-    text-decoration:none;
-    display:inline-block;
-    font-size:.8rem;
-    margin:auto;
-    width:5rem; 
-    cursor:pointer;
-    text-transform: uppercase;
-}
-**/
-@media(min-width:320px) and (max-width:425px) {
-.menu-button{
+
+@media(min-width:0px) and (max-width:425px) {
+    .menu-button{
     float:right;
     font-family:Montserrat;
     font-weight:700;
@@ -203,7 +185,7 @@ body{
     background-color:#da190b; 
 }
 
-@media(min-width:320px) and (max-width:425px) {
+@media(min-width:0px) and (max-width:425px) {
 .go-button{
     float:right;
     font-family:Montserrat;
@@ -251,7 +233,26 @@ body{
     background-color:#da190b; 
 }
 
-@media (min-width:320px){
+@media(min-width:0px) and (max-width:250px) {
+    .choose-button{
+        background-color:transparent;
+        border:2px solid #fff;
+        border-radius:5px; 
+        color:#fff;
+        padding:.4rem;
+        text-align:center;
+        text-decoration:none;
+        display:inline-block;
+        font-size:.7rem;
+        margin:auto;
+        cursor:pointer;
+        width:7rem;
+        font-family:Montserrat; 
+    }
+}
+
+    
+@media(min-width:320px) {    
     .choose-button{
         background-color:transparent;
         border:2px solid #fff;
@@ -264,7 +265,7 @@ body{
         font-size:.8rem;
         margin:auto;
         cursor:pointer;
-        width:12rem;
+        width:10rem;
         font-family:Montserrat; 
     }
 }
@@ -275,14 +276,14 @@ body{
         border:2px solid #fff;
         border-radius:5px; 
         color:#fff;
-        padding:.8rem;
+        padding:1.5rem;
         text-align:center;
         text-decoration:none;
         display:inline-block;
-        font-size:.8rem;
+        font-size:1rem;
         margin:auto;
         cursor:pointer;
-        width:15rem;
+        width:20rem;
         font-family:Montserrat; 
     }
 }
@@ -480,12 +481,11 @@ header.mainhead h2{
     font-weight:bolder;
     margin-bottom:2rem; 
 }
-@media (min-width:320px){
+@media(min-width:0px) and (max-width:425px) {
     .choice-item img{
         width:90%;
         display:inline-block;
-}
-
+    }
 }
 
 // Section Padding Settings
@@ -910,7 +910,7 @@ table{
 }    
 }
 
-@media (max-width:569px){
+@media (min-width:540px) and (max-width:580px){
 #myTable{
     text-align:center;
     margin:auto;
@@ -919,8 +919,8 @@ table{
 #myTable th{
     border:2px solid white;
     color:#fff;
-    font-size:.5rem;
-    padding:.3rem;
+    font-size:.7rem;
+    padding:.4rem;
 }
 #myTable tr{
     background-color:#1a252f;
@@ -931,7 +931,7 @@ table{
 }        
 }
 
-@media (max-width:424px){
+@media (min-width: 450px) and (max-width:535px){
 #myTable{
     text-align:center;
     margin:auto;
@@ -940,7 +940,8 @@ table{
 #myTable th{
     border:2px solid white;
     color:#fff;
-    font-size:.2rem;
+    font-size:.6rem;
+    padding:4px 
 }
 #myTable tr{
     background-color:#1a252f;
@@ -951,7 +952,7 @@ table{
 }        
 }
 
-@media (max-width:264px){
+@media (max-width:449px){
 #myTable{
     text-align:center;
     margin:auto;
@@ -960,19 +961,42 @@ table{
 #myTable th{
     border:2px solid white;
     color:#fff;
-    font-size:3px;
-    padding:3px
+    font-size:7px;
+    padding:5px
 }
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
+    padding:2px    
 }
 #myTable td{
     border:2px solid white;
 }        
 }
 
-@media (max-width:0px){
+@media (max-width:340px){
+#myTable{
+    text-align:center;
+    margin:auto;
+    width:auto;
+}
+#myTable th{
+    border:2px solid white;
+    color:#fff;
+    font-size:5px;
+    padding:4px
+}
+#myTable tr{
+    background-color:#1a252f;
+    color:#fff;
+    padding:2px
+}
+#myTable td{
+    border:2px solid white;
+}        
+}
+
+@media (min-width:0px) and (max-width:295px){
 #myTable{
     text-align:center;
     margin:auto;
@@ -981,7 +1005,7 @@ table{
 #myTable th{
     color:#fff;
     font-size:5px;
-    padding:1px
+    padding:2px
 }
 #myTable tr{
     background-color:#1a252f;

@@ -191,8 +191,8 @@
         }
     </script>
       
-      <script>
-          function myFunction() {
+    <script>
+        function myFunction() {
             var table = document.getElementById("myTable");
             var row = table.insertRow(1);
             var cell1 = row.insertCell(0);
@@ -203,14 +203,41 @@
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
 		 
-		var a = document.getElementById("name").value;
-		var b = document.getElementById("phone").value;
-        var c = document.getElementById("type").value;
-		var d = document.getElementById("number").value;
-		var e = document.getElementById("timein").value;
-		var f = document.getElementById("timeout").value;
-		var g = document.getElementById("price").value;
-		
+		var a = document.getElementById("name");
+        localStorage.setItem('name',a.value);
+        let a1 = localStorage.getItem('name');
+        console.log(a1);
+                          
+		var b = document.getElementById("phone");
+        localStorage.setItem('phone',b.value);
+        let b1 = localStorage.getItem('phone');
+        console.log(b1);
+              
+        var c = document.getElementById("type");
+        localStorage.setItem('type',c.value);
+        let c1 = localStorage.getItem('type');
+        console.log(c1);
+              
+		var d = document.getElementById("number");
+        localStorage.setItem('number',d.value);
+        let d1 = localStorage.getItem('number');
+        console.log(d1);
+              
+        var e = document.getElementById("timein");
+        localStorage.setItem('timein',e.value);
+        let e1 = localStorage.getItem('timein');
+        console.log(e1);
+                
+		var f = document.getElementById("timeout");
+        localStorage.setItem('timeout',f.value);
+        let f1 = localStorage.getItem('timeout');
+        console.log(f1);
+              
+		var g = document.getElementById("price");
+        localStorage.setItem('price',g.value);
+        let g1 = localStorage.getItem('timeout');
+        console.log(g1);
+              
         document.getElementById('name').value = '';
         document.getElementById('phone').value = '';
         document.getElementById('type').value = '';
@@ -219,23 +246,14 @@
       
         alert("Successfully added input!");
               
-		cell1.innerHTML = a;
-        cell2.innerHTML = b;
-		cell3.innerHTML = c;
-		cell4.innerHTML = d;
-		cell5.innerHTML = e;
-		cell6.innerHTML = f;
-		cell7.innerHTML = g;
-        
-        localStorage.setItem('name','');
-        localStorage.setItem('phone','');
-        localStorage.setItem('type','');
-        localStorage.setItem('number','');
-        localStorage.setItem('timein','');
-        localStorage.setItem('timeout','');
-        localStorage.setItem('price','');
-      
-          }          
+        cell1.innerHTML = a1; 
+        cell2.innerHTML = b1;
+		cell3.innerHTML = c1;
+		cell4.innerHTML = d1;
+		cell5.innerHTML = e1;
+		cell6.innerHTML = f1;
+		cell7.innerHTML = g1;   
+        }  
       </script>
  
       <script>
