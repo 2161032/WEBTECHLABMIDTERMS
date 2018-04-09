@@ -87,7 +87,7 @@
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime();" value="Submit" id="addForm">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime();addAll()"; value="Submit" id="addForm">
                                 <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
                             </form>
                         <br><br>
@@ -112,6 +112,7 @@
             </table>
                 <br>
                 <center>Countdown:<p id="tid"></p></center>
+                <br>
             <br><br>
     </section>
 
@@ -233,11 +234,6 @@
         let f1 = localStorage.getItem('price');
         console.log(f1);
             
-        document.getElementById('name').value = '';
-        document.getElementById('type').value = '';
-        document.getElementById('number').value = '';
-        document.getElementById('timein').value = '';
-      
         alert("Successfully added input!");
               
         cell1.innerHTML = a1; 
@@ -253,22 +249,21 @@
           var timer;
           var counter; 
 
-        document.getElementById('saveInput').onsubmit = enter;
+        document.getElementById('saveInput').onsubmit;
 
           function init(){
               timer = setInterval(decTime,1000);
           }
 
           function getTime(){
-            setTimeout( function () { alert( "The time has now started!" ); }, 2000 );              
+            setTimeout( function () { alert( "The time has now started!" ); }, 1000 );              
             counter = document.getElementById("timeout").value;
           }
 
           function decTime(){
               counter = counter - 1;
-                document.getElementById("timeout").value = '';
 
-              document.getElementById("tid").innerHTML = counter;
+              document.getElementById("tid").value = counter;
               if (counter <= 0){
                 clearInterval(timer);
                 document.getElementById("tid").innerHTML = alert("The time has expired!".toUpperCase());
@@ -291,7 +286,7 @@
         <script>
         var total = 0;
                   
-        document.getElementById('saveInput').onsubmit = enter;
+        document.getElementById('saveInput').onsubmit
 
         function myEntryFunction() {
             var entry = document.getElementById('price').value;
@@ -300,8 +295,6 @@
                 document.getElementById('myEntries').innerHTML += '<tr><td></td><td>' + currency + '</td></tr>';
                 total += entry;
                 document.getElementById('total').innerHTML = currencyFormat(total);
-  
-                document.getElementById('price').value = '';
                 return false;
         }
 
@@ -312,89 +305,7 @@
             return currency;
         }
     </script>
-      
-    <script>
-	function idbOK() {
-		return "indexedDB" in window;
-	}
-
-	var db;
-
-	$(document).ready(function() {
-
-		//No support? Go in the corner and pout.
-		if(!idbOK()) return;
-
-		var openRequest = indexedDB.open("brb",2);
-
-		openRequest.onupgradeneeded = function(e) {
-			var thisDB = e.target.result;
-			console.log("running onupgradeneeded");
-
-			if(!thisDB.objectStoreNames.contains("people")) {
-				var peopleOS = thisDB.createObjectStore("people",
-					{keyPath: "name"});
-
-			}
-    }
-
-		openRequest.onsuccess = function(e) {
-			console.log("running onsuccess");
-			db = e.target.result;
-
-			//Start listening for button clicks
-			$("#addForm").on("click", addForm);
-		}
-
-		openRequest.onerror = function(e) {
-			console.log("onerror!");
-			console.dir(e);
-		}
-
-	});
-
-	function addForm(e) {
-		var name = $("#name").val();
-		var type = $("#type").val();
-		var number = $("#number").val();
-		var timein = $("#timein").val();
-		var timeout = $("#timeout").val();
-		var price = $("#price").val();
-
-		console.log("Adding "+name+"/"+type+"/"+number+"/"+timein+"/"+timeout+"/"+"/"+price);
-
-		//Get a transaction
-		//default for OS list is all, default for type is read
-		var transaction = db.transaction(["people"],"readwrite");
-		//Ask for the objectStore
-		var store = transaction.objectStore("people");
-
-		//Define a person
-		var person = {
-			name:name,
-			type:type,
-			number:number,
-			timein:timein,
-			timeout:timeout,
-			price:price,
-			created:new Date().getTime()
-		}
-
-		//Perform the add
-		var request = store.add(person);
-
-		request.onerror = function(e) {
-			console.log("Error",e.target.error.name);
-			//some type of error handler
-		}
-
-		request.onsuccess = function(e) {
-			console.log("Success!");
-		}
-	}
-	
-	</script>
-            
+                  
      <script type="text/javascript">
         function populate(b1, b2){
             var b1 = document.getElementById(b1);
@@ -422,65 +333,58 @@
      </script>
       
       <script>
-          var db = openDatabase('brb', '1.0', 'BRB_db',  2 * 1024 * 1024);
+          var shortName='BRB_db';
+          var version='0.1'
+          var displayName='BRB_Database';
+          var maxSize = 65536;  
+          db = openDatabase(shortName, version, displayName, maxSize);
 
-    function loadAll(){
-    db.transaction(function (tx) {
-        tx.executeSql("CREATE TABLE IF NOT EXISTS user(id INTEGER UNIQUE PRIMARY KEY AUTOINCREMENT, name TEXT)");
-        
-        tx.executeSql("INSERT INTO user (id, name) VALUES (1, 'user 1'); ");
-        tx.executeSql("INSERT INTO user (id, name) VALUES (2, 'user 2'); ");
-        tx.executeSql("INSERT INTO user (id, name) VALUES (3, 'user 3'); ");
-        tx.executeSql("INSERT INTO user (id, name) VALUES (4, 'user 4'); ");
-        tx.executeSql("INSERT INTO user (id, name) VALUES (5, 'user 5'); ");
-        tx.executeSql("INSERT INTO user (id, name) VALUES (6, 'user 6'); ");
-
-    }, error_log);
-}
-    
-    function displayAll(){        
-        db.transaction(function (tx) {
-        tx.executeSql("CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, type TEXT, number TEXT, timein NUMBER, timeout TEXT, price, NUMBER); ");
-        
-        tx.executeSql("SELECT * FROM user", [], function(tx,results) {
-            var n_rows = results.rows.length;
-            var row = '<table>';
-            console.log("Number of users: "+n_rows+" ");
-            
-            for (var i=0; i<n_rows; i++) {
-                row = results.rows.item(i);
-                console.log("User: "+row.id+" - "+row.name);
-                row += '<tr>';
-                row += '<td>' + user.name +'</td>';
-                row += '<td>' + user.type +'</td>';
-                row += '<td>' + user.number +'</td>';
-                row += '<td>' + user.timein +'</td>';
-                row += '<td>' + user.timeout +'</td>';
-                row += '<td>' + user.price +'</td>';
-                row += '<tr>';
+          function loadAll(){
+            db.transaction(function(transaction) {
+                transaction.executeSql (
+                ' CREATE TABLE IF NOT EXISTS bike_data ' +
+                ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
+                ' name TEXT NOT NULL, ' + 
+                ' type NOT NULL, ' + 
+                ' number NOT NULL, ' + 
+                ' timein NOT NULL, ' + 
+                ' timeout NOT NULL, ' + 
+                ' price INTEGER NOT NULL);')
             }
-            row += '</table>';
-            document.getElementById('saveInput').innerHTML = row;
+            )
+          };   
+          
+            function displayAll(){        
+                db.transaction(function(transaction) {
+                    transaction.executeSql('SELECT * FROM bike_data', [], function(transaction,results) {
+                        var n_rows = results.rows.length;
+                        console.log("Number of users: "+n_rows+" ");
+                    });
+                }, error_log);
+            }
+
+        function addAll(){
+            db.transaction(function (transaction) {
+                var name = document.getElementById('name').value;
+                var type = document.getElementById('type').value;
+                var number = document.getElementById('number').value;
+                var timein = document.getElementById('timein').value;
+                var timeout = document.getElementById('timeout').value;
+                var price = document.getElementById('price').value;
+                transaction.executeSql('INSERT INTO bike_data(name, type, number, timein, timeout, price) values(?,?,?,?,?,?)', [name, type, number, timein, timeout, price], displayAll());
+            
+                document.getElementById('name').value = '';
+                document.getElementById('type').value = '';
+                document.getElementById('number').value = '';
+                document.getElementById('timein').value = '';
+                document.getElementById('timeout').value = '';
+                document.getElementById('price').value = '';
             });
-    }, error_log);
-}
+        }
 
-    function addAll(){
-        db.transaction(function (tx) {
-            var name = document.getElementById('name').value;
-            var phone = document.getElementById('phone').value;
-            var type = document.getElementById('type').value;
-            var number = document.getElementById('number').value;
-            var timein = document.getElementById('timein').value;
-            var timeout = document.getElementById('timeout').value;
-            var price = document.getElementById('price').value;
-            tx.executeSql('INSERT INTO user(name, phone, type, number, timein, timeout, price) values(?,?)', [name, phone, type, number, timein, timeout, price], displayAll());
-    });
-}
-
-    function error_log(error) {
-        console.log(error.message);
-    }
+        function error_log(error) {
+            console.log(error.message);
+        }
       </script>
   </body>
 </html>
