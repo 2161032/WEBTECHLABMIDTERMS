@@ -233,7 +233,7 @@ body{
     background-color:#da190b; 
 }
 
-@media(min-width:0px) and (max-width:250px) {
+@media(min-width:0px) and (max-width:320px) {
     .choose-button{
         background-color:transparent;
         border:2px solid #fff;
@@ -252,7 +252,7 @@ body{
 }
 
     
-@media(min-width:320px) {    
+@media(min-width:230px) {    
     .choose-button{
         background-color:transparent;
         border:2px solid #fff;
@@ -283,7 +283,7 @@ body{
         font-size:1rem;
         margin:auto;
         cursor:pointer;
-        width:20rem;
+        width:15rem;
         font-family:Montserrat; 
     }
 }
