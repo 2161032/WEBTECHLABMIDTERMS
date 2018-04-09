@@ -394,17 +394,21 @@
 	}
 	
 	</script>
-
-           <script type="text/javascript">
+            
+     <script type="text/javascript">
         function populate(b1, b2){
             var b1 = document.getElementById(b1);
             var b2 = document.getElementById(b2);
 
             b2.innerHTML = "";
-            if(b1.value == "ARTISTIC"){
-                var optionArray = ["|", "as1|AS1", "as2|AS2", "as3|AS3", "as4|AS4", "as5|AS5"];             
-            }   else if (b1.value == "BLADES") {
-                var optionArray = ["|", "rb1|RB1", "rb2|RB2", "rb3|RB3", "rb4|RB4", "rb5|RB5"];
+            if(b1.value == "BMX"){
+                var optionArray = ["|", "bmx1|BMX1", "bmx2|BMX2", "bmx3|BMX3", "bmx4|BMX4", "bmx5|BMX5"];             
+            }   else if (b1.value == "MOUNTAIN BIKE") {
+                var optionArray = ["|", "mb1|MB1", "mb2|MB2", "mb3|MB3", "mb4|MB4", "mb5|MB5"];                
+            }   else if (b1.value == "GO KART") {
+                var optionArray = ["|", "gk1|GK1", "gk2|GK2", "gk3|GK3", "gk4|GK4", "gk5|GK5"];
+            }   else if (b1.value == "SIDE KART") {
+                var optionArray = ["|", "sk1|SK1", "sk2|SK2", "sk3|SK3", "sk4|SK4", "sk5|SK5"];
             }
             
             for(var option in optionArray) {
