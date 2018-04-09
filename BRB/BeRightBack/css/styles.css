@@ -961,12 +961,13 @@ table{
 #myTable th{
     border:2px solid white;
     color:#fff;
-    font-size:7px;
+    font-size:9px;
     padding:5px
 }
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
+    font-size:7px;
     padding:2px    
 }
 #myTable td{
@@ -983,12 +984,13 @@ table{
 #myTable th{
     border:2px solid white;
     color:#fff;
-    font-size:5px;
+    font-size:7px;
     padding:4px
 }
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
+    font-size:5px;
     padding:2px
 }
 #myTable td{
