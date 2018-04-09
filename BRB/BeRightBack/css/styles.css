@@ -481,11 +481,9 @@ header.mainhead h2{
     font-weight:bolder;
     margin-bottom:2rem; 
 }
-@media(min-width:0px) and (max-width:425px) {
-    .choice-item img{
-        width:90%;
-        display:inline-block;
-    }
+.choice-item img{
+    width:90%;
+    display:inline-block;
 }
 
 // Section Padding Settings
