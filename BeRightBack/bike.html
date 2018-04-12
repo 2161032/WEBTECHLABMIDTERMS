@@ -68,13 +68,10 @@
               <div class="container">
                   <br><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">  <form id="saveInput" class="floating-label-form-group"  method="post" onsubmit="addCustomer()">
                         Name:<br><input class="form-control" type="text" id="name" required><br><br>
+                        <!-- Implement JSON file -->
                         Type of Bike:<br>
-                            <select name="type" class="form-control" id="type" onchange="populate(this.id, 'number')" required>
+                            <select name="type" class="form-control" id="type" required>
                                 <option value="" selected></option>
-                                <option value="BMX">BMX</option>
-                                <option value="MOUNTAIN BIKE">MOUNTAIN BIKE</option>
-                                <option value="GO KART">GO KART</option>
-                                <option value="SIDE KART">SIDE KART</option>
                             </select><br><br>
                         Bike Number:<br>
                             <select name="number" class="form-control" id="number" required>
@@ -161,7 +158,7 @@
         }
         </script>
       
-      <script>
+ <!--   <script type="text/javascript">
         function populate(b1, b2){
             var b1 = document.getElementById(b1);
             var b2 = document.getElementById(b2);
@@ -186,6 +183,17 @@
             }
         }           
     </script>
+-->      
+      <script>
+      $.getJSON('type.json', function(data) {
+        rides = data['Bike']
+
+    $.each(rides, function(id, destination) {
+        ride = ride["Bike Type"]
+        alert(ride)
+    })
+});
+      </script>
       
   </body>
 </html>
