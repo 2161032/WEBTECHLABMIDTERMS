@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.caching">
+
+<head>
+ 
+	<link rel="manifest" href="manifest.json">
+ 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="BRB">
+	<meta name="apple-mobile-web-app-title" content="BRB">
+	<meta name="msapplication-starturl" content="/https://jeromesalazar.github.io/BeRightBack/">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+
+    <title>Be Right Back</title>
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template -->
+  <link href="css/styles.css" rel="stylesheet">
+  <!-- Website Icon -->
+  <link href="img/BRBIcon.png" rel="icon">
+    
+    <!-- Javascript -->
+    <script src="sw.js" type="text/javascript"></script>
+    <script src="js/scroll.js" type="text/javascript"></script>
+    <script src="js/boatdb.js" type="text/javascript"></script>
+    <script src="js/time.js" type="text/javascript"></script>
+    <script src="js/money.js" type="text/javascript"></script>
+    <script src="js/submit.js" type="text/javascript"></script>
+    <script src="js/reset.js" type="text/javascript"></script>
+    <script src="js/notify.js" type="text/javascript"></script>
+
+</head>
+
+  <body id="page-top" onload="loadAll()">
+
+<!-- Navigation -->
+  <nav class="navbar" id="mainNav">
+    <div class="brand-name">
+        <a class="navbar-brand" href="#page-top">BOAT</a>
+        <a href="index.html" class="go-button">Go Back</a>
+        <a href=""><img class="notify" src="img/bellIcon.png" alt="Bell icon"></a>
+    </div>
+  </nav>
+      
+    <header class="subhead">
+    </header>
+
+     <!-- Input Section -->
+            <section id="input">
+              <div class="container">
+                  <br><img class="img-ride" src="img/boatIcon.png" alt="BRB Boat">
+                    <form id="saveInput" class="floating-label-form-group" method="post">
+                        Name:<br><input class="form-control" type="text" id="name" required><br><br>
+                        Type of Boat:<br>
+                            <select name="type" class="form-control" id="type" onchange="populate(this.id, 'number')" required>
+                                <option value="" selected></option>
+                                <option value="ROW">ROW</option>
+                                <option value="PEDAL">PEDAL</option>
+                            </select><br><br>
+                        Boat Number:<br>
+                            <select name="number" class="form-control" id="number" required>
+                                <option value=""></option>
+                            </select><br><br>
+                        Time-In:<br><input class="form-control" type="time" id="timein" required><br><br>
+                        Duration:<br>
+                        <select class="form-control" id="timeout" required>
+                           <option value="" selected></option>
+                           <option value="1800">30 MIN</option>
+                           <option value="3600">1 HOUR</option>
+                           <option value="5400">1 HOUR 30 MIN</option>
+                           <option value="7200">2 HOUR</option>
+                           <option default>FREE TIME</option>
+                        </select><br><br>
+                        Price:<br><input class="form-control" type="number" min="100" step="10" id="price" required><br><br>
+                        <br>
+                  </form>
+                            <form class="form-button">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime();addAll()" value="Submit" id="addForm">
+                                <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
+                            </form>
+                        <br><br>
+                  </div>
+    </section>
+                                               
+<!-- About Rentals -->
+    <section class="bg-primary">
+      <div class="container">
+        <h2 class="text-primary">Rentals</h2>
+          <hr>
+        <table id="myTable">
+            <tr>
+		      <th>Name</th>
+		      <th>Type of Boat</th>
+		      <th>Ride Number</th>
+		      <th>Time In</th>
+		      <th>Duration</th>
+		      <th>Price</th>
+            </tr>
+            </table>
+                <br>
+                <center>Countdown:<p id="tid"></p></center>
+            <br><br>
+        </div>
+    </section>
+
+<!-- Breakdown Section -->
+  <section class="bg-secondary">
+    <div class="container">
+      <h2 class="text-primary">Breakdown</h2>
+    </div>
+      <hr>
+      <table id="myEntries">
+      <tfoot>
+          <td>Total:</td>
+          <th id="total">P0.00</th>
+      </tfoot>
+    </table>
+  </section>
+          
+    <!-- Scroll to Top Button -->
+    <button onclick="topFunction()" id="up" title="Go up"><img class="img-up" src="img/upIcon.png" alt="up-icon"> 
+    </button>
+  
+      <!-- Service worker registration -->
+      <script type="text/javascript">
+           //This is the service worker with the Cache-first network
+
+          //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+          if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+          } else {
+
+            //Register the ServiceWorker
+            navigator.serviceWorker.register('pwabuilder-sw.js', {
+            scope: './'
+            }).then(function(reg) {
+            console.log('Service worker has been registered for scope:'+ reg.scope);
+            });
+        }
+        </script>
+            
+    <script type="text/javascript">
+        function populate(b1, b2){
+            var b1 = document.getElementById(b1);
+            var b2 = document.getElementById(b2);
+
+            b2.innerHTML = "";
+            if(b1.value == "ROW"){
+                var optionArray = ["|", "row1|ROW1", "row2|ROW2", "row3|ROW3", "row4|ROW4", "row5|ROW5"];             
+            }   else if (b1.value == "PEDAL") {
+                var optionArray = ["|", "pedal1|PEDAL1", "pedal2|PEDAL2", "pedal3|PEDAL3", "pedal4|PEDAL4", "pedal5|PEDAL5"];       
+            }   
+            
+            for(var option in optionArray) {
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option")
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                b2.options.add(newOption);               
+            }
+        }     
+     </script>
+      
+  </body>
+</html>
