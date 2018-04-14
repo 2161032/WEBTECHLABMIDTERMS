@@ -56,7 +56,6 @@
     <div class="brand-name">
         <a class="navbar-brand" href="#page-top">BOAT</a>
         <a href="index.html" class="go-button">Go Back</a>
-        <a href=""><img class="notify" src="img/bellIcon.png" alt="Bell icon"></a>
     </div>
   </nav>
       
@@ -71,7 +70,7 @@
                         Name:<br><input class="form-control" type="text" id="name" required><br><br>
                         <!-- Implement JSON file -->
                         Type of Boat:<br>
-                            <select name="type" class="form-control" id="type" required>
+                            <select name="type" class="form-control" id="type" onchange="show(this)" required>
                                 <option value="" selected></option>
                             </select><br><br>
                         Boat Number:<br>
