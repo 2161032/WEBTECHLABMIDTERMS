@@ -70,7 +70,7 @@
                         <!-- Implement JSON file -->
                         Type of Bike:<br>
                             <select name="type" class="form-control" id="type" onchange="show(this)" required>
-                                <option value="" selected></option>
+                                <option value="" selected></option> 
                             </select><br><br>
                         Bike Number:<br>
                             <select name="number" class="form-control" id="number" required>
@@ -184,15 +184,50 @@
     </script>
 -->      
       <script>
-      $.getJSON('type.json', function(data) {
-        rides = data['Bike']
+        var objType = [
+        {"id" : "0", "bike_name": "BMX"},
+        {"id" : "1", "bike_name": "Mountain Bike"},
+        {"id" : "2", "bike_name": "Go Kart"},
+        {"id" : "3", "bike_name": "Side Cart"},
+    ];
+        var objNumber = [
+        {"id" : "5", "bike_id": "0", "bike_number": "BMX1"},
+        {"id" : "6", "bike_id": "0", "bike_number": "BMX2"},
+        {"id" : "7", "bike_id": "0", "bike_number": "BMX3"},
+        {"id" : "8", "bike_id": "0", "bike_number": "BMX4"},
+        {"id" : "9", "bike_id": "0", "bike_number": "BMX5"},
+        {"id" : "10", "bike_id": "1", "bike_number": "MB1"},
+        {"id" : "11", "bike_id": "1", "bike_number": "MB2"},
+        {"id" : "12", "bike_id": "1", "bike_number": "MB3"},
+        {"id" : "13", "bike_id": "1", "bike_number": "MB4"},
+        {"id" : "14", "bike_id": "1", "bike_number": "MB5"},
+        {"id" : "10", "bike_id": "2", "bike_number": "GK1"},
+        {"id" : "11", "bike_id": "2", "bike_number": "GK2"},
+        {"id" : "12", "bike_id": "2", "bike_number": "GK3"},
+        {"id" : "13", "bike_id": "2", "bike_number": "GK4"},
+        {"id" : "14", "bike_id": "2", "bike_number": "GK5"},
+        {"id" : "0", "bike_id": "3", "bike_number": "SC1"},
+        {"id" : "1", "bike_id": "3", "bike_number": "SC2"},
+        {"id" : "2", "bike_id": "3", "bike_number": "SC3"},
+        {"id" : "3", "bike_id": "3", "bike_number": "SC4"},
+        {"id" : "4", "bike_id": "3", "bike_number": "SC5"},
+    ];               
+             
+        for(var i = 0; i < objType.length; i++){
+          var option = document.createElement("option");
+          option.text = objType[i].bike_name;
+          option.value = objType[i].id;
+          var select = document.getElementById("type");
+          select.appendChild(option);
+        }
 
-    $.each(rides, function(id, destination) {
-        ride = ride["Bike Type"]
-        alert(ride)
-    })
-});
-      </script>
-      
+        for(var i = 0; i < objNumber.length; i++){
+          var option = document.createElement("option");
+          option.text = objNumber[i].bike_number;
+          option.value = objNumber[i].bike_id;
+          var select = document.getElementById("number");
+          select.appendChild(option);
+        }                 
+      </script>     
   </body>
 </html>

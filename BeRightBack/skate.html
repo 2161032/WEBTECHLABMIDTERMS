@@ -182,14 +182,39 @@
      </script>
 -->
     <script>
-      $.getJSON('type.json', function(data) {
-        rides = data['Skate']
+        var skateObj = [
+        {"id" : "0", "skate_name": "Artistic Skates"},
+        {"id" : "1", "skate_name": "Roller Blades"},
+    ];                
+             
+        var skateNumber = [
+        {"id" : "0", "skate_id": "0", "skate_number": "AS1"},
+        {"id" : "1", "skate_id": "0", "skate_number": "AS2"},
+        {"id" : "2", "skate_id": "0", "skate_number": "AS3"},
+        {"id" : "3", "skate_id": "0", "skate_number": "AS4"},
+        {"id" : "4", "skate_id": "0", "skate_number": "AS5"},
+        {"id" : "5", "skate_id": "1", "skate_number": "RB1"},
+        {"id" : "6", "skate_id": "1", "skate_number": "RB2"},
+        {"id" : "7", "skate_id": "1", "skate_number": "RB3"},
+        {"id" : "8", "skate_id": "1", "skate_number": "RB4"},
+        {"id" : "9", "skate_id": "1", "skate_number": "RB5"}
+    ];               
+             
+        for(var i = 0; i < skateObj.length; i++){
+          var option = document.createElement("option");
+          option.text = skateObj[i].skate_name;
+          option.value = skateObj[i].id;
+          var select = document.getElementById("type");
+          select.appendChild(option);
+        }
 
-    $.each(rides, function(id, destination) {
-        ride = ride["Skate Type"]
-        alert(ride)
-    })
-});
+        for(var i = 0; i < skateNumber.length; i++){
+          var option = document.createElement("option");
+          option.text = skateNumber[i].skate_number;
+          option.value = skateNumber[i].skate_id;
+          var select = document.getElementById("number");
+          select.appendChild(option);
+        }                 
       </script>
 
   </body>

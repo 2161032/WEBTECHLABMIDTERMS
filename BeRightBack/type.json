@@ -1,11 +1,11 @@
 {
-    "Bike": [
+    [
         {"id" : "0", "bike_name": "BMX"},
         {"id" : "1", "bike_name": "Mountain Bike"},
         {"id" : "2", "bike_name": "Go Kart"},
         {"id" : "3", "bike_name": "Side Cart"},
     ],
-    "Bike Numbers": [
+    [
         {"id" : "5", "bike_id": "0", "bike_number": "BMX1"},
         {"id" : "6", "bike_id": "0", "bike_number": "BMX2"},
         {"id" : "7", "bike_id": "0", "bike_number": "BMX3"},
@@ -27,11 +27,11 @@
         {"id" : "3", "bike_id": "3", "bike_number": "SC4"},
         {"id" : "4", "bike_id": "3", "bike_number": "SC5"},
     ],
-    "Skate": [
+    [
         {"id" : "0", "skate_name": "Artistic Skates"},
         {"id" : "1", "skate_name": "Roller Blades"},
     ],
-    "Skate Numbers": [
+    [
         {"id" : "0", "skate_id": "0", "skate_number": "AS1"},
         {"id" : "1", "skate_id": "0", "skate_number": "AS2"},
         {"id" : "2", "skate_id": "0", "skate_number": "AS3"},
@@ -43,11 +43,11 @@
         {"id" : "8", "skate_id": "1", "skate_number": "RB4"},
         {"id" : "9", "skate_id": "1", "skate_number": "RB5"}
     ],
-    "Boat": [
+    [
         {"id" : "0", "boat_name": "Row Boats"},
         {"id" : "1", "boat_name": "Pedal Boats"},
     ],
-    "Boat Numbers": [
+    [
         {"id" : "0", "boat_id": "0", "boat_number": "ROW1"},
         {"id" : "1", "boat_id": "0", "boat_number": "ROW2"},
         {"id" : "2", "boat_id": "0", "boat_number": "ROW3"},
