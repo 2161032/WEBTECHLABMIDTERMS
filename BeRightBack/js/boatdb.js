@@ -35,7 +35,7 @@
                 var timein = document.getElementById('timein').value;
                 var timeout = document.getElementById('timeout').value;
                 var price = document.getElementById('price').value;
-                transaction.executeSql('INSERT INTO bike_data(name, type, number, timein, timeout, price) values(?,?,?,?,?,?)', [name, type, number, timein, timeout, price], displayAll());
+                transaction.executeSql('INSERT INTO boat_data(name, type, number, timein, timeout, price) values(?,?,?,?,?,?)', [name, type, number, timein, timeout, price], displayAll());
             
                 document.getElementById('name').value = '';
                 document.getElementById('type').value = '';
