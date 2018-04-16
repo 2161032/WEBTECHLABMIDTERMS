@@ -216,7 +216,7 @@
         for(var i = 0; i < objType.length; i++){
           var option = document.createElement("option");
           option.text = objType[i].bike_name;
-          option.value = objType[i].id;
+          option.value = objType[i].bike_name;
           var select = document.getElementById("type");
           select.appendChild(option);
         }
@@ -224,7 +224,7 @@
         for(var i = 0; i < objNumber.length; i++){
           var option = document.createElement("option");
           option.text = objNumber[i].bike_number;
-          option.value = objNumber[i].bike_id;
+          option.value = objNumber[i].bike_number;
           var select = document.getElementById("number");
           select.appendChild(option);
         }                 

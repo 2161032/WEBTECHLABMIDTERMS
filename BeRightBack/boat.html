@@ -200,7 +200,7 @@
         for(var i = 0; i < boatObj.length; i++){
           var option = document.createElement("option");
           option.text = boatObj[i].boat_name;
-          option.value = boatObj[i].id;
+          option.value = boatObj[i].boat_name;
           var select = document.getElementById("type");
           select.appendChild(option);
         }
@@ -208,7 +208,7 @@
         for(var i = 0; i < boatNumber.length; i++){
           var option = document.createElement("option");
           option.text = boatNumber[i].boat_number;
-          option.value = boatNumber[i].boat_id;
+          option.value = boatNumber[i].boat_number;
           var select = document.getElementById("number");
           select.appendChild(option);
         }   

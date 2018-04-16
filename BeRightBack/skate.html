@@ -203,7 +203,7 @@
         for(var i = 0; i < skateObj.length; i++){
           var option = document.createElement("option");
           option.text = skateObj[i].skate_name;
-          option.value = skateObj[i].id;
+          option.value = skateObj[i].skate_name;
           var select = document.getElementById("type");
           select.appendChild(option);
         }
@@ -211,7 +211,7 @@
         for(var i = 0; i < skateNumber.length; i++){
           var option = document.createElement("option");
           option.text = skateNumber[i].skate_number;
-          option.value = skateNumber[i].skate_id;
+          option.value = skateNumber[i].skate_number;
           var select = document.getElementById("number");
           select.appendChild(option);
         }                 
