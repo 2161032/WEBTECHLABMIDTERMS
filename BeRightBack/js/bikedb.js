@@ -4,7 +4,7 @@
           var maxSize = 65536;  
           db = openDatabase(shortName, version, displayName, maxSize);
 
-          function loadAll(){
+          windows.onload = function loadAll(){
             db.transaction(function(transaction) {
                 transaction.executeSql (
                 ' CREATE TABLE IF NOT EXISTS bike_data ' +
@@ -36,8 +36,8 @@
                 var timein = document.getElementById('timein').value;
                 var timeout = document.getElementById('timeout').value;
                 var price = document.getElementById('price').value;
-                transaction.executeSql('INSERT INTO bike_data(name, type, number, timein, timeout, price) values(?,?,?,?,?,?)', [name, type, number, timein, timeout, price], displayAll());
-            
+                transaction.executeSql('INSERT INTO bike_data(name, type, number, timein, timeout, price) VALUES (name,type,number,timein,timeout,price)');
+                displayAll();
                 document.getElementById('name').value = '';
                 document.getElementById('type').value = '';
                 document.getElementById('number').value = '';

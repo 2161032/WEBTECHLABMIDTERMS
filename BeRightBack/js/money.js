@@ -1,6 +1,6 @@
         var total = 0;
                   
-        document.getElementById('saveInput').onsubmit;
+        //document.getElementById('saveInput').onsubmit;
 
         function myEntryFunction() {
             var entry = document.getElementById('price').value;

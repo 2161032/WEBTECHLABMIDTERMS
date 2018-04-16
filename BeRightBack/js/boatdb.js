@@ -4,7 +4,7 @@
           var maxSize = 65536;  
           db = openDatabase(shortName, version, displayName, maxSize);
 
-          function loadAll(){
+          windows.onload = function loadAll(){
             db.transaction(function(transaction) {
                 transaction.executeSql (
                 ' CREATE TABLE IF NOT EXISTS boat_data ' +

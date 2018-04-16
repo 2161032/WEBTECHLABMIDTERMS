@@ -11,32 +11,32 @@
     if(typeof(Storage) !== "undefined"){
 		var a = document.getElementById("name");
         localStorage.setItem('name',a.value);
-        let a1 = localStorage.getItem('name');
+        var a1 = localStorage.getItem('name');
         console.log(a1);
                           
         var b = document.getElementById("type");
         localStorage.setItem('type',b.value);
-        let b1 = localStorage.getItem('type');
+        var b1 = localStorage.getItem('type');
         console.log(b1);
               
 		var c = document.getElementById("number");
         localStorage.setItem('number',c.value);
-        let c1 = localStorage.getItem('number');
+        var c1 = localStorage.getItem('number');
         console.log(c1);
               
         var d = document.getElementById("timein");
         localStorage.setItem('timein',d.value);
-        let d1 = localStorage.getItem('timein');
+        var d1 = localStorage.getItem('timein');
         console.log(d1);
                 
 		var e = document.getElementById("timeout");
         localStorage.setItem('timeout',e.value);
-        let e1 = localStorage.getItem('timeout');
+        var e1 = localStorage.getItem('timeout');
         console.log(e1);
               
 		var f = document.getElementById("price");
         localStorage.setItem('price',f.value);
-        let f1 = localStorage.getItem('price');
+        var f1 = localStorage.getItem('price');
         console.log(f1);
                                
         cell1.innerHTML = a1; 
@@ -45,6 +45,8 @@
 		cell4.innerHTML = d1;
 		cell5.innerHTML = e1;
 		cell6.innerHTML = f1;
+
+        return 'You have unsaved changes!'
         } else{
             console.log("Your browser does not support localStorage");
         }   
