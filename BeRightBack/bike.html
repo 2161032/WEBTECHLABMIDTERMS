@@ -41,12 +41,10 @@
     <script src="sw.js" type="text/javascript"></script>
     <script src="js/scroll.js" type="text/javascript"></script>
     <script src="js/bikedb.js" type="text/javascript"></script>
-    <!--<script src="js/time.js" type="text/javascript"></script>-->
     <script src="js/money.js" type="text/javascript"></script>
     <script src="js/submit.js" type="text/javascript"></script>
     <script src="js/reset.js" type="text/javascript"></script>
     <script src="js/notify.js" type="text/javascript"></script>
-
 </head>
 
   <body id="page-top" onload="loadAll()">
@@ -90,8 +88,8 @@
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction();getTime();addAll()"; value="Submit" id="addForm">
-                                <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();addAll()" value="Submit" id="addForm">
+                                <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel" id="cancel">
                             </form>
                         <br><br>
                   </div>
@@ -228,6 +226,6 @@
           var select = document.getElementById("number");
           select.appendChild(option);
         }                 
-      </script>     
+      </script>       
   </body>
 </html>
