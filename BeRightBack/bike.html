@@ -48,7 +48,7 @@
     <script src="js/time.js" type="text/javascript"></script>
 </head>
 
-  <body id="page-top" onload="loadAll(); relFunction()">
+  <body id="page-top" onload="loadAll(); relFunction(); countDown()">
 
 <!-- Navigation -->
   <nav class="navbar" id="mainNav">
@@ -89,7 +89,7 @@
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction();addAll();" value="Submit" id="addForm">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime();addAll();" value="Submit" id="addForm">
                                 <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel" id="cancel">
                             </form>
                         <br><br>
