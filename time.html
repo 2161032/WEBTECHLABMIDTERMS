@@ -1,0 +1,108 @@
+
+
+<html>
+<body>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Write Banana, Orange or Apple in the input field and click the button.</p>
+<p>The switch statement will execute a block of code based on your input.</p>
+
+<select id="myInput">
+	<option value="0">TIME DURATION</option>
+  <option value="1">30 min</option>
+  <option value="2">1 hr</option>
+  <option value="3">1 hr 30 min</option>
+  <option value="4">2 hrs</option>
+</select>
+
+<button onclick="myFunction()">START</button>
+
+<p id="demo"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<script>
+function myFunction() {
+    var choice = document.getElementById("myInput").value;
+		var myVar;
+		var d = new Date();
+		var myTImeCheck;
+
+    switch(choice) {
+        case "1":
+					myVar = setInterval(myTimer ,1000);
+					myTImeCheck = setTimeout(func, 1800000);
+					document.getElementById("demo3").innerHTML = "30 minutes";
+					
+					
+						function myTimer() {
+								d = new Date();
+								document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+								
+						}
+
+						function func(){
+								document.getElementById("demo2").innerHTML = "EXPIRED";
+								clearInterval(myVar);
+						}
+        break;
+        case "2":
+					myVar = setInterval(myTimer ,1000);
+					myTImeCheck = setTimeout(func, 3600000);
+					document.getElementById("demo3").innerHTML = "1 hour";
+					
+						function myTimer() {
+								d = new Date();
+								document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+						}
+
+						function func(){
+								document.getElementById("demo2").innerHTML = "EXPIRED";
+								clearInterval(myVar);
+						}
+        break;
+        case "3":
+				  myVar = setInterval(myTimer ,1000);
+					myTImeCheck = setTimeout(func, 5400000);
+					document.getElementById("demo3").innerHTML = "1 hour 30 min";
+					
+						function myTimer() {
+								d = new Date();
+								document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+						}
+
+						function func(){
+								document.getElementById("demo2").innerHTML = "EXPIRED";
+								clearInterval(myVar);
+						}
+				break;
+				case "4":
+					myVar = setInterval(myTimer ,1000);
+					myTImeCheck = setTimeout(func, 7200000);
+					document.getElementById("demo3").innerHTML = "2 hours";
+					
+						function myTimer() {
+								d = new Date();
+								document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+						}
+
+						function func(){
+								document.getElementById("demo2").innerHTML = "EXPIRED";
+								clearInterval(myVar);
+						}
+						
+        break;
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
