@@ -31,9 +31,9 @@
         d1 = localStorage.getItem('timein');
         console.log(d1);
                 
-		var e = document.getElementById("timeout");
-        localStorage.setItem('timeout',e.value);
-        e1 = localStorage.getItem('timeout');
+		var e = document.getElementById("tid");
+        localStorage.setItem('tid',e.value);
+        e1 = localStorage.getItem('tid');
         console.log(e1);
               
 		var f = document.getElementById("price");
@@ -60,7 +60,7 @@
 
                 d1 = localStorage.getItem('timein');
 
-                e1 = localStorage.getItem('timeout');
+                e1 = localStorage.getItem('tid');
               
                 f1 = localStorage.getItem('price');
                 
@@ -83,4 +83,25 @@
             } else{
                 return alert("Nothing to load");
             }   
+        }
+
+        var total = 0;
+                  
+        //document.getElementById('saveInput').onsubmit;
+
+        function myEntryFunction() {
+            var entry = document.getElementById('price').value;
+            var entry = parseFloat(entry);
+                currency = currencyFormat(entry);
+                document.getElementById('myEntries').innerHTML += '<tr><td></td><td>' + currency + '</td></tr>';
+                total += entry;
+                document.getElementById('total').innerHTML = currencyFormat(total);
+                return false;
+        }
+
+        function currencyFormat(number) {
+            var currency = parseFloat(number);
+            currency = currency.toFixed(2);
+            currency = 'P' + currency;
+            return currency;
         }

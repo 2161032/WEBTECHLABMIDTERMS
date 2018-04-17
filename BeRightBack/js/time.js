@@ -14,8 +14,7 @@
           }
 
           function getTime(){
-            setTimeout( function () { alert( "The time has now started!" ); }, 1000 );              
-            counter = document.getElementById("timeout").value;
+              counter = document.getElementById("timeout").value;
           }
 
           function decTime(){
@@ -48,8 +47,7 @@
               
             }
 
-            function getTimeCountdown(){
-            setTimeout( function () { alert( "The time has now started!" ); }, 1000 );              
+            function getTimeCountdown(){   
             count = localStorage.getItem('tid');
           }
 
