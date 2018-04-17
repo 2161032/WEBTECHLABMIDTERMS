@@ -1,0 +1,18 @@
+{
+    [
+        {"id" : "0", "boat_name": "Row Boats"},
+        {"id" : "1", "boat_name": "Pedal Boats"},
+    ],
+    [
+        {"id" : "0", "boat_id": "0", "boat_number": "ROW1"},
+        {"id" : "1", "boat_id": "0", "boat_number": "ROW2"},
+        {"id" : "2", "boat_id": "0", "boat_number": "ROW3"},
+        {"id" : "3", "boat_id": "0", "boat_number": "ROW4"},
+        {"id" : "4", "boat_id": "0", "boat_number": "ROW5"},
+        {"id" : "5", "boat_id": "1", "boat_number": "PEDAL1"},
+        {"id" : "6", "boat_id": "1", "boat_number": "PEDAL2"},
+        {"id" : "7", "boat_id": "1", "boat_number": "PEDAL3"},
+        {"id" : "8", "boat_id": "1", "boat_number": "PEDAL4"},
+        {"id" : "9", "boat_id": "1", "boat_number": "PEDAL5"}
+    ]  
+}
