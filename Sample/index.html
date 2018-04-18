@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.caching">
+
+<head>
+
+    <title>SAMPLE</title>
+
+</head>
+
+<body>
+        <table id="myTable">
+            <tr>
+		      <th>Name</th>
+		      <th>Type of Boat</th>
+		      <th>Ride Number</th>
+		      <th>Time In</th>
+		      <th>Duration</th>
+		      <th>Price</th>
+			  <th>Countdown</th>
+            </tr>
+			<tr>
+		      <td>SAM</td>
+		      <td>PAPER</td>
+		      <td>R1</td>
+		      <td>12:00 AM</td>
+		      <td id = "time1">30 MINUTES</td>
+		      <td>100</td>
+			  <td id = "1"></td>
+            </tr>
+			<tr>
+		      <td>JEROME</td>
+		      <td>PLASTIC</td>
+		      <td>R2</td>
+		      <td>12:01 AM</td>
+		      <td id = "time2">1 HR</td>
+		      <td>150</td>
+			   <td id = "2"></td>
+            </tr>
+        </table>
+          
+
+</body>
+
+<script>
+	
+	function countdown(elementID, time){
+		var timer = setInterval(function(){
+			document.getElementById(elementID).innerHTML = time;
+			time = time - 1;
+			
+			if (time < 1) {
+				clearInterval(timer);
+				document.getElementById(elementID).innerHTML = "DONE";
+			}
+		}, 1000);
+	}
+	countdown("1", 1800);
+	countdown("2", 3600);
+</script>
+</html>
