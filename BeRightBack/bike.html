@@ -42,9 +42,10 @@
     <script src="js/scroll.js" type="text/javascript"></script>
     <script src="js/bikedb.js" type="text/javascript"></script>
     <script src="js/money.js" type="text/javascript"></script>
-    <script src="js/submit.js" type="text/javascript"></script>
+    <script src="js/submitBike.js" type="text/javascript"></script>
     <script src="js/reset.js" type="text/javascript"></script>
-    <script src="js/time.js" type="text/javascript"></script>
+    <script src="js/timeBike.js" type="text/javascript"></script>
+    <script src="js/initJSONData.js" type="text/javascript"></script>
     <script>
 		document.onreadystatechange = function() {
 			if(document.readyState === 'complete') {
@@ -54,7 +55,7 @@
 	</script> 
 </head>
 
-  <body id="page-top" onload="loadAll(); relFunction(); countDown()">
+  <body id="page-top" onload="loadAll(); addBikeName(); addBikeType()">
 
 <!-- Navigation -->
   <nav class="navbar" id="mainNav">
@@ -71,19 +72,19 @@
             <section id="input">
               <div class="container">
                   <br><img class="img-ride" src="img/bikeIcon.png" alt="BRB Bike">  <form id="saveInput" class="floating-label-form-group"  method="post" onsubmit="addCustomer()">
-                        Name:<br><input class="form-control" type="text" id="name" required><br><br>
+                        Name:<br><input class="form-control" type="text" id="bikename" required><br><br>
                         <!-- Implement JSON file -->
                         Type of Bike:<br>
-                            <select name="type" class="form-control" id="type" onchange="show(this)" required>
+                            <select name="type" class="form-control" id="biketype" onchange="show(this)" required>
                                 <option value="" selected></option> 
                             </select><br><br>
                         Bike Number:<br>
-                            <select name="number" class="form-control" id="number" required>
+                            <select name="number" class="form-control" id="bikenumber" required>
                                 <option value=""></option>
                             </select><br><br>
-                        Time-In:<br><input class="form-control" type="time" id="timein" required><br><br>
+                        Time-In:<br><input class="form-control" type="time" id="biketimein" required><br><br>
                         Duration:<br>
-                        <select class="form-control" id="timeout" required>
+                        <select class="form-control" id="biketimeout" required>
                            <option value="" selected></option>
                            <option value="1800">30 MINUTES</option>
                            <option value="3600">1 HOUR</option>
@@ -91,7 +92,7 @@
                            <option value="7200">2 HOUR</option>
                            <option default>FREE TIME</option>
                         </select><br><br>
-                        Price:<br><input class="form-control" type="number" min="40" step="10" id="price" required><br><br>
+                        Price:<br><input class="form-control" type="number" min="40" step="10" id="bikeprice" required><br><br>
                         <br>
                   </form>
                             <form class="form-button">
@@ -114,7 +115,7 @@
 		      <th>Type of Skate</th>
 		      <th>Ride Number</th>
 		      <th>Time In</th>
-		      <th id="tid">Duration</th>
+		      <th id="biketid">Duration</th>
 		      <th>Price</th>
             </tr>
             </table>
@@ -127,11 +128,11 @@
         <h2 class="text-primary">Breakdown</h2>
     </div>
       <hr>
-      <table id="myEntries">
+      <table id="bikemyEntries">
       <tfoot>
           <tr>
           <td>Total:</td>
-          <th id="total">P0.00</th>
+          <th id="biketotal">P0.00</th>
           </tr>  
       </tfoot>
     </table>
@@ -151,7 +152,7 @@
           } else {
 
             //Register the ServiceWorker
-            navigator.serviceWorker.register('pwabuilder-sw.js', {
+            navigator.serviceWorker.register('sw.js', {
             scope: './'
             }).then(function(reg) {
             console.log('Service worker has been registered for scope:'+ reg.scope);
@@ -184,52 +185,7 @@
             }
         }           
     </script>
--->      
-      <script>
-        var objType = [
-        {"id" : "0", "bike_name": "BMX"},
-        {"id" : "1", "bike_name": "Mountain Bike"},
-        {"id" : "2", "bike_name": "Go Kart"},
-        {"id" : "3", "bike_name": "Side Cart"},
-    ];
-        var objNumber = [
-        {"id" : "5", "bike_id": "0", "bike_number": "BMX1"},
-        {"id" : "6", "bike_id": "0", "bike_number": "BMX2"},
-        {"id" : "7", "bike_id": "0", "bike_number": "BMX3"},
-        {"id" : "8", "bike_id": "0", "bike_number": "BMX4"},
-        {"id" : "9", "bike_id": "0", "bike_number": "BMX5"},
-        {"id" : "10", "bike_id": "1", "bike_number": "MB1"},
-        {"id" : "11", "bike_id": "1", "bike_number": "MB2"},
-        {"id" : "12", "bike_id": "1", "bike_number": "MB3"},
-        {"id" : "13", "bike_id": "1", "bike_number": "MB4"},
-        {"id" : "14", "bike_id": "1", "bike_number": "MB5"},
-        {"id" : "10", "bike_id": "2", "bike_number": "GK1"},
-        {"id" : "11", "bike_id": "2", "bike_number": "GK2"},
-        {"id" : "12", "bike_id": "2", "bike_number": "GK3"},
-        {"id" : "13", "bike_id": "2", "bike_number": "GK4"},
-        {"id" : "14", "bike_id": "2", "bike_number": "GK5"},
-        {"id" : "0", "bike_id": "3", "bike_number": "SC1"},
-        {"id" : "1", "bike_id": "3", "bike_number": "SC2"},
-        {"id" : "2", "bike_id": "3", "bike_number": "SC3"},
-        {"id" : "3", "bike_id": "3", "bike_number": "SC4"},
-        {"id" : "4", "bike_id": "3", "bike_number": "SC5"},
-    ];               
-             
-        for(var i = 0; i < objType.length; i++){
-          var option = document.createElement("option");
-          option.text = objType[i].bike_name;
-          option.value = objType[i].bike_name;
-          var select = document.getElementById("type");
-          select.appendChild(option);
-        }
+-->   
 
-        for(var i = 0; i < objNumber.length; i++){
-          var option = document.createElement("option");
-          option.text = objNumber[i].bike_number;
-          option.value = objNumber[i].bike_number;
-          var select = document.getElementById("number");
-          select.appendChild(option);
-        }                 
-      </script>       
   </body>
 </html>

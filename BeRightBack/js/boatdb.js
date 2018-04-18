@@ -9,12 +9,12 @@
                 transaction.executeSql (
                 ' CREATE TABLE IF NOT EXISTS boat_data ' +
                 ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
-                ' name TEXT NOT NULL, ' + 
-                ' type NOT NULL, ' + 
-                ' number NOT NULL, ' + 
-                ' timein NOT NULL, ' + 
-                ' timeout NOT NULL, ' + 
-                ' price INTEGER NOT NULL);');
+                ' boatname TEXT NOT NULL, ' + 
+                ' boattype NOT NULL, ' + 
+                ' boatnumber NOT NULL, ' + 
+                ' boattimein NOT NULL, ' + 
+                ' boattimeout NOT NULL, ' + 
+                ' boatprice INTEGER NOT NULL);');
            });
           }    
           
@@ -29,20 +29,20 @@
 
         function addAll(){
             db.transaction(function (transaction) {
-                var name = document.getElementById('name').value;
-                var type = document.getElementById('type').value;
-                var number = document.getElementById('number').value;
-                var timein = document.getElementById('timein').value;
-                var timeout = document.getElementById('timeout').value;
-                var price = document.getElementById('price').value;
-                transaction.executeSql('INSERT INTO boat_data(name, type, number, timein, timeout, price) values(?,?,?,?,?,?)', [name, type, number, timein, timeout, price], displayAll());
+                var boatname = document.getElementById('boatname').value;
+                var boattype = document.getElementById('boattype').value;
+                var boatnumber = document.getElementById('boatnumber').value;
+                var boattimein = document.getElementById('boattimein').value;
+                var boattimeout = document.getElementById('boattimeout').value;
+                var boatprice = document.getElementById('boatprice').value;
+                transaction.executeSql('INSERT INTO boat_data(boatname, boattype, boatnumber, boattimein, boattimeout, boatprice) values(?,?,?,?,?,?)', [boatname, boattype, boatnumber, boattimein, boattimeout, boatprice], displayAll());
             
-                document.getElementById('name').value = '';
-                document.getElementById('type').value = '';
-                document.getElementById('number').value = '';
-                document.getElementById('timein').value = '';
-                document.getElementById('timeout').value = '';
-                document.getElementById('price').value = '';
+                document.getElementById('boatname').value = '';
+                document.getElementById('boattype').value = '';
+                document.getElementById('boatnumber').value = '';
+                document.getElementById('boattimein').value = '';
+                document.getElementById('boattimeout').value = '';
+                document.getElementById('boatprice').value = '';
             });
         }
 

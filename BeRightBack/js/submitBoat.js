@@ -11,34 +11,34 @@
         cell5 = row.insertCell(4);
         cell6 = row.insertCell(5);
 		
-		var a = document.getElementById("name");
-        localStorage.setItem('name',a.value);
-        a1 = localStorage.getItem('name');
+		var a = document.getElementById("boatname");
+        localStorage.setItem('boatname',a.value);
+        a1 = localStorage.getItem('boatname');
         console.log(a1);
                           
-        var b = document.getElementById("type");
-        localStorage.setItem('type',b.value);
-        b1 = localStorage.getItem('type');
+        var b = document.getElementById("boattype");
+        localStorage.setItem('boattype',b.value);
+        b1 = localStorage.getItem('boattype');
         console.log(b1);
               
-		var c = document.getElementById("number");
-        localStorage.setItem('number',c.value);
-        c1 = localStorage.getItem('number');
+		var c = document.getElementById("boatnumber");
+        localStorage.setItem('boatnumber',c.value);
+        c1 = localStorage.getItem('boatnumber');
         console.log(c1);
               
-        var d = document.getElementById("timein");
-        localStorage.setItem('timein',d.value);
-        d1 = localStorage.getItem('timein');
+        var d = document.getElementById("boattimein");
+        localStorage.setItem('boattimein',d.value);
+        d1 = localStorage.getItem('boattimein');
         console.log(d1);
                 
-		var e = document.getElementById("tid");
-        localStorage.setItem('tid',e.value);
-        e1 = localStorage.getItem('tid');
+		var e = document.getElementById("boattid");
+        localStorage.setItem('boattid',e.value);
+        e1 = localStorage.getItem('boattid');
         console.log(e1);
               
-		var f = document.getElementById("price");
-        localStorage.setItem('price',f.value);
-        f1 = localStorage.getItem('price');
+		var f = document.getElementById("boatprice");
+        localStorage.setItem('boatprice',f.value);
+        f1 = localStorage.getItem('boatprice');
         console.log(f1);
                                
         cell1.innerHTML = a1; 
@@ -51,18 +51,18 @@
         }
 
         function relFunction(){
-            if(document.getElementById("name").value != null){
-                a1 = localStorage.getItem('name');
+            if(document.getElementById("boatname").value != null){
+                a1 = localStorage.getItem('boatname');
                           
-                b1 = localStorage.getItem('type');
+                b1 = localStorage.getItem('boattype');
               
-                c1 = localStorage.getItem('number');
+                c1 = localStorage.getItem('boatnumber');
 
-                d1 = localStorage.getItem('timein');
+                d1 = localStorage.getItem('boattimein');
 
-                e1 = localStorage.getItem('tid');
+                e1 = localStorage.getItem('boattid');
               
-                f1 = localStorage.getItem('price');
+                f1 = localStorage.getItem('boatprice');
                 
 
                 table = document.getElementById("myTable");
@@ -90,12 +90,12 @@
         //document.getElementById('saveInput').onsubmit;
 
         function myEntryFunction() {
-            var entry = document.getElementById('price').value;
+            var entry = document.getElementById('boatprice').value;
             var entry = parseFloat(entry);
                 currency = currencyFormat(entry);
-                document.getElementById('myEntries').innerHTML += '<tr><td></td><td>' + currency + '</td></tr>';
+                document.getElementById('boatmyEntries').innerHTML += '<tr><td></td><td>' + currency + '</td></tr>';
                 total += entry;
-                document.getElementById('total').innerHTML = currencyFormat(total);
+                document.getElementById('boattotal').innerHTML = currencyFormat(total);
                 return false;
         }
 

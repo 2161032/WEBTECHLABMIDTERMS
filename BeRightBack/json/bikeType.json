@@ -1,0 +1,22 @@
+[
+{"id" : "5", "bike_id": "0", "bike_number": "BMX1"},
+{"id" : "6", "bike_id": "0", "bike_number": "BMX2"},
+{"id" : "7", "bike_id": "0", "bike_number": "BMX3"},
+{"id" : "8", "bike_id": "0", "bike_number": "BMX4"},
+{"id" : "9", "bike_id": "0", "bike_number": "BMX5"},
+{"id" : "10", "bike_id": "1", "bike_number": "MB1"},
+{"id" : "11", "bike_id": "1", "bike_number": "MB2"},
+{"id" : "12", "bike_id": "1", "bike_number": "MB3"},
+{"id" : "13", "bike_id": "1", "bike_number": "MB4"},
+{"id" : "14", "bike_id": "1", "bike_number": "MB5"},
+{"id" : "10", "bike_id": "2", "bike_number": "GK1"},
+{"id" : "11", "bike_id": "2", "bike_number": "GK2"},
+{"id" : "12", "bike_id": "2", "bike_number": "GK3"},
+{"id" : "13", "bike_id": "2", "bike_number": "GK4"},
+{"id" : "14", "bike_id": "2", "bike_number": "GK5"},
+{"id" : "0", "bike_id": "3", "bike_number": "SC1"},
+{"id" : "1", "bike_id": "3", "bike_number": "SC2"},
+{"id" : "2", "bike_id": "3", "bike_number": "SC3"},
+{"id" : "3", "bike_id": "3", "bike_number": "SC4"},
+{"id" : "4", "bike_id": "3", "bike_number": "SC5"}
+]

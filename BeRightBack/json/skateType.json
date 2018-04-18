@@ -1,8 +1,3 @@
-{
-    [
-        {"id" : "0", "skate_name": "Artistic Skates"},
-        {"id" : "1", "skate_name": "Roller Blades"},
-    ],
     [
         {"id" : "0", "skate_id": "0", "skate_number": "AS1"},
         {"id" : "1", "skate_id": "0", "skate_number": "AS2"},
@@ -15,4 +10,3 @@
         {"id" : "8", "skate_id": "1", "skate_number": "RB4"},
         {"id" : "9", "skate_id": "1", "skate_number": "RB5"}
     ]
-}

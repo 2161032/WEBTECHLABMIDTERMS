@@ -1,8 +1,3 @@
-{
-    [
-        {"id" : "0", "boat_name": "Row Boats"},
-        {"id" : "1", "boat_name": "Pedal Boats"},
-    ],
     [
         {"id" : "0", "boat_id": "0", "boat_number": "ROW1"},
         {"id" : "1", "boat_id": "0", "boat_number": "ROW2"},
@@ -14,5 +9,4 @@
         {"id" : "7", "boat_id": "1", "boat_number": "PEDAL3"},
         {"id" : "8", "boat_id": "1", "boat_number": "PEDAL4"},
         {"id" : "9", "boat_id": "1", "boat_number": "PEDAL5"}
-    ]  
-}
+    ] 

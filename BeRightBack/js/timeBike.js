@@ -14,27 +14,27 @@
           }
 
           function getTime(){
-              counter = document.getElementById("timeout").value;
+              counter = document.getElementById("biketimeout").value;
           }
 
           function decTime(){
               counter = counter - 1;
 
-              document.getElementById("tid").value = counter;
+              document.getElementById("biketid").value = counter;
               if (counter <= 0){
                 clearInterval(timer);
-                document.getElementById("tid").innerHTML = alert("The time has expired!".toUpperCase());
+                document.getElementById("biketid").innerHTML = alert("The time has expired!".toUpperCase());
                 return;
                   
               }
-              localStorage.setItem('tid',counter);
-              var p = document.getElementById("tid");
+              localStorage.setItem('biketid',counter);
+              var p = document.getElementById("biketid");
               p.innerHTML = counter;
 
             }
 
             function countDown(){
-              count = localStorage.getItem('tid');
+              count = localStorage.getItem('biketid');
               if(count != null){
                 
                 initCountDown();
@@ -48,21 +48,21 @@
             }
 
             function getTimeCountdown(){   
-            count = localStorage.getItem('tid');
+            count = localStorage.getItem('biketid');
           }
 
           function decTimeCountDown(){
               count = count - 1;
 
-              document.getElementById("tid").value = count;
+              document.getElementById("biketid").value = count;
               if (count <= 0){
                 clearInterval(timerCount);
-                document.getElementById("tid").innerHTML = alert("The time has expired!".toUpperCase());
+                document.getElementById("biketid").innerHTML = alert("The time has expired!".toUpperCase());
                 return;
                   
               }
-              localStorage.setItem('tid',count);
-              var p = document.getElementById("tid");
+              localStorage.setItem('biketid',count);
+              var p = document.getElementById("biketid");
               p.innerHTML = count;
 
             }

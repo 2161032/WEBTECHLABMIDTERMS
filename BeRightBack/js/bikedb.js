@@ -9,12 +9,12 @@
                 transaction.executeSql (
                 ' CREATE TABLE IF NOT EXISTS bike_data ' +
                 ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
-                ' name TEXT NOT NULL, ' + 
-                ' type NOT NULL, ' + 
-                ' number NOT NULL, ' + 
-                ' timein NOT NULL, ' + 
-                ' timeout NOT NULL, ' + 
-                ' price INTEGER NOT NULL);');
+                ' bikename TEXT NOT NULL, ' + 
+                ' biketype NOT NULL, ' + 
+                ' bikenumber NOT NULL, ' + 
+                ' biketimein NOT NULL, ' + 
+                ' biketimeout NOT NULL, ' + 
+                ' bikeprice INTEGER NOT NULL);');
             });
           }   
           
@@ -29,20 +29,20 @@
 
         function addAll(){
             db.transaction(function (transaction) {
-                var name = document.getElementById('name').value;
-                var type = document.getElementById('type').value;
-                var number = document.getElementById('number').value;
-                var timein = document.getElementById('timein').value;
-                var timeout = document.getElementById('timeout').value;
-                var price = document.getElementById('price').value;
-                transaction.executeSql('INSERT INTO bike_data(name, type, number, timein, timeout, price) values(?,?,?,?,?,?)', [name, type, number, timein, timeout, price], displayAll());
+                var bikename = document.getElementById('bikename').value;
+                var biketype = document.getElementById('biketype').value;
+                var bikenumber = document.getElementById('bikenumber').value;
+                var biketimein = document.getElementById('biketimein').value;
+                var biketimeout = document.getElementById('biketimeout').value;
+                var bikeprice = document.getElementById('bikeprice').value;
+                transaction.executeSql('INSERT INTO bike_data(bikename, biketype, bikenumber, biketimein, biketimeout, bikeprice) values(?,?,?,?,?,?)', [bikename, biketype, bikenumber, biketimein, biketimeout, bikeprice], displayAll());
             
-                document.getElementById('name').value = '';
-                document.getElementById('type').value = '';
-                document.getElementById('number').value = '';
-                document.getElementById('timein').value = '';
-                document.getElementById('timeout').value = '';
-                document.getElementById('price').value = '';
+                document.getElementById('bikename').value = '';
+                document.getElementById('biketype').value = '';
+                document.getElementById('bikenumber').value = '';
+                document.getElementById('biketimein').value = '';
+                document.getElementById('biketimeout').value = '';
+                document.getElementById('bikeprice').value = '';
             });
         }
 

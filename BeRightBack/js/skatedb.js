@@ -9,12 +9,12 @@
                 transaction.executeSql (
                 ' CREATE TABLE IF NOT EXISTS skate_data ' +
                 ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
-                ' name TEXT NOT NULL, ' + 
-                ' type NOT NULL, ' + 
-                ' number NOT NULL, ' + 
-                ' timein NOT NULL, ' + 
-                ' timeout NOT NULL, ' + 
-                ' price INTEGER NOT NULL);');
+                ' skatename TEXT NOT NULL, ' + 
+                ' skatetype NOT NULL, ' + 
+                ' skatenumber NOT NULL, ' + 
+                ' skatetimein NOT NULL, ' + 
+                ' skatetimeout NOT NULL, ' + 
+                ' skateprice INTEGER NOT NULL);');
             });
           }   
           
@@ -29,20 +29,20 @@
 
         function addAll(){
             db.transaction(function (transaction) {
-                var name = document.getElementById('name').value;
-                var type = document.getElementById('type').value;
-                var number = document.getElementById('number').value;
-                var timein = document.getElementById('timein').value;
-                var timeout = document.getElementById('timeout').value;
-                var price = document.getElementById('price').value;
-                transaction.executeSql('INSERT INTO skate_data(name, type, number, timein, timeout, price) values(?,?,?,?,?,?)', [name, type, number, timein, timeout, price], displayAll());
+                var skatename = document.getElementById('skatename').value;
+                var skatetype = document.getElementById('skatetype').value;
+                var skatenumber = document.getElementById('skatenumber').value;
+                var skatetimein = document.getElementById('skatetimein').value;
+                var skatetimeout = document.getElementById('skatetimeout').value;
+                var skateprice = document.getElementById('skateprice').value;
+                transaction.executeSql('INSERT INTO skate_data(skatename, skatetype, skatenumber, skatetimein, skatetimeout, skateprice) values(?,?,?,?,?,?)', [skatename, skatetype, skatenumber, skatetimein, skatetimeout, skateprice], displayAll());
             
-                document.getElementById('name').value = '';
-                document.getElementById('type').value = '';
-                document.getElementById('number').value = '';
-                document.getElementById('timein').value = '';
-                document.getElementById('timeout').value = '';
-                document.getElementById('price').value = '';
+                document.getElementById('skatename').value = '';
+                document.getElementById('skatetype').value = '';
+                document.getElementById('skatenumber').value = '';
+                document.getElementById('skatetimein').value = '';
+                document.getElementById('skatetimeout').value = '';
+                document.getElementById('skateprice').value = '';
             });
         }
 
