@@ -1,0 +1,10 @@
+  cell8 = row.insertCell(7);
+  cell8.setAttribute("id","count");
+	cell8.setAttribute("value","Stop");
+	cell8.setAttribute("type","button")
+	cell8.setAttribute("onClick","myStop");
+	var x = document.getElementById("myTable").rows[0].cells;
+	x[7].innerHTML
+	function myStop(){
+		clearInterval(timer);
+	}
