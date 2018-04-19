@@ -104,11 +104,12 @@
             {
                 table.rows[i].cells[7].onclick = function()
                 {
-                    var c = confirm("do you want to stop this ride?");
+                    var c = confirm("Do you want to stop this ride?");
                     if(c === true)
                     {
-                        index = this.parentElement.rowIndex;
-                        table.deleteRow(index);
+                        //index = this.parentElement.rowIndex;
+                        //table.deleteRow(index);
+                        clearInterval(table, index);
                     }
                     
                     console.log(index);

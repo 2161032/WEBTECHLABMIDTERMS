@@ -124,7 +124,7 @@
     </section>
       
 <!-- Breakdown Section -->
-  <section class="bg-secondary">
+  <section class="bg-secondary" id="myEntries">
     <div class="container">
       <h2 class="text-primary">Breakdown</h2>
     </div>
@@ -159,27 +159,5 @@
         }
         </script>
             
-<!--    <script type="text/javascript">
-        function populate(b1, b2){
-            var b1 = document.getElementById(b1);
-            var b2 = document.getElementById(b2);
-
-            b2.innerHTML = "";
-            if(b1.value == "ROW"){
-                var optionArray = ["|", "row1|ROW1", "row2|ROW2", "row3|ROW3", "row4|ROW4", "row5|ROW5"];             
-            }   else if (b1.value == "PEDAL") {
-                var optionArray = ["|", "pedal1|PEDAL1", "pedal2|PEDAL2", "pedal3|PEDAL3", "pedal4|PEDAL4", "pedal5|PEDAL5"];       
-            }   
-            
-            for(var option in optionArray) {
-                var pair = optionArray[option].split("|");
-                var newOption = document.createElement("option")
-                newOption.value = pair[0];
-                newOption.innerHTML = pair[1];
-                b2.options.add(newOption);               
-            }
-        }     
-     </script>
--->
   </body>
 </html>
