@@ -107,9 +107,8 @@
                     var c = confirm("Do you want to stop this ride?");
                     if(c === true)
                     {
-                        //index = this.parentElement.rowIndex;
-                        //table.deleteRow(index);
-                        clearInterval(table, index);
+                        index = this.parentElement.rowIndex;
+                        table.deleteRow(index);
                     }
                     
                     console.log(index);
