@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bike rent</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            td:last-child{background-color: #F00;color:#FFF;cursor: pointer;
+                          font-weight: bold;text-decoration: underline}
+        </style>
+    </head>
+    <body>
+        
+        <table id="table" border="1">
+            <tr>
+                <th>Name</th>
+                <th>Type of Bike</th>
+                <th>Bike number</th>
+				<th>Time in</th>
+				<th>Duration</th>
+				<th>Price</th>
+				<th>Countdown</th>
+                <th>Option</th>
+            </tr>
+            
+            <tr>
+                <td>FN1</td>
+                <td>BMX</td>
+				<td>BMX1</td>
+                <td>10:00 AM</td>
+				<td id = "time1">30 MINUTES</td>
+				<td>40</td>
+				<td id = "1"></td>
+                <td>Stop</td>
+            </tr>
+            
+            <tr>
+                <td>FN1</td>
+                <td>BMX</td>
+				<td>BMX2</td>
+                <td>10:10 AM</td>
+				<td id = "time2">30 MINUTES</td>
+				<td>40</td>
+				<td id = "2"></td>
+                <td>Stop</td>
+            </tr>
+            
+            <tr>
+               <td>FN1</td>
+                <td>BMX</td>
+				<td>BMX3</td>
+                <td>10:20 AM</td>
+				<td id = "time3">30 MINUTES</td>
+				<td>40</td>
+				<td id = "3"></td>
+                <td>Stop</td>
+            </tr>
+            
+            <tr>
+                <td>FN1</td>
+                <td>BMX</td>
+				<td>BMX4</td>
+                <td>10:30 AM</td>
+				<td id = "time4">30 MINUTES</td>
+				<td>40</td>
+				<td id = "4"></td>
+                <td>Stop</td>
+            </tr>
+            
+            <tr>
+                <td>FN1</td>
+                <td>BMX</td>
+				<td>BMX5</td>
+                <td>10:00 AM</td>
+				<td id = "time5">30 MINUTES</td>
+				<td>40</td>
+				<td id = "5"></td>
+                <td>Stop</td>
+            </tr>
+        </table>
+        
+        <script>
+		
+		function countdown(elementID, time){
+		var timer = setInterval(function(){
+			document.getElementById(elementID).innerHTML = time;
+			time = time - 1;
+			
+			if (time < 1) {
+				clearInterval(timer);
+				document.getElementById(elementID).innerHTML = "DONE";
+			}
+		}, 1000);
+		}
+		
+		countdown("1", 1800);
+		countdown("2", 1800);
+		countdown("3", 1800);
+		countdown("4", 1800);
+		countdown("5", 1800);
+    
+            var index, table = document.getElementById('table');
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].cells[7].onclick = function()
+                {
+                    var c = confirm("do you want to stop this ride?");
+                    if(c === true)
+                    {
+                        index = this.parentElement.rowIndex;
+                        table.deleteRow(index);
+                    }
+                    
+                    console.log(index);
+                };
+                
+            }
+    
+        </script>
+        
+    </body>
+</html>
