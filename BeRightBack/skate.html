@@ -39,13 +39,13 @@
   <link href="img/BRBIcon.png" rel="icon">
     
     <!-- Javascript -->
+    <script src="js/serviceWorkers.js" type="text/javascript"></script> 
     <script src="sw.js" type="text/javascript"></script>
     <script src="js/scroll.js" type="text/javascript"></script>
     <script src="js/skatedb.js" type="text/javascript"></script>
     <script src="js/money.js" type="text/javascript"></script>
     <script src="js/submitSkate.js" type="text/javascript"></script>    
     <script src="js/reset.js" type="text/javascript"></script>
-    <script src="js/timeSkate.js" type="text/javascript"></script>
     <script src="js/initJSONData.js" type="text/javascript"></script>
     <script>
 		document.onreadystatechange = function() {
@@ -98,7 +98,7 @@
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime();addAll()" value="Submit" id="addForm">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();addAll()" value="Submit" id="addForm">
                                 <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel" id="cancel">
                             </form>
                         <br><br>
@@ -113,23 +113,25 @@
         </div>
             <table id="myTable">
             <tr>
-		      <th>Name</th>
-		      <th>Type of Skate</th>
-		      <th>Ride Number</th>
-		      <th>Time In</th>
-		      <th id="skatetid">Duration</th>                
-		      <th>Price</th>
+		          <th>Name</th>
+              <th>Type of Skate</th>
+              <th>Skate number</th>
+              <th>Time in</th>
+              <th>Duration</th>
+              <th>Price</th>
+              <th>Countdown</th>
+              <th>Option</th>              		      
             </tr>
             </table>
             <br><br>
     </section>
 
 <!-- Breakdown Section -->
-  <section class="bg-secondary" id="myEntries">
+  <section class="bg-secondary">
     <div class="container">
         <h2 class="text-primary">Breakdown</h2>
     </div>
-      <hr><br>
+      <hr>
       <table id="skatemyEntries">
       <tfoot>
           <tr>
@@ -138,30 +140,34 @@
           </tr>
       </tfoot>
     </table>
-            <br><br>            
   </section>
 
     <!-- Scroll to Top Button -->
     <button onclick="topFunction()" id="up" title="Go up"><img class="img-up" src="img/upIcon.png" alt="up-icon"> 
     </button>
       
-      <!-- Service worker registration -->
-      <script type="text/javascript">
-           //This is the service worker with the Cache-first network
-
-          //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
-          if (navigator.serviceWorker.controller) {
-            console.log('[PWA Builder] active service worker found, no need to register')
-          } else {
-
-            //Register the ServiceWorker
-            navigator.serviceWorker.register('sw.js', {
-            scope: './'
-            }).then(function(reg) {
-            console.log('Service worker has been registered for scope:'+ reg.scope);
-            });
-        }
-        </script>
       
+<!--    <script type="text/javascript">
+        function populate(b1, b2){
+            var b1 = document.getElementById(b1);
+            var b2 = document.getElementById(b2);
+
+            b2.innerHTML = "";
+            if(b1.value == "ARTISTIC"){
+                var optionArray = ["|", "as1|AS1", "as2|AS2", "as3|AS3", "as4|AS4", "as5|AS5"];             
+            }   else if (b1.value == "BLADES") {
+                var optionArray = ["|", "rb1|RB1", "rb2|RB2", "rb3|RB3", "rb4|RB4", "rb5|RB5"];
+            }
+            
+            for(var option in optionArray) {
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option")
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                b2.options.add(newOption);               
+            }
+        }     
+     </script>
+-->
   </body>
 </html>

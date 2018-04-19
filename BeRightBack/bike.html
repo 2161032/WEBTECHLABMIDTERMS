@@ -38,13 +38,13 @@
   <link href="img/BRBIcon.png" rel="icon">
     
     <!-- Javascript -->
+    <script src="js/serviceWorkers.js" type="text/javascript"></script>   
     <script src="sw.js" type="text/javascript"></script>
     <script src="js/scroll.js" type="text/javascript"></script>
     <script src="js/bikedb.js" type="text/javascript"></script>
     <script src="js/money.js" type="text/javascript"></script>
     <script src="js/submitBike.js" type="text/javascript"></script>
     <script src="js/reset.js" type="text/javascript"></script>
-    <script src="js/timeBike.js" type="text/javascript"></script>
     <script src="js/initJSONData.js" type="text/javascript"></script>
     <script>
 		document.onreadystatechange = function() {
@@ -96,7 +96,7 @@
                         <br>
                   </form>
                             <form class="form-button">
-                                <input class="add" type="button" onclick="myFunction();myEntryFunction();init();getTime();addAll();" value="Submit" id="addForm">
+                                <input class="add" type="button" onclick="myFunction();myEntryFunction();addAll();" value="Submit" id="addForm">
                                 <input class="cancel" type="reset" onclick="resetFunction()" value="Cancel" id="cancel">
                             </form>
                         <br><br>
@@ -111,23 +111,25 @@
         </div>
             <table id="myTable">
             <tr>
-		      <th>Name</th>
-		      <th>Type of Skate</th>
-		      <th>Ride Number</th>
-		      <th>Time In</th>
-		      <th id="biketid">Duration</th>
-		      <th>Price</th>
+		          <th>Name</th>
+              <th>Type of Bike</th>
+              <th>Bike number</th>
+              <th>Time in</th>
+              <th>Duration</th>
+              <th>Price</th>
+              <th>Countdown</th>
+              <th>Option</th>
             </tr>
             </table>
             <br><br>
     </section>
       
 <!-- Breakdown Section -->
-  <section class="bg-secondary" id="myEntries">
+  <section class="bg-secondary">
     <div class="container">
         <h2 class="text-primary">Breakdown</h2>
     </div>
-      <hr><br>
+      <hr>
       <table id="bikemyEntries">
       <tfoot>
           <tr>
@@ -136,7 +138,6 @@
           </tr>  
       </tfoot>
     </table>
-            <br><br>            
   </section>
         
     <!-- Scroll to Top Button -->
@@ -144,22 +145,34 @@
     </button>
 
       <!-- Service worker registration -->
-      <script type="text/javascript">
-           //This is the service worker with the Cache-first network
 
-          //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
-          if (navigator.serviceWorker.controller) {
-            console.log('[PWA Builder] active service worker found, no need to register')
-          } else {
-
-            //Register the ServiceWorker
-            navigator.serviceWorker.register('sw.js', {
-            scope: './'
-            }).then(function(reg) {
-            console.log('Service worker has been registered for scope:'+ reg.scope);
-            });
-        }
-        </script>
       
+ <!--   <script type="text/javascript">
+        function populate(b1, b2){
+            var b1 = document.getElementById(b1);
+            var b2 = document.getElementById(b2);
+
+            b2.innerHTML = "";
+            if(b1.value == "BMX"){
+                var optionArray = ["|", "bmx1|BMX1", "bmx2|BMX2", "bmx3|BMX3", "bmx4|BMX4", "bmx5|BMX5"];             
+            }   else if (b1.value == "MOUNTAIN BIKE") {
+                var optionArray = ["|", "mb1|MB1", "mb2|MB2", "mb3|MB3", "mb4|MB4", "mb5|MB5"];                
+            }   else if (b1.value == "GO KART") {
+                var optionArray = ["|", "gk1|GK1", "gk2|GK2", "gk3|GK3", "gk4|GK4", "gk5|GK5"];
+            }   else if (b1.value == "SIDE KART") {
+                var optionArray = ["|", "sk1|SK1", "sk2|SK2", "sk3|SK3", "sk4|SK4", "sk5|SK5"];
+            }
+            
+            for(var option in optionArray) {
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option")
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                b2.options.add(newOption);               
+            }
+        }           
+    </script>
+-->  
+
   </body>
 </html>

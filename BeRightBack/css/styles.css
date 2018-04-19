@@ -1168,6 +1168,9 @@ table{
     cursor:pointer;
 }
 
+ td:last-child{background-color: #F00;color:#FFF;cursor: pointer;
+                          font-weight: bold;text-decoration: underline}
+
 .scrollbar{
     overflow:hidden; 
 }
