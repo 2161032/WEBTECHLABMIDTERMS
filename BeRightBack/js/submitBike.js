@@ -97,6 +97,13 @@
                 total += entry;
                 document.getElementById('biketotal').innerHTML = currencyFormat(total);
                 return false;
+            
+        var entry1 = document.getElementById("biketotal");
+        localStorage.setItem('biketotal',entry1.value);
+        entry1 = localStorage.getItem('biketotal');
+        console.log(entry1);
+
+    
         }
 
         function currencyFormat(number) {
