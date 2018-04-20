@@ -930,6 +930,27 @@ table{
 }    
 }
 
+@media (min-width:603px) and (max-width:696px){
+#myTable{
+    text-align:center;
+    margin:auto;
+    width:auto;
+}
+#myTable th{
+    border:2px solid white;
+    color:#fff;
+    font-size:.7rem;
+    padding:.4rem;
+}
+#myTable tr{
+    background-color:#1a252f;
+    color:#fff;
+}
+#myTable td{
+    border:2px solid white;
+}        
+}
+
 @media (min-width:540px) and (max-width:600px){
 #myTable{
     text-align:center;
@@ -966,6 +987,29 @@ table{
 #myTable tr{
     background-color:#1a252f;
     color:#fff;
+}
+#myTable td{
+    border:2px solid white;
+}        
+}
+
+@media (min-width:431px) and (max-width:453px){
+#myTable{
+    text-align:center;
+    margin:auto;
+    width:auto;
+}
+#myTable th{
+    border:2px solid white;
+    color:#fff;
+    font-size:7px;
+    padding:5px
+}
+#myTable tr{
+    background-color:#1a252f;
+    color:#fff;
+    font-size:5px;
+    padding:4px    
 }
 #myTable td{
     border:2px solid white;
