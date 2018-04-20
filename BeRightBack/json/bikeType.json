@@ -18,5 +18,6 @@
 {"id" : "1", "bike_id": "3", "bike_number": "SC2"},
 {"id" : "2", "bike_id": "3", "bike_number": "SC3"},
 {"id" : "3", "bike_id": "3", "bike_number": "SC4"},
-{"id" : "4", "bike_id": "3", "bike_number": "SC5"}
+{"id" : "4", "bike_id": "3", "bike_number": "SC5"},
+{"id" : "4", "bike_id": "4", "bike_number": "U1"} 
 ]

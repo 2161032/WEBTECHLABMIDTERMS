@@ -36,7 +36,7 @@
                 var skatetimeout = document.getElementById('skatetimeout').value;
                 var skateprice = document.getElementById('skateprice').value;
                 transaction.executeSql('INSERT INTO skate_data(skatename, skatetype, skatenumber, skatetimein, skatetimeout, skateprice) values(?,?,?,?,?,?)', [skatename, skatetype, skatenumber, skatetimein, skatetimeout, skateprice], displayAll());
-            
+                
                 document.getElementById('skatename').value = '';
                 document.getElementById('skatetype').value = '';
                 document.getElementById('skatenumber').value = '';
@@ -45,6 +45,15 @@
                 document.getElementById('skateprice').value = '';
             });
         }
+           function refAll(){
+                db.transaction1(function (transaction1) {
+                transaction.executeSql('SELECT * FROM skatedb;', [], function(transaction, result) { if (result != null && result.rows != null) { for (var i = 0; i < result.rows.length; i++) { var row = result.rows.item(i); $('#myTable').append('<tr><td>' + row.skatename + '</td>' + '<td>'+row.skatetype+ '</td>' +'<td>'+ row.skatenumber +'<td>' + row.skatetimein + '</td>' + + row.skatetimeout + '<td>' +  row.skateprice +'</td></tr>'); } } },errorHandler); },errorHandler,nullHandler);
+
+                return;
+                alert('in list end');
+                }
+           
+           
 
         function error_log(error) {
             console.log(error.message);
