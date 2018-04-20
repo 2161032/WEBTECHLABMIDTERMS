@@ -13,11 +13,11 @@
         cell6 = row.insertCell(5);
         cell7 = row.insertCell(6);
         cell7.id = ctr;
-        cell8 = row.insertCell(7);
-        cell8.id = count;
+        /*cell8 = row.insertCell(7);
+        cell8.id = count;*/
 
-		
-		var a = document.getElementById("bikename");
+        
+        var a = document.getElementById("bikename");
         localStorage.setItem('bikename',a.value);
         a1 = localStorage.getItem('bikename');
         console.log(a1);
@@ -27,7 +27,7 @@
         b1 = localStorage.getItem('biketype');
         console.log(b1);
               
-		var c = document.getElementById("bikenumber");
+        var c = document.getElementById("bikenumber");
         localStorage.setItem('bikenumber',c.value);
         c1 = localStorage.getItem('bikenumber');
         console.log(c1);
@@ -37,24 +37,24 @@
         d1 = localStorage.getItem('biketimein');
         console.log(d1);
                 
-		e = document.getElementById("biketimeout");
+        e = document.getElementById("biketimeout");
         localStorage.setItem('biketimeout',e.value);
         e1 = localStorage.getItem('biketimeout');
         console.log(e1);
               
-		var f = document.getElementById("bikeprice");
+        var f = document.getElementById("bikeprice");
         localStorage.setItem('bikeprice',f.value);
         f1 = localStorage.getItem('bikeprice');
         console.log(f1);
                                
         cell1.innerHTML = a1; 
-		cell2.innerHTML = b1;
-		cell3.innerHTML = c1;
-		cell4.innerHTML = d1;
-		cell5.innerHTML = e1;
-		cell6.innerHTML = f1;
+        cell2.innerHTML = b1;
+        cell3.innerHTML = c1;
+        cell4.innerHTML = d1;
+        cell5.innerHTML = e1;
+        cell6.innerHTML = f1;
         countdown(ctr, e.value);
-        cell8.innerHTML = 'Stop';
+        //cell8.innerHTML = 'Stop';
         ctr++;
         count++;
         }
@@ -78,14 +78,14 @@
                 cell5 = row.insertCell(4);
                 cell6 = row.insertCell(5);
                 cell7 = row.insertCell(6);
-                cell8 = row.insertCell(7);
+                //cell8 = row.insertCell(7);
 
                 cell1.innerHTML = a1; 
                 cell2.innerHTML = b1;
                 cell3.innerHTML = c1;
                 cell4.innerHTML = d1;
                 cell5.innerHTML = e1;                       
-                cell8.innerHTML = 'Stop';
+                //cell8.innerHTML = 'Stop';
                 document.getElementById('biketotal').innerHTML = tot;
             } else{
                 return alert("Nothing to load");
@@ -130,7 +130,7 @@
             }, 1000);
         }
 
-        var index, tableMan = document.getElementById('myTable');
+        /*var index, tableMan = document.getElementById('myTable');
             for(var i = 1; i < tableMan.rows.length; i++) {
                 tableMan.rows[i].cells[7].onclick = function() {
                     var c = confirm("do you want to stop this ride?");
@@ -143,4 +143,4 @@
                     console.log(index);
                 };
                 
-            }
+            }*/
