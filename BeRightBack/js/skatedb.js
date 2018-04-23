@@ -45,15 +45,27 @@
                 document.getElementById('skateprice').value = '';
             });
         }
-           function refAll(){
-                db.transaction1(function (transaction1) {
-                transaction.executeSql('SELECT * FROM skatedb;', [], function(transaction, result) { if (result != null && result.rows != null) { for (var i = 0; i < result.rows.length; i++) { var row = result.rows.item(i); $('#myTable').append('<tr><td>' + row.skatename + '</td>' + '<td>'+row.skatetype+ '</td>' +'<td>'+ row.skatenumber +'<td>' + row.skatetimein + '</td>' + + row.skatetimeout + '<td>' +  row.skateprice +'</td></tr>'); } } },errorHandler); },errorHandler,nullHandler);
+        function refAll(){
+            db.transaction(function (transaction) {  
+            transaction.executeSql('SELECT * FROM skate_data', [], function (transaction, results) {  
+                var len = results.rows.length, i;  
+                var str = '';  
+                for (i = 0; i < len; i++) {  
+                str += "<tr>";  
+                str += "<td>" + results.rows.item(i).skatename + "</td>";  
+                str += "<td>" + results.rows.item(i).skatetype + "</td>";
+                str += "<td>" + results.rows.item(i).skatenumber + "</td>";    
+                str += "<td>" + results.rows.item(i).skatetimein + "</td>"; 
+                str += "<td>" + results.rows.item(i).skatetimeout + "</td>";
+                str += "<td>" + results.rows.item(i).skateprice + "</td>"; 
+                str += "</tr>";  
+                document.getElementById("myTable").innerHTML += str;  
+                str = '';  
+                }  
+            }, null);  
+        });  
 
-                return;
-                alert('in list end');
-                }
-           
-           
+        }
 
         function error_log(error) {
             console.log(error.message);

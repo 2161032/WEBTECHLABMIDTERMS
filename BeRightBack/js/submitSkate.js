@@ -69,22 +69,8 @@
                 f1 = localStorage.getItem('skateprice');               
                 tot = localStorage.getItem('skatetotal');
 
-                table = document.getElementById("myTable");
-                row = table.insertRow(1);
-                cell1 = row.insertCell(0);
-                cell2 = row.insertCell(1);
-                cell3 = row.insertCell(2);
-                cell4 = row.insertCell(3);
-                cell5 = row.insertCell(4);
-                cell6 = row.insertCell(5);
-                cell7 = row.insertCell(6);
                 //cell8 = row.insertCell(7);
-
-                cell1.innerHTML = a1; 
-                cell2.innerHTML = b1;
-                cell3.innerHTML = c1;
-                cell4.innerHTML = d1;
-                cell5.innerHTML = e1;                       
+                     
                 //cell8.innerHTML = 'Stop';
                 document.getElementById('skatetotal').innerHTML = tot;
             } else{

@@ -46,6 +46,28 @@
             });
         }
 
+        function refAll(){
+            db.transaction(function (transaction) {  
+            transaction.executeSql('SELECT * FROM boat_data', [], function (transaction, results) {  
+                var len = results.rows.length, i;  
+                var str = '';  
+                for (i = 0; i < len; i++) {  
+                str += "<tr>";  
+                str += "<td>" + results.rows.item(i).boatname + "</td>";  
+                str += "<td>" + results.rows.item(i).boattype + "</td>";
+                str += "<td>" + results.rows.item(i).boatnumber + "</td>";    
+                str += "<td>" + results.rows.item(i).boattimein + "</td>"; 
+                str += "<td>" + results.rows.item(i).boattimeout + "</td>";
+                str += "<td>" + results.rows.item(i).boatprice + "</td>"; 
+                str += "</tr>";  
+                document.getElementById("myTable").innerHTML += str;  
+                str = '';  
+                }  
+            }, null);  
+        });  
+
+        }
+
         function error_log(error) {
             console.log(error.message);
         }

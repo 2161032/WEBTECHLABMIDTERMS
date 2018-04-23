@@ -46,6 +46,28 @@
             });
         }
 
+        function refAll(){
+            db.transaction(function (transaction) {  
+            transaction.executeSql('SELECT * FROM bike_data', [], function (transaction, results) {  
+                var len = results.rows.length, i;  
+                var str = '';  
+                for (i = 0; i < len; i++) {  
+                str += "<tr>";  
+                str += "<td>" + results.rows.item(i).bikename + "</td>";  
+                str += "<td>" + results.rows.item(i).biketype + "</td>";
+                str += "<td>" + results.rows.item(i).bikenumber + "</td>";    
+                str += "<td>" + results.rows.item(i).biketimein + "</td>"; 
+                str += "<td>" + results.rows.item(i).biketimeout + "</td>";
+                str += "<td>" + results.rows.item(i).bikeprice + "</td>"; 
+                str += "</tr>";  
+                document.getElementById("myTable").innerHTML += str;  
+                str = '';  
+                }  
+            }, null);  
+        });  
+
+        }
+
         function error_log(error) {
             console.log(error.message);
         }
