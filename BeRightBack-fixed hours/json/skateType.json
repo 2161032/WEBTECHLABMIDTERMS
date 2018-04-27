@@ -1,0 +1,12 @@
+    [
+        {"id" : "0", "skate_id": "0", "skate_number": "AS1"},
+        {"id" : "1", "skate_id": "0", "skate_number": "AS2"},
+        {"id" : "2", "skate_id": "0", "skate_number": "AS3"},
+        {"id" : "3", "skate_id": "0", "skate_number": "AS4"},
+        {"id" : "4", "skate_id": "0", "skate_number": "AS5"},
+        {"id" : "5", "skate_id": "1", "skate_number": "RB1"},
+        {"id" : "6", "skate_id": "1", "skate_number": "RB2"},
+        {"id" : "7", "skate_id": "1", "skate_number": "RB3"},
+        {"id" : "8", "skate_id": "1", "skate_number": "RB4"},
+        {"id" : "9", "skate_id": "1", "skate_number": "RB5"}
+    ]
