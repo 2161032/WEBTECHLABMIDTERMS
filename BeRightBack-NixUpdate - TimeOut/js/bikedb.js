@@ -49,7 +49,20 @@
                         var ctr = hour+':'+min;
                     }
                      
-                } else if(biketimeout == '1HR'){
+                }else if(biketimeout == '1 MIN'){
+                    var d = new Date();
+                    var h = parseInt(d.getHours());
+                    var m = parseInt(d.getMinutes());
+
+                    var strArr = biketimein.split(":");
+                    var hour = parseInt(strArr[0]);
+                    var min = parseInt(strArr[1])+1;
+                    var ctr = hour+':'+min; 
+
+                    if(h >= hour && m >= min){
+                        var ctr = "DONE"; 
+                    }     
+                }else if(biketimeout == '1HR'){
                     var strArr = biketimein.split(":");
                     var hour = parseInt(strArr[0])+1;
                     var min = parseInt(strArr[1]);

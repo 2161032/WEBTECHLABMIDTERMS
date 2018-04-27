@@ -40,6 +40,8 @@
         e = document.getElementById("biketimeout");
         if(e.value == 1800){
             timeVal = "30MIN";
+        }else if(e.value == 60){
+            timeVal = "1 MIN";
         } else if(e.value == 3600){
             timeVal = "1HR";
         }else if(e.value == 5400){
@@ -67,7 +69,12 @@
         cell6.innerHTML = f1;
         if(timeVal == "FREE TIME"){
             cell7.innerHTML = 'FREE TIME';
-        } else{
+        }else if(timeVal == "1 MIN"){
+            var strArr = d1.split(":");
+                    var hour = parseInt(strArr[0]);
+                    var min = parseInt(strArr[1])+1;
+            cell7.innerHTML = hour+':'+min;
+        }else{
             if(timeVal == '30MIN'){
                     var strArr = d1.split(":");
                     var hour = parseInt(strArr[0]);
@@ -111,6 +118,8 @@
         }
 
         function relFunction(){
+
+
             if(localStorage.getItem('bikename') != null){
                 a1 = localStorage.getItem('bikename');                          
                 b1 = localStorage.getItem('biketype');              
