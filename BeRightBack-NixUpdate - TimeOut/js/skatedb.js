@@ -36,44 +36,6 @@
                 var skatetimein = document.getElementById('skatetimein').value;
                 var skatetimeout = localStorage.getItem('skatetimeout');
                 var skateprice = document.getElementById('skateprice').value;
-                if(skatetimeout == '30MIN'){
-                    var strArr = skatetimein.split(":");
-                    var hour = parseInt(strArr[0]);
-                    var min = parseInt(strArr[1]) + 30;
-
-                    if(min > 60){
-                        min = min - 60;
-                        hour++;
-                        var ctr = hour+':'+min;
-                    }else{
-                        var ctr = hour+':'+min;
-                    }
-                     
-                } else if(skatetimeout == '1HR'){
-                    var strArr = skatetimein.split(":");
-                    var hour = parseInt(strArr[0])+1;
-                    var min = parseInt(strArr[1]);
-                    var ctr = hour+':'+min;                    
-                }else if(skatetimeout == '1HR 30MIN'){
-                    var strArr = skatetimein.split(":");
-                    var hour = parseInt(strArr[0])+1;
-                    var min = parseInt(strArr[1]) + 30;
-
-                    if(min > 60){
-                        min = min - 60;
-                        hour++;
-                        var ctr = hour+':'+min;
-                    }else{
-                        var ctr = hour+':'+min;
-                    }                  
-                }else if(skatetimeout == '2HRS'){
-                    var strArr = skatetimein.split(":");
-                    var hour = parseInt(strArr[0])+2;
-                    var min = parseInt(strArr[1]);
-                    var ctr = hour+':'+min;                    
-                }else{
-                    var ctr = "Free Time";
-                }
 
                 transaction.executeSql('INSERT INTO skate_data(skatename, skatetype, skatenumber, skatetimein, skatetimeout, ctr, skateprice) values(?,?,?,?,?,?,?)', [skatename, skatetype, skatenumber, skatetimein, skatetimeout, ctr, skateprice], displayAll());
                 
@@ -85,12 +47,147 @@
                 document.getElementById('skateprice').value = '';
             });
         }
-        function refAll(){
+        function refAll(){   
             db.transaction(function (transaction) {  
             transaction.executeSql('SELECT * FROM skate_data', [], function (transaction, results) {  
                 var len = results.rows.length, i;  
                 var str = '';  
-                for (i = 0; i < len; i++) {  
+                for (i = 0; i < len; i++) {                   
+                if(results.rows.item(i).skatetimeout == '30MIN'){
+                    var strArr = results.rows.item(i).skatetimein.split(":");
+                    var hour = parseInt(strArr[0]);
+                    var min = parseInt(strArr[1]) + 30;
+
+                    if(min > 60){
+                        min = min - 60;
+                        hour++;
+                        var ctr = hour+':'+min;
+                    }else{
+                        var ctr = hour+':'+min;
+                    }
+                     
+                }else if(results.rows.item(i).skatetimeout == '1 MIN'){
+                    var numberskate = results.rows.item(i).skatenumber;
+                    var strArr = results.rows.item(i).skatetimein.split(":");
+                    var hour = parseInt(strArr[0]);
+                    var min = parseInt(strArr[1])+1;
+                    var ctr = hour+':'+min;  
+
+                    var d = new Date();
+                    var h = parseInt(d.getHours());
+                    var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).skatename++" with skate type "+results.rows.item(i).skatetype+" and skate number "+results.rows.item(i).skatenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "skate", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }
+                }else if(results.rows.item(i).skatetimeout == '1HR'){
+                    var strArr = results.rows.item(i).skatetimein.split(":");
+                    var hour = parseInt(strArr[0])+1;
+                    var min = parseInt(strArr[1]);
+                    var ctr = hour+':'+min;
+
+                    var d = new Date();
+                    var h = parseInt(d.getHours());
+                    var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).skatename++" with skate type "+results.rows.item(i).skatetype+" and skate number "+results.rows.item(i).skatenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "skate", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }                    
+                }else if(results.rows.item(i).skatetimeout == '1HR 30MIN'){
+                    var strArr = results.rows.item(i).skatetimein.split(":");
+                    var hour = parseInt(strArr[0])+1;
+                    var min = parseInt(strArr[1]) + 30;
+
+                    if(min > 60){
+                        min = min - 60;
+                        hour++;
+                        var ctr = hour+':'+min;
+
+                        var d = new Date();
+                        var h = parseInt(d.getHours());
+                        var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).skatename++" with skate type "+results.rows.item(i).skatetype+" and skate number "+results.rows.item(i).skatenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "skate", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }
+                    }else{
+                        var ctr = hour+':'+min;
+
+                        var d = new Date();
+                        var h = parseInt(d.getHours());
+                        var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).skatename++" with skate type "+results.rows.item(i).skatetype+" and skate number "+results.rows.item(i).skatenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "skate", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }
+                    }                  
+                }else if(results.rows.item(i).skatetimeout == '2HRS'){
+                    var strArr = results.rows.item(i).skatetimein.split(":");
+                    var hour = parseInt(strArr[0])+2;
+                    var min = parseInt(strArr[1]);
+                    var ctr = hour+':'+min;
+                     
+                    var d = new Date();
+                    var h = parseInt(d.getHours());
+                    var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).skatename++" with skate type "+results.rows.item(i).skatetype+" and skate number "+results.rows.item(i).skatenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "skate", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }                   
+                }else{
+                    var ctr = "Free Time";
+                }  
+
                 str += "<tr>";  
                 str += "<td>" + results.rows.item(i).skatename + "</td>";  
                 str += "<td>" + results.rows.item(i).skatetype + "</td>";
@@ -98,7 +195,7 @@
                 str += "<td>" + results.rows.item(i).skatetimein + "</td>"; 
                 str += "<td>" + results.rows.item(i).skatetimeout + "</td>";
                 str += "<td>" + results.rows.item(i).skateprice + "</td>"; 
-                str += "<td>" + results.rows.item(i).ctr+ "</td>"; 
+                str += "<td>" + ctr+ "</td>"; 
                 str += "</tr>";  
                 document.getElementById("myTable").innerHTML += str;  
                 str = '';  

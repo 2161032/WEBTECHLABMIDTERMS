@@ -36,57 +36,6 @@
                 var biketimein = document.getElementById('biketimein').value;
                 var biketimeout = localStorage.getItem('biketimeout');
                 var bikeprice = document.getElementById('bikeprice').value;
-                if(biketimeout == '30MIN'){
-                    var strArr = biketimein.split(":");
-                    var hour = parseInt(strArr[0]);
-                    var min = parseInt(strArr[1]) + 30;
-
-                    if(min > 60){
-                        min = min - 60;
-                        hour++;
-                        var ctr = hour+':'+min;
-                    }else{
-                        var ctr = hour+':'+min;
-                    }
-                     
-                }else if(biketimeout == '1 MIN'){
-                    var d = new Date();
-                    var h = parseInt(d.getHours());
-                    var m = parseInt(d.getMinutes());
-
-                    var strArr = biketimein.split(":");
-                    var hour = parseInt(strArr[0]);
-                    var min = parseInt(strArr[1])+1;
-                    var ctr = hour+':'+min; 
-
-                    if(h >= hour && m >= min){
-                        var ctr = "DONE"; 
-                    }     
-                }else if(biketimeout == '1HR'){
-                    var strArr = biketimein.split(":");
-                    var hour = parseInt(strArr[0])+1;
-                    var min = parseInt(strArr[1]);
-                    var ctr = hour+':'+min;                    
-                }else if(biketimeout == '1HR 30MIN'){
-                    var strArr = biketimein.split(":");
-                    var hour = parseInt(strArr[0])+1;
-                    var min = parseInt(strArr[1]) + 30;
-
-                    if(min > 60){
-                        min = min - 60;
-                        hour++;
-                        var ctr = hour+':'+min;
-                    }else{
-                        var ctr = hour+':'+min;
-                    }                  
-                }else if(biketimeout == '2HRS'){
-                    var strArr = biketimein.split(":");
-                    var hour = parseInt(strArr[0])+2;
-                    var min = parseInt(strArr[1]);
-                    var ctr = hour+':'+min;                    
-                }else{
-                    var ctr = "Free Time";
-                }
 
                 transaction.executeSql('INSERT INTO bike_data(bikename, biketype, bikenumber, biketimein, biketimeout, ctr, bikeprice) values(?,?,?,?,?,?,?)', [bikename, biketype, bikenumber, biketimein, biketimeout, ctr, bikeprice], displayAll());
                 
@@ -98,12 +47,147 @@
                 document.getElementById('bikeprice').value = '';
             });
         }
-        function refAll(){
+        function refAll(){   
             db.transaction(function (transaction) {  
             transaction.executeSql('SELECT * FROM bike_data', [], function (transaction, results) {  
                 var len = results.rows.length, i;  
                 var str = '';  
-                for (i = 0; i < len; i++) {  
+                for (i = 0; i < len; i++) {                   
+                if(results.rows.item(i).biketimeout == '30MIN'){
+                    var strArr = results.rows.item(i).biketimein.split(":");
+                    var hour = parseInt(strArr[0]);
+                    var min = parseInt(strArr[1]) + 30;
+
+                    if(min > 60){
+                        min = min - 60;
+                        hour++;
+                        var ctr = hour+':'+min;
+                    }else{
+                        var ctr = hour+':'+min;
+                    }
+                     
+                }else if(results.rows.item(i).biketimeout == '1 MIN'){
+                    var numberBike = results.rows.item(i).bikenumber;
+                    var strArr = results.rows.item(i).biketimein.split(":");
+                    var hour = parseInt(strArr[0]);
+                    var min = parseInt(strArr[1])+1;
+                    var ctr = hour+':'+min;  
+
+                    var d = new Date();
+                    var h = parseInt(d.getHours());
+                    var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).bikename++" with bike type "+results.rows.item(i).biketype+" and bike number "+results.rows.item(i).bikenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "Bike", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }
+                }else if(results.rows.item(i).biketimeout == '1HR'){
+                    var strArr = results.rows.item(i).biketimein.split(":");
+                    var hour = parseInt(strArr[0])+1;
+                    var min = parseInt(strArr[1]);
+                    var ctr = hour+':'+min;
+
+                    var d = new Date();
+                    var h = parseInt(d.getHours());
+                    var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).bikename++" with bike type "+results.rows.item(i).biketype+" and bike number "+results.rows.item(i).bikenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "Bike", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }                    
+                }else if(results.rows.item(i).biketimeout == '1HR 30MIN'){
+                    var strArr = results.rows.item(i).biketimein.split(":");
+                    var hour = parseInt(strArr[0])+1;
+                    var min = parseInt(strArr[1]) + 30;
+
+                    if(min > 60){
+                        min = min - 60;
+                        hour++;
+                        var ctr = hour+':'+min;
+
+                        var d = new Date();
+                        var h = parseInt(d.getHours());
+                        var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).bikename++" with bike type "+results.rows.item(i).biketype+" and bike number "+results.rows.item(i).bikenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "Bike", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }
+                    }else{
+                        var ctr = hour+':'+min;
+
+                        var d = new Date();
+                        var h = parseInt(d.getHours());
+                        var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).bikename++" with bike type "+results.rows.item(i).biketype+" and bike number "+results.rows.item(i).bikenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "Bike", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }
+                    }                  
+                }else if(results.rows.item(i).biketimeout == '2HRS'){
+                    var strArr = results.rows.item(i).biketimein.split(":");
+                    var hour = parseInt(strArr[0])+2;
+                    var min = parseInt(strArr[1]);
+                    var ctr = hour+':'+min;
+                     
+                    var d = new Date();
+                    var h = parseInt(d.getHours());
+                    var m = parseInt(d.getMinutes());
+
+                    if(h >= hour && min <= m){
+                        //var ctr = results.rows.item(i).bikename++" with bike type "+results.rows.item(i).biketype+" and bike number "+results.rows.item(i).bikenumber+" has already exceeded his/her time at "+hour+':'+min;
+                        var ctr = 'DONE at '+hour+':'+min;
+                        /*let ask = Notification.requestPermission();
+                            ask.then(permission => {
+                            if( permission === "granted") {
+                                let msg = new Notification( "Bike", {
+                                body: "DONE",
+                                icon: "../img/BRBLogo.ico"
+                            });
+                        }
+                    });*/
+                    }                   
+                }else{
+                    var ctr = "Free Time";
+                }  
+
                 str += "<tr>";  
                 str += "<td>" + results.rows.item(i).bikename + "</td>";  
                 str += "<td>" + results.rows.item(i).biketype + "</td>";
@@ -111,7 +195,7 @@
                 str += "<td>" + results.rows.item(i).biketimein + "</td>"; 
                 str += "<td>" + results.rows.item(i).biketimeout + "</td>";
                 str += "<td>" + results.rows.item(i).bikeprice + "</td>"; 
-                str += "<td>" + results.rows.item(i).ctr+ "</td>"; 
+                str += "<td>" + ctr+ "</td>"; 
                 str += "</tr>";  
                 document.getElementById("myTable").innerHTML += str;  
                 str = '';  

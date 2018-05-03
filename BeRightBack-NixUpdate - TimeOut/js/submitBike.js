@@ -119,14 +119,7 @@
 
         function relFunction(){
 
-
-            if(localStorage.getItem('bikename') != null){
-                a1 = localStorage.getItem('bikename');                          
-                b1 = localStorage.getItem('biketype');              
-                c1 = localStorage.getItem('bikenumber');
-                d1 = localStorage.getItem('biketimein');
-                e1 = localStorage.getItem('biketimeout');              
-                f1 = localStorage.getItem('bikeprice');               
+            if(localStorage.getItem('bikename') != null){              
                 tot = localStorage.getItem('biketotal');
 
                 //cell8 = row.insertCell(7);
